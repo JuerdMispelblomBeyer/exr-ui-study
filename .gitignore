@@ -1,0 +1,13 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Participant data — NEVER tracked.
+# Raw recordings, transcripts, consent forms, and the name↔pseudonym key
+# live here and stay here. See 0-meta/ETHICS.md.
+private/
+!private/README.md
+
+# Scratch
+*.tmp
+.scratch/

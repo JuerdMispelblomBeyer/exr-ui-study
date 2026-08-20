@@ -1,0 +1,150 @@
+{
+  "schemaVersion": "1.1",
+  "name": "ExRobotics engineering UI",
+  "direction": "Signal Instrumentation",
+  "source": "EX Robotics — Visual Identity & UI Foundations",
+  "primitives": {
+    "neutral": {
+      "0": "#FFFFFF",
+      "25": "#F8F9F7",
+      "50": "#F1F3EF",
+      "100": "#E3E7E0",
+      "200": "#CDD2CA",
+      "400": "#8C958B",
+      "600": "#515A51",
+      "700": "#394039",
+      "800": "#242925",
+      "900": "#141715",
+      "950": "#090B0A"
+    },
+    "yellow": {
+      "50": "#FFF8D6",
+      "100": "#FFF0A3",
+      "300": "#FFDA4D",
+      "500": "#F5C400",
+      "600": "#D9AA00",
+      "700": "#A57E00"
+    },
+    "green": {
+      "100": "#DDF6E9",
+      "600": "#177A4D"
+    },
+    "blue": {
+      "100": "#E3EEFF",
+      "600": "#2968C8"
+    },
+    "orange": {
+      "100": "#FFF0D9",
+      "600": "#C66B0A"
+    },
+    "red": {
+      "100": "#FCE4E2",
+      "600": "#B93A36"
+    }
+  },
+  "themes": {
+    "light": {
+      "bg.canvas": "{primitives.neutral.25}",
+      "bg.surface": "{primitives.neutral.0}",
+      "bg.subtle": "{primitives.neutral.50}",
+      "bg.elevated": "{primitives.neutral.0}",
+      "bg.inverse": "{primitives.neutral.900}",
+      "bg.accent": "{primitives.yellow.500}",
+      "bg.selected": "{primitives.yellow.100}",
+      "text.primary": "{primitives.neutral.900}",
+      "text.secondary": "{primitives.neutral.600}",
+      "text.muted": "{primitives.neutral.400}",
+      "text.inverse": "{primitives.neutral.0}",
+      "text.onAccent": "{primitives.neutral.950}",
+      "border.default": "{primitives.neutral.200}",
+      "border.strong": "{primitives.neutral.400}",
+      "border.focus": "{primitives.yellow.600}"
+    },
+    "dark": {
+      "status": "proposed-paired-collection",
+      "bg.canvas": "{primitives.neutral.950}",
+      "bg.surface": "{primitives.neutral.900}",
+      "bg.subtle": "{primitives.neutral.800}",
+      "bg.elevated": "{primitives.neutral.800}",
+      "bg.inverse": "{primitives.neutral.25}",
+      "bg.accent": "{primitives.yellow.500}",
+      "bg.selected": "{primitives.yellow.700}",
+      "text.primary": "{primitives.neutral.25}",
+      "text.secondary": "{primitives.neutral.200}",
+      "text.muted": "{primitives.neutral.400}",
+      "text.inverse": "{primitives.neutral.950}",
+      "text.onAccent": "{primitives.neutral.950}",
+      "border.default": "{primitives.neutral.700}",
+      "border.strong": "{primitives.neutral.400}",
+      "border.focus": "{primitives.yellow.500}"
+    }
+  },
+  "status": {
+    "success.background": "{primitives.green.100}",
+    "success.foreground": "{primitives.green.600}",
+    "info.background": "{primitives.blue.100}",
+    "info.foreground": "{primitives.blue.600}",
+    "warning.background": "{primitives.orange.100}",
+    "warning.foreground": "{primitives.orange.600}",
+    "danger.background": "{primitives.red.100}",
+    "danger.foreground": "{primitives.red.600}"
+  },
+  "gradients": {
+    "atmosphere": ["#F8F9F7", "#FFFFFF", "rgba(227,238,255,0.72)"],
+    "signal": ["#FFF0A3", "#FFF8D6", "#FFFFFF"],
+    "compute": ["#E3EEFF", "#F6FAFF", "#FFFFFF"],
+    "healthy": ["#DDF6E9", "#F5FCF8", "#FFFFFF"]
+  },
+  "spacing": [0, 4, 8, 12, 16, 20, 24, 32, 40, 48, 64],
+  "layout": {
+    "desktop.viewport": 1440,
+    "desktop.viewportInset.min": 24,
+    "desktop.viewportInset.max": 40,
+    "navigation.utilityRail.min": 56,
+    "navigation.utilityRail.max": 72,
+    "navigation.context.min": 208,
+    "navigation.context.max": 248,
+    "workbench.columns": 12,
+    "workbench.padding.min": 24,
+    "workbench.padding.max": 32,
+    "workbench.gutter.min": 12,
+    "workbench.gutter.max": 16
+  },
+  "radius": {
+    "none": 0,
+    "small": 4,
+    "control": 8,
+    "card": 12,
+    "expressive": 16,
+    "panel": 20,
+    "instrument": 24,
+    "chassis": 28,
+    "full": 999
+  },
+  "size": {
+    "icon.small": 16,
+    "icon.medium": 20,
+    "icon.large": 24,
+    "control.small": 36,
+    "control.medium": 44,
+    "control.large": 52
+  },
+  "motion": {
+    "duration.fast": 120,
+    "duration.normal": 200,
+    "duration.slow": 320,
+    "easing.standard": "cubic-bezier(0.2, 0, 0, 1)",
+    "easing.emphasized": "cubic-bezier(0.2, 0, 0, 1.2)"
+  },
+  "effects": {
+    "inset": "inset 0 1px 0 rgba(255,255,255,0.28)",
+    "raised": "0 2px 6px 0 rgba(9,11,10,0.08)",
+    "floating": "0 6px 16px -2px rgba(9,11,10,0.12)",
+    "overlay": "0 16px 40px -8px rgba(9,11,10,0.18)"
+  },
+  "typography": {
+    "display": "Space Grotesk",
+    "interface": "Inter",
+    "data": "Roboto Mono"
+  }
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "ExRobotics Figma Design"
+  short_description: "Design and maintain the ExRobotics engineering UI"
+  default_prompt: "Use $exrobotics-figma-design to extend the ExRobotics engineering interface consistently."

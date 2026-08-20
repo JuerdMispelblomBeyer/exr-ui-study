@@ -1,0 +1,391 @@
+schema_version: 0.2.0
+model_id: exrobotics-onboard-platform
+last_updated: 2026-08-20
+status: partial
+scope: single_robot_platform
+source:
+  kind: user_statement
+  date: 2026-08-20
+
+platform:
+  id: platform.robot
+  label: ExRobotics robot
+  contains:
+    - network.lan
+    - compute.intel
+    - compute.jetson_1
+    - compute.jetson_2
+    - bus.can
+    - vision.drive_camera
+    - vision.inspection_camera
+    - audio.microphone
+    - software.poi_capture
+    - software.can_subsystem
+    - software.api_agent
+    - software.cybersecurity
+    - middleware.ros2_dds
+
+compute_nodes:
+  - id: compute.intel
+    label: Intel computer
+    architecture_family: intel
+    exact_model: unknown
+    connected_to:
+      - network.lan
+      - bus.can
+    runs:
+      - runtime.docker
+    roles:
+      - can_gateway_host
+
+  - id: compute.jetson_1
+    label: Jetson 1
+    architecture_family: nvidia_jetson
+    exact_model: unknown
+    connected_to:
+      - network.lan
+    runs:
+      - runtime.docker
+    roles: []
+
+  - id: compute.jetson_2
+    label: Jetson 2
+    architecture_family: nvidia_jetson
+    exact_model: unknown
+    connected_to:
+      - network.lan
+    runs:
+      - runtime.docker
+    roles: []
+
+networks:
+  - id: network.lan
+    label: On-board LAN
+    kind: ethernet_lan
+    members:
+      - compute.intel
+      - compute.jetson_1
+      - compute.jetson_2
+    switch_or_topology: unknown
+
+  - id: network.wifi
+    label: WiFi uplink
+    kind: external_uplink
+    provider_or_hardware: unknown
+
+  - id: network.cellular
+    label: 4G/5G uplink
+    kind: external_uplink
+    provider_or_hardware: unknown
+
+  - id: network.vpn
+    label: Tailscale VPN
+    kind: overlay_vpn
+    implementation: tailscale
+    endpoint_placement: unknown
+
+high_availability:
+  - id: ha.internet_uplink
+    label: Shared internet uplink
+    purpose: share_external_connectivity_between_onboard_computers
+    protocols:
+      - vrrp
+      - keepalived
+    participants: unknown
+    preferred_master: unknown
+    virtual_ip: unknown
+    relationship_to_wifi_and_cellular: unknown
+
+field_buses:
+  - id: bus.can
+    label: CAN network
+    kind: can
+    gateway_host: compute.intel
+    bitrate: unknown
+    connected_objects:
+      - subsystem.charging
+      - subsystem.battery
+      - subsystem.motor_drive
+      - io.power_gpio_bank
+      - sensor.gas_adc
+
+subsystems:
+  - id: subsystem.charging
+    label: Charging subsystem
+    connected_via: bus.can
+
+  - id: subsystem.battery
+    label: Battery subsystem
+    connected_via: bus.can
+
+  - id: subsystem.motor_drive
+    label: Motor drive subsystem
+    connected_via: bus.can
+    protection_states:
+      - protection.drive_stall
+
+protection_functions:
+  - id: protection.drive_stall
+    label: Drive Stall
+    applies_to: subsystem.motor_drive
+    trigger: motor_overload
+    behavior: latched_until_manual_deactivation
+    automatic_deactivation: false
+    deactivation_mechanism: unknown
+    remote_deactivation_supported: unknown
+    separate_from:
+      - safety.stop_function_pending_classification
+      - drive_enable_or_restart
+    classification: motor_protection_function_safety_status_unknown
+
+io:
+  - id: io.power_gpio_bank
+    label: Subsystem power GPIOs
+    kind: gpio_bank
+    channel_count: 8
+    purpose: control_subsystem_power
+    host_or_controller: unknown
+    connected_via: bus.can
+    channel_mapping: unknown
+
+sensors:
+  - id: sensor.gas_adc
+    label: Gas sensor ADCs
+    kind: adc
+    channel_count: unknown
+    sensor_types: unknown
+    connected_via: bus.can
+
+vision:
+  - id: vision.drive_camera
+    label: Drive camera
+    kind: camera
+    control: fixed_or_unknown
+    host_attachment: unknown
+    transport: unknown
+
+  - id: vision.inspection_camera
+    label: Inspection camera
+    kind: ptz_camera
+    control: pan_tilt_zoom
+    host_attachment: unknown
+    transport: unknown
+
+audio:
+  - id: audio.microphone
+    label: POI capture microphone
+    kind: microphone
+    host_attachment: unknown
+    transport: unknown
+    channel_count: unknown
+
+software_subsystems:
+  - id: software.poi_capture
+    label: POI Capture System
+    kind: composite_software_subsystem
+    placement: unknown
+    components:
+      top_level_component: unknown
+      manager_nodes: unknown
+      capture_inputs:
+        - vision.drive_camera
+        - vision.inspection_camera
+        - audio.microphone
+      data_used_by_pois: unknown
+      database: datastore.poi_database
+    diagnostics_interface: ros2_diagnostics
+
+  - id: software.can_subsystem
+    label: CAN software subsystem
+    kind: bus_monitoring_and_integration
+    placement: compute.intel
+    observes:
+      - expected_message_availability
+      - expected_message_rate
+      - subsystem_response_time
+      - bus_errors_and_load
+    expected_message_definition_source: unknown
+    diagnostics_interface: ros2_diagnostics
+
+  - id: software.api_agent
+    label: API Agent
+    kind: external_integration_agent
+    placement: unknown
+    endpoint_and_contract: unknown
+    diagnostics_interface: ros2_diagnostics
+
+  - id: software.cybersecurity
+    label: Cybersecurity monitoring
+    kind: security_observability
+    placement: unknown
+    observes:
+      - unauthorized_login_attempts
+    authoritative_sources: unknown
+    diagnostics_interface: ros2_diagnostics
+
+  - id: middleware.ros2_dds
+    label: ROS 2 and DDS middleware
+    kind: middleware
+    placement:
+      - compute.intel
+      - compute.jetson_1
+      - compute.jetson_2
+    ros_distribution: unknown
+    dds_implementation: unknown
+    domain_ids: unknown
+    diagnostics_interface: ros2_diagnostics
+
+data_stores:
+  - id: datastore.poi_database
+    label: POI database
+    technology: unknown
+    placement: unknown
+    owned_by: software.poi_capture
+
+required_observability:
+  compute:
+    - cpu_utilization
+    - gpu_utilization
+    - resource_attribution_by_runtime
+  network:
+    - receive_throughput
+    - transmit_throughput
+    - interface_errors_and_drops
+  storage:
+    - capacity_used_and_free
+    - io_throughput_and_latency
+    - filesystem_and_device_health
+
+platform_services:
+  - id: runtime.docker
+    label: Docker
+    kind: container_runtime
+    deployed_on:
+      - compute.intel
+      - compute.jetson_1
+      - compute.jetson_2
+    workloads:
+      - exrobotics_runtime_containers
+      - partner_runtime_containers
+    container_inventory: unknown
+
+  - id: service.time_sync
+    label: Chrony time synchronization
+    kind: time_sync
+    implementation: chrony
+    participants:
+      - compute.intel
+      - compute.jetson_1
+      - compute.jetson_2
+    source_and_peer_roles: unknown
+
+external_integrations:
+  - id: integration.fleet_manager
+    label: Fleet manager
+    boundary: external
+    management_ui_scope: excluded
+    connection_modes:
+      - id: integration.fleet_manager.api
+        label: ExRobotics API
+        placement: unknown
+      - id: integration.fleet_manager.agent
+        label: Fleet-manager on-board agent
+        placement: onboard_container_or_service
+        host: unknown
+
+relationships:
+  - from: compute.intel
+    type: connected_by
+    to: network.lan
+  - from: compute.jetson_1
+    type: connected_by
+    to: network.lan
+  - from: compute.jetson_2
+    type: connected_by
+    to: network.lan
+  - from: bus.can
+    type: reports_through
+    to: compute.intel
+  - from: subsystem.charging
+    type: connected_by
+    to: bus.can
+  - from: subsystem.battery
+    type: connected_by
+    to: bus.can
+  - from: subsystem.motor_drive
+    type: connected_by
+    to: bus.can
+  - from: io.power_gpio_bank
+    type: connected_by
+    to: bus.can
+  - from: sensor.gas_adc
+    type: connected_by
+    to: bus.can
+  - from: integration.fleet_manager
+    type: integrates_with
+    to: platform.robot
+  - from: protection.drive_stall
+    type: protects
+    to: subsystem.motor_drive
+  - from: software.poi_capture
+    type: consumes
+    to: vision.drive_camera
+  - from: software.poi_capture
+    type: consumes
+    to: vision.inspection_camera
+  - from: software.poi_capture
+    type: consumes
+    to: audio.microphone
+  - from: software.poi_capture
+    type: writes_to
+    to: datastore.poi_database
+  - from: software.can_subsystem
+    type: observes
+    to: bus.can
+  - from: software.can_subsystem
+    type: runs_on
+    to: compute.intel
+  - from: software.api_agent
+    type: integrates_with
+    to: integration.fleet_manager
+  - from: middleware.ros2_dds
+    type: connects_software_on
+    to: network.lan
+
+open_questions:
+  - id: q.compute_models
+    question: What are the exact Intel and Jetson models, hostnames, stable IDs, and hardware roles?
+  - id: q.lan_topology
+    question: What switch, ports, addresses, VLANs, and link speeds define the on-board LAN?
+  - id: q.uplink_ha
+    question: Which nodes participate in keepalived/VRRP, what virtual IP or route is protected, and how do WiFi and cellular fail over?
+  - id: q.can
+    question: What CAN adapter, bitrate, node IDs, protocol, and authoritative health signals are available?
+  - id: q.gpio
+    question: Which subsystem or power domain does each of the eight GPIO channels control?
+  - id: q.gas
+    question: How many gas ADC channels and sensor types exist, and what thresholds or calibration states matter?
+  - id: q.cameras
+    question: Which compute node and transport attach each camera, and what PTZ state and actions are observable?
+  - id: q.chrony
+    question: What are the chrony sources, server/client roles, offset limits, and unsynchronized-state criteria?
+  - id: q.containers
+    question: Which containers run on each node, who owns them, and which dependencies, ports, versions, and restart policies should be shown?
+  - id: q.tailscale
+    question: Where does Tailscale run, which routes are advertised, and what peer and tunnel health is observable?
+  - id: q.fleet_manager
+    question: Where do the API and partner agent run, and which connectivity facts belong in this engineering UI without becoming fleet management?
+  - id: q.drive_stall
+    question: Which controller and source own Drive Stall activation and deactivation, what prerequisites apply, and is manual deactivation local, remote, or either?
+  - id: q.poi_capture
+    question: What are the POI manager nodes, top-level component, data inputs, microphone path, database technology, placement, and expected capture pipeline?
+  - id: q.can_message_contract
+    question: Which configuration defines expected CAN messages, rates, subsystem response limits, and health thresholds?
+  - id: q.api_agent
+    question: Where does the API Agent run, which endpoint and contract does it implement, and which health and authentication signals are authoritative?
+  - id: q.cybersecurity
+    question: Which sources report unauthorized login attempts, and what privacy, retention, severity, and response policy applies?
+  - id: q.ros2_dds
+    question: Which ROS 2 distribution, DDS implementation, domains, expected graph, QoS contract, and diagnostic conventions are used?
+  - id: q.system_observability
+    question: Which metric sources, cadences, stale windows, thresholds, and ownership rules apply to CPU, GPU, network throughput, and storage?

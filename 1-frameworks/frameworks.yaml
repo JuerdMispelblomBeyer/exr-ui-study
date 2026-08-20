@@ -1,0 +1,132 @@
+# Framework register — grep this, don't read the cards until you've picked one.
+#
+#   status:  adopted   = in use, follow it
+#            candidate = plausible here, not yet committed
+#            reference = know it exists, use if the situation arises
+#            partial   = card exists but content needs verification
+#   cost:    rough calendar cost if run properly
+#
+# Examples:
+#   grep -A3 'status: adopted' frameworks.yaml
+#   grep -B2 'interview' frameworks.yaml
+
+version: 0.1.0
+updated: 2026-08-20
+
+methods:
+  - id: M01
+    file: methods/M01-research-through-design.md
+    title: Research through Design
+    status: adopted
+    cost: structural
+    answers: [what is the overall approach, what counts as a result, how do i justify this]
+
+  - id: M02
+    file: methods/M02-contextmapping.md
+    title: Contextmapping
+    status: candidate
+    cost: 2-4 weeks
+    answers: [tacit needs, how diagnosis feels, latent needs, generative sessions, sensitizing]
+
+  - id: M03
+    file: methods/M03-contextual-inquiry.md
+    title: Contextual Inquiry
+    status: candidate
+    cost: 1-2 weeks
+    answers: [what engineers actually do, tool ecology, real diagnostic sequence, field observation]
+
+  - id: M04
+    file: methods/M04-critical-decision-method.md
+    title: Critical Decision Method
+    status: adopted
+    cost: 1 week
+    answers: [expert reasoning, diagnostic cues, information requirements, incident interviews, novice expert gap]
+    note: highest yield per hour for this project — run first
+
+  - id: M05
+    file: methods/M05-reflexive-thematic-analysis.md
+    title: Reflexive Thematic Analysis
+    status: adopted
+    cost: matches collection time
+    answers: [analysing transcripts, coding, building themes, qualitative rigour]
+
+  - id: M06
+    file: methods/M06-prototyping-strategy.md
+    title: Prototyping Strategy
+    status: adopted
+    cost: none
+    answers: [what should i build next, what fidelity, what does this prototype test]
+
+  - id: M07
+    file: methods/M07-annotated-portfolio.md
+    title: Annotated Portfolio
+    status: adopted
+    cost: 30 min per iteration
+    answers: [recording iterations, in-between versions, progress tracking, handover, extensibility]
+
+  - id: M08
+    file: methods/M08-interaction-vision.md
+    title: Interaction Vision
+    status: candidate
+    cost: 1 day plus prior research
+    answers: [how should it feel, interaction quality, resolving style arguments, ViP]
+
+  - id: M09
+    file: methods/M09-frame-creation.md
+    title: Frame Creation and Reframing
+    status: reference
+    cost: low as check
+    answers: [stuck, is this the right problem, reframing, abduction]
+
+  - id: M10
+    file: methods/M10-scenario-evaluation.md
+    title: Scenario-Based Evaluation with Experts
+    status: adopted
+    cost: 3-5 sessions per iteration
+    answers: [testing a prototype, usability with experts, closing an iteration, SA probes]
+
+theory:
+  - id: T01
+    file: theory/T01-ecological-interface-design.md
+    title: Ecological Interface Design and the Abstraction Hierarchy
+    status: adopted
+    answers: [what to show at which level, diagnostic view design, work domain structure, why not a metrics dashboard]
+    note: closest thing to a native theory for this product
+
+  - id: T02
+    file: theory/T02-situation-awareness.md
+    title: Situation Awareness
+    status: adopted
+    answers: [information hierarchy, overview screens, comprehension, projection, evaluation probes]
+
+  - id: T03
+    file: theory/T03-skill-rule-knowledge.md
+    title: Skill-Rule-Knowledge and Human Error
+    status: adopted
+    answers: [expertise range, why consistency matters, error prevention, safety state presentation]
+
+  - id: T04
+    file: theory/T04-intermediate-level-knowledge.md
+    title: Intermediate-Level Knowledge
+    status: adopted
+    answers: [what to write down, strong concepts, packaging findings, what is the deliverable]
+
+  - id: T05
+    file: theory/T05-trust-and-transparency.md
+    title: Trust, Transparency, and Appropriate Reliance
+    status: adopted
+    answers: [computed state, health aggregation, uncertainty, stale data, unknown state, calibration]
+
+  - id: T06
+    file: theory/T06-distributed-cognition.md
+    title: Distributed Cognition and Joint Cognitive Systems
+    status: candidate
+    answers: [handover, multi person diagnosis, what should the tool remember, tool ecology]
+
+domain:
+  - id: D01
+    file: domain/D01-exrobotics-context.md
+    title: ExRobotics Operating Context
+    status: partial
+    answers: [what do the robots do, ATEX, who is the user, deployment context, what to ask the company]
+    note: assembled from public sources — verify with ExRobotics before relying on it

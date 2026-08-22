@@ -149,6 +149,51 @@ Worth recording, because it is the argument for finishing the list:
 | `giaccardi2016` | Giaccardi, E., et al. (2016). Thing ethnography: doing design research with non-humans. *DIS '16*. | summary |
 | `bogers2019` | Bogers, S., van Kollenburg, J., et al. Data-enabled design: a situated design approach using data as creative material. | summary |
 
+## Flow: foraging, sensemaking, and information seeking
+
+| Key | Source | Verified |
+|---|---|---|
+| `pirolli1999` | Pirolli, P., & Card, S. (1999). *Information Foraging*. Psychological Review 106(4) / Xerox PARC UIR tech report. Patches, information scent, diet, enrichment. | **read** |
+| `russell1993` | Russell, D. M., Stefik, M. J., Pirolli, P., & Card, S. K. (1993). The cost structure of sensemaking. *INTERACT/CHI '93*. Generation loop, data coverage loop, residue, representation shift. | summary |
+| `klein2007df` | Klein, G., Phillips, J. K., Rall, E. L., & Peluso, D. A. Data–frame theory of sensemaking. | summary |
+| `attfield2009` | Attfield, S., & Blandford, A. (2009). Improving the cost structure of sensemaking tasks. *INTERACT '09*. Combines Klein and Russell for system requirements. | fetched |
+| `shneiderman1996` | Shneiderman, B. (1996). The eyes have it: a task by data type taxonomy for information visualizations. *IEEE VL '96*. | **read** |
+| `baldonado2000` | Baldonado, M. Q. W., Woodruff, A., & Kuchinsky, A. (2000). Guidelines for using multiple views in information visualization. *AVI '00*. | summary |
+| `roberts2007` | Roberts, J. C. (2007). State of the art: coordinated & multiple views in exploratory visualization. *CMV '07*. | summary |
+
+## Mental models
+
+| Key | Source | Verified |
+|---|---|---|
+| `gentner1983` | Gentner, D., & Stevens, A. L. (Eds.) (1983). *Mental Models*. Lawrence Erlbaum. | summary |
+| `norman1983` | Norman, D. A. (1983). Some observations on mental models. In `[gentner1983]`. Target system / conceptual model / mental model. | summary |
+| `dekleer1981` | de Kleer, J., & Brown, J. S. (1981). Mental models of physical mechanisms. Runnability of device models. | summary |
+
+## Cognitive Work Analysis, applied
+
+| Key | Source | Verified |
+|---|---|---|
+| `lintern-cwa` | Lintern, G. *Cognitive Work Analysis* tutorial, Cognitive Systems Design. Compact practical account of the five stages and their artefacts. **Best starting point for `M11`.** | **read** |
+| `inl-wda` | Idaho National Laboratory (2015). *Work Domain Analysis Methodology* (INL/EXT-15-34783). Long applied methodology report. | **read** |
+| `naikar2006` | Naikar, N., Moylan, A., & Pearce, B. (2006). Analysing activity in complex systems with CWA: work situations and the contextual activity matrix. | summary |
+
+## Attention and alarm management
+
+| Key | Source | Verified |
+|---|---|---|
+| `eemua191` | EEMUA Publication 191, *Alarm Systems: A Guide to Design, Management and Procurement*, 4th ed. (Nov 2024). Paid publication. | summary |
+| `isa182` | ANSI/ISA-18.2 / IEC 62682, *Management of Alarm Systems for the Process Industries*. Paid standard. | summary |
+
+## Observability and robot introspection
+
+| Key | Source | Verified |
+|---|---|---|
+| `majors2022` | Majors, C., Fong-Jones, L., & Miranda, G. (2022). *Observability Engineering*. O'Reilly. Plus Majors' later "Observability 2.0" argument: wide structured events as one source of truth, metrics and traces as derived views. | summary |
+| `microservice-survey2025` | Failure Diagnosis in Microservice Systems: A Comprehensive Survey and Analysis. *ACM TOSEM* (2025); arXiv:2407.01710. 98 papers; multimodal data including topology. | summary |
+| `opentelemetry` | OpenTelemetry project documentation — traces, metrics, logs, context propagation. | summary |
+| `foxglove-compare` | Foxglove / ReductStore comparisons of RViz, Foxglove, Rerun, PlotJuggler for ROS 2 (2025). Vendor-authored; verify hands-on. | industry |
+| `ros2-docs` | ROS 2 documentation: `rqt`, `ros2 doctor`, `diagnostic_msgs`, rosbag2/MCAP. | summary |
+
 ## Project domain
 
 | Key | Source | Verified |

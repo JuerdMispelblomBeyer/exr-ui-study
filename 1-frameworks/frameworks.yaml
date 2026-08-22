@@ -85,6 +85,14 @@ methods:
     cost: 3-5 sessions per iteration
     answers: [testing a prototype, usability with experts, closing an iteration, SA probes]
 
+  - id: M11
+    file: methods/M11-work-domain-analysis.md
+    title: Work Domain Analysis (and the rest of CWA)
+    status: adopted
+    cost: 1-2 weeks
+    answers: [abstraction hierarchy, what must the interface represent, work situations, structuring the platform model, contextual activity matrix]
+    note: builds the structure T01 says you need — biggest analytical gap right now
+
 theory:
   - id: T01
     file: theory/T01-ecological-interface-design.md
@@ -123,6 +131,31 @@ theory:
     status: candidate
     answers: [handover, multi person diagnosis, what should the tool remember, tool ecology]
 
+  - id: T07
+    file: theory/T07-foraging-and-sensemaking.md
+    title: Information Foraging and Sensemaking
+    status: adopted
+    answers: [flow, navigation, information scent, why does it feel slow, search, patch switching, residue, disconfirmation]
+    note: the theory of "good flow" — read before any navigation work
+
+  - id: T08
+    file: theory/T08-mental-models.md
+    title: Mental Models and Device Understanding
+    status: adopted
+    answers: [what does full picture mean, runnable model, prediction, what structure to expose, conceptual model]
+
+  - id: T09
+    file: theory/T09-attention-and-alarms.md
+    title: Attention, Alerting, and Alarm Management
+    status: candidate
+    answers: [what deserves attention, alerting, notification, alarm flooding, priority, safety state presentation]
+
+  - id: T10
+    file: theory/T10-visual-information-seeking.md
+    title: Visual Information Seeking and Coordinated Views
+    status: adopted
+    answers: [screen composition, linked views, brushing, overview vs detail, focus context, history, extract]
+
 domain:
   - id: D01
     file: domain/D01-exrobotics-context.md
@@ -130,3 +163,10 @@ domain:
     status: partial
     answers: [what do the robots do, ATEX, who is the user, deployment context, what to ask the company]
     note: assembled from public sources — verify with ExRobotics before relying on it
+
+  - id: D02
+    file: domain/D02-observability-practice.md
+    title: Observability Practice and the Robot Introspection Landscape
+    status: adopted
+    answers: [what already exists, foxglove, rerun, plotjuggler, rqt, three pillars, traces, what data can exist, prior art]
+    note: study before designing — avoids rebuilding existing tools

@@ -5,7 +5,7 @@ with. Grounded in credible academic sources, biased toward TU Delft IDE
 practice, and written to be *applied here* rather than summarised.
 
 **Agents:** grep `frameworks.yaml` first, then open exactly one card. Do not
-read this lane end to end — it is ~100 KB and no task needs all of it. Budget:
+read this lane end to end — it is ~140 KB and no task needs all of it. Budget:
 authored cards stay under 8 KB; `SOURCES.md` and `frameworks.yaml` are
 registers, meant to be grepped rather than read whole.
 
@@ -43,6 +43,7 @@ verification.
 | M08 | [Interaction Vision](methods/M08-interaction-vision.md) | candidate | 1 day | Setting a quality target; settling style arguments |
 | M09 | [Frame Creation](methods/M09-frame-creation.md) | reference | low | When the problem as stated isn't yielding |
 | M10 | [Scenario Evaluation](methods/M10-scenario-evaluation.md) | adopted | 3–5 sessions | Testing any prototype |
+| M11 | [Work Domain Analysis](methods/M11-work-domain-analysis.md) | **adopted** | 1–2 wk | Building the structure the interface must represent |
 
 ## Theory — things you think with
 
@@ -54,14 +55,19 @@ verification.
 | T04 | [Intermediate-Level Knowledge](theory/T04-intermediate-level-knowledge.md) | adopted | Deciding what to write down; what the deliverable is |
 | T05 | [Trust and Transparency](theory/T05-trust-and-transparency.md) | adopted | Computed state, uncertainty, stale and unknown values |
 | T06 | [Distributed Cognition](theory/T06-distributed-cognition.md) | candidate | Handover; what the tool should remember |
+| T07 | [Foraging and Sensemaking](theory/T07-foraging-and-sensemaking.md) | **adopted** | Flow, navigation, scent, why it feels slow |
+| T08 | [Mental Models](theory/T08-mental-models.md) | adopted | What "full picture" actually means; runnability |
+| T09 | [Attention and Alarms](theory/T09-attention-and-alarms.md) | candidate | What deserves attention; alerting; flooding |
+| T10 | [Visual Information Seeking](theory/T10-visual-information-seeking.md) | adopted | Screen composition; linked views; history; extract |
 
 ## Domain
 
 | | Card | Status | Use when |
 |---|---|---|---|
 | D01 | [ExRobotics Operating Context](domain/D01-exrobotics-context.md) | partial | Grounding decisions; writing scenarios; recruiting |
+| D02 | [Observability Practice](domain/D02-observability-practice.md) | **adopted** | What already exists; prior art; what data can exist |
 
-## The three cards that matter most
+## The five cards that matter most
 
 If you read nothing else:
 
@@ -80,6 +86,14 @@ If you read nothing else:
 - **`M07` Annotated Portfolio** — how your in-between versions stop being a
   folder and start being knowledge. It is the method that answers the
   extensibility question design projects usually fail.
+- **`T07` Foraging and Sensemaking** — the theory of "flow." Diagnosis is
+  foraging between patches under an imperfect perception of value called
+  *information scent*. It reframes navigation design as cost reduction and
+  names the design surface — scent on the link — that the current component set
+  mostly lacks.
+- **`D02` Observability Practice** — what already exists. Foxglove, Rerun,
+  PlotJuggler, rqt, `diagnostic_msgs`. Study these before designing or you will
+  rebuild them.
 
 ## What this lane deliberately does not contain
 

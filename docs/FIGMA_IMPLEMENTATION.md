@@ -1,17 +1,110 @@
 # Figma implementation map
 
-Last updated: 2026-08-20
+Last updated: 2026-08-21
+
+## Visual Style v3 implementation
+
+Visual Style v3 is implemented as archive-safe sibling sections. The v2
+foundations, component stage, and nine-screen UX/content baseline remain
+unchanged. V3 is the current visual-reference candidate pending user promotion.
+
+| Page | V3 section | Contents |
+| --- | --- | --- |
+| 00 Cover & Foundations | `49:4706` | Graphite and paired-light chassis studies plus material, yellow-ownership, and micro-instrument rules |
+| 01 Components | `50:5179` | Reusable chassis, topology, selected scope, resource, network, timeline, runtime, CAN, focus, path-value, and evidence patterns |
+| 02 Engineering Interface | `50:5617` | Nine 1,440 × 900 Inspect → Diagnose → Change reference states |
+
+V3 component masters:
+
+| Pattern | Figma node |
+| --- | --- |
+| Application Chassis · Graphite | `50:5499` |
+| Platform Topology | `50:5236` |
+| Selected Scope | `50:5245` |
+| Resource Matrix | `50:5284` |
+| Network Pulse | `50:5300` |
+| Causal Timeline | `50:5325` |
+| Evidence Dock | `50:5331` |
+| Evidence Plane · Expanded | `50:5573` |
+| Runtime Stack | `50:5500` |
+| CAN Distribution | `50:5501` |
+| Focus Bracket | `50:5551` |
+| Path Value Chip | `50:5552` |
+
+V3 storyboard:
+
+| State | Figma node | Distinguishing instrument or task plane |
+| --- | --- | --- |
+| Inspect · Healthy | `50:5622` | Stable topology with resource, network, timeline, and collapsed evidence |
+| Inspect · Selected degraded motor drive | `50:5623` | Orange degraded dependency path plus yellow focus ownership |
+| Diagnose · Evidence expanded | `50:5624` | Shared time-axis evidence plane while platform geography remains visible |
+| Inspect · Degraded motor drive | `50:6219` | Degraded path without selection treatment |
+| Inspect · Network / VRRP | `50:6221` | VIP ownership and WiFi-to-4G/5G failover path |
+| Inspect · Software runtimes | `50:6223` | Per-node runtime ownership and selected partner stack |
+| Diagnose · Clock uncertainty | `50:6225` | Chrony envelope, Jetson 2 offset, and Diagnose task ownership |
+| Change · Motor-drive power cycle | `50:6227` | Before/proposed/impact/prerequisite review with explicit acknowledgement |
+| Inspect · Stale Jetson 2 | `50:6229` | Dashed topology, hatched missing data, freshness duration, and evidence gaps |
+
+Validated exports are stored in
+`../renders/latest-v3-2026-08-21/`. The section-level exports are `49-4706.png`,
+`50-5179.png`, and `50-5617.png`; the remaining files are individual storyboard
+states named from their node IDs.
+
+## Visual audit status
+
+The 2026-08-21 reference comparison found that the promoted v2 nodes preserve
+the intended task flow and factual platform layout but do not yet meet the
+visual-reference fidelity gates. They are now the current **UX/content
+baseline**, not the approved visual benchmark. The resulting archive-safe v3
+revision is documented in `VISUAL_STYLE_V3_PLAN.md` and mapped above.
+
+## Visual Style v2 promotion
+
+The stricter **Signal Instrumentation** visual direction is now applied as an
+archive-safe v2 layer across all three Figma pages. Previous implementations
+remain intact and are explicitly prefixed `Archive · Pre-v2`.
+
+| Page | Promoted v2 node | Archived source |
+| --- | --- | --- |
+| 00 Cover & Foundations | `48:3030` — Style Direction · Signal Instrumentation · Visual Style v2 | `36:56` |
+| 01 Components | `48:2129` — Visual Style v2 · Components | `46:464` |
+| 02 Engineering Interface | `48:2165` — Visual Style v2 · Engineering Interface | `46:458` |
+
+The v2 expression removes gradients from persistent data surfaces, adds the
+documented chassis/instrument radius hierarchy, uses a one-pixel outer border
+plus inset contour as the default edge stack, and reserves stronger elevation
+for the adaptive attention rail and selected instruments. Compact comparison
+tiles now include meaningful resource traces; the foundations specimen also
+demonstrates resource bars, a network distribution, and a subsystem-state
+matrix.
+
+New shared effect style:
+
+- `Elevation/00 · Inset contour` (`S:4e843fbc50c7447fda634106059212238ac60dbb,`)
+
+Promoted v2 component masters:
+
+| Pattern | V2 node |
+| --- | --- |
+| System Node · v2 | `48:2132` |
+| Task Rail Item · v2 | `48:2138` |
+| Lens Chip · v2 | `48:2145` |
+| Attention Rail · v2 | `48:2150` |
+| Evidence Strip · Collapsed · v2 | `48:2160` |
+
+The nine promoted screen frames are `48:2171`, `48:2258`, `48:2346`,
+`48:2442`, `48:2574`, `48:2661`, `48:2751`, `48:2844`, and `48:2942`.
 
 ## Redesign status
 
-The task-led, visual-first redesign in `INTERFACE_REDESIGN_PLAN.md` is now
-implemented as a first reference draft. The earlier category-led frames remain
-in Figma as a retained baseline; do not extend their repeated card composition.
+The task-led, visual-first redesign in `INTERFACE_REDESIGN_PLAN.md` was first
+implemented as the pre-v2 reference draft and is now retained as an archived
+baseline. New visual iteration should target the v2 nodes listed above.
 
-The redesign is grouped in the Figma section
-`Redesign · Inspect → Diagnose → Change` (`46:458`) on **02 Engineering
-Interface**. It uses nine 1,440 × 900 reference frames in a 3 × 3 storyboard.
-The generic visual-identity space on **00 Cover & Foundations** was not changed.
+The archived draft is grouped in `46:458`; the promoted visual version is
+grouped in `48:2165` on **02 Engineering Interface**. Both use nine 1,440 × 900
+reference frames in a 3 × 3 storyboard. The generic visual-identity page now
+contains the original specimen and its promoted v2 sibling.
 
 Functional content for future states is governed by
 `UI_FUNCTIONAL_REQUIREMENTS.md`. New screens must map visible signals,
@@ -22,9 +115,8 @@ diagnostics, evidence and actions to its stable requirement IDs.
 - **00 Cover & Foundations** remains the generic visual-identity space. Product
   screens must not consume this page.
 - **01 Components** contains foundations plus reusable engineering-interface
-  patterns. The new component stage is `Redesign Grammar · Task Flow`
-  (`46:464`).
-- **02 Engineering Interface** contains both the retained baseline and the new
+  patterns. `46:464` is archived; `48:2129` is the current v2 component stage.
+- **02 Engineering Interface** contains archived baselines and the current v2
   task-flow storyboard. A separate page was not added because the Figma Starter
   file already uses all three available pages.
 
@@ -122,8 +214,15 @@ See `SAFETY_CONTROLS.md`.
 - Legacy mission and teleoperation frames are retained but hidden and prefixed
   `Legacy ·` so the change is reversible.
 
-## Known tool limitation
+## Known tool limitations
 
 FigWright created and bound the missing radius tokens, but did not expose
 variable-picker scope editing. The new radius variables should be scope-reviewed
 manually if strict picker filtering becomes necessary.
+
+FigWright does not currently expose variable scope assignment for a newly
+created semantic collection. A separate `Color · Dark` collection was therefore
+not created: doing so would pollute variable pickers with incorrect default
+scopes. Graphite components bind to the existing scoped primitives; the paired
+light specimen binds to existing `Color · Light` semantics. Introduce a dark
+semantic collection only when scopes can be assigned and audited safely.

@@ -2,8 +2,9 @@
 
 ## Purpose and method
 
-This document records the visual grammar extracted from the six supplied
-references. It deliberately excludes their source color palettes. Color for
+This document records the visual grammar extracted from the supplied and
+visually verified references. Queued but inaccessible sources are listed
+separately and do not contribute visual claims. It deliberately excludes source color palettes. Color for
 ExRobotics comes from the established brand system, led by ExRobotics yellow;
 the references contribute composition, geometry, hierarchy, depth, typography,
 data treatment, and interaction character.
@@ -42,7 +43,143 @@ from the whole spatial system:
 - generous negative space inside modules despite high overall information
   density.
 
-## 1. `19557e6f37e3581637be10d43f2ebffe.jpg`
+The two references added on 2026-08-20 extend this grammar with an
+**editorial focus layer**: an isolated product or live instrument can be shown
+in context, with a small number of anchored explanatory plates and a clear
+visual sequence. This is useful for onboarding, guided inspection, focus mode,
+and design-system presentation; it must not replace the dense operational
+workbench.
+
+The 2026-08-21 comparison against the rendered v2 Figma frames confirmed that
+the written synthesis remains valid but has not yet been expressed strongly
+enough in the implementation. The complete gap analysis and corrective plan
+are recorded in `VISUAL_STYLE_V3_PLAN.md`.
+
+## 2026-08-20 additions
+
+### `../reference/presentation-only/pres-001__editorial-mobile-turbine-app__device-mockups.jpg`
+
+#### Composition and silhouette
+
+- A tall, near-black editorial field holds three oblique device views and
+  three small floating feature plates.
+- Product hardware is isolated by large regions of negative space rather than
+  boxed into a conventional grid.
+- The sequence moves from one primary instrument to a paired comparison,
+  creating a simple top-to-bottom narrative.
+- A mixed-weight headline, tiny category marker, and page number make the
+  composition read like a designed technical case-study plate.
+
+#### Geometry, material, and depth
+
+- Devices and callouts occupy different depth planes; overlap establishes
+  ownership without large shadows.
+- Callout plates use low-contrast dark surfaces, small radii, and one bright
+  square signal marker.
+- Fine dotted leader lines connect explanation to context while remaining
+  subordinate.
+- Oblique hardware, restrained reflections, and local lighting create a
+  physical instrument character.
+
+#### Interface character
+
+- The device interfaces combine compact labels, thin dials, radial readouts,
+  direct values, and sparse navigation.
+- The bright accent is scarce and therefore immediately identifies a current
+  reading, selection, or primary action.
+- Background detail is deliberately suppressed so the active instrument reads
+  first.
+
+#### Adopt for ExRobotics
+
+- A focus/presentation mode that isolates one robot subsystem, path, or
+  instrument and surrounds it with only the explanations required for the
+  current task.
+- Small numbered explanation plates with short titles and one-sentence
+  consequences for onboarding, incident review, and design documentation.
+- Anchored leader lines only when they encode a real relationship to a node,
+  control, or state.
+- Hardware-in-context views for explaining where a subsystem lives on the
+  robot; ExRobotics yellow replaces the source accent semantics.
+- Intentional alternation between a dense workbench and a spacious selected-
+  object state.
+
+#### Translate rather than copy
+
+- Keep the operational desktop interface crisp and readable; use cinematic
+  darkness primarily for focus mode, presentation, or a carefully calibrated
+  dark expression.
+- Replace phone mockups with robot, compute-node, network, CAN, camera, and
+  subsystem objects.
+- Use radial instruments only for values with meaningful thresholds, range,
+  orientation, or cyclic structure. Prefer traces, matrices, and topology for
+  ordinary telemetry.
+- Scale explanatory text and contrast for engineering use rather than copying
+  the source's very small editorial typography.
+
+#### Reject
+
+- Decorative device mockups inside daily platform screens.
+- Low-contrast tiny labels, unexplained radial charts, or theatrical glow.
+- Leader lines that merely decorate empty space.
+- Replacing information density with presentation spectacle.
+
+### Solar21 application case study
+
+Source: [Solar21 App case study](https://www.webfelipe.com/solar21-app.html)
+
+The source explicitly frames the work as a full interface redesign toward a
+modern, technological, clean, minimalist UI and a simplified in-app flow. Its
+value to ExRobotics is the combination of instrument-like monitoring with a
+clear product narrative: individual views should each have one dominant job,
+and a sequence of views should explain a workflow rather than repeat a generic
+dashboard template.
+
+Adopt the following principles:
+
+- give each view one dominant engineering question;
+- simplify task progression even when the underlying system is complex;
+- show the monitored object and its primary reading together;
+- reveal secondary controls and explanation in attached layers;
+- use product-storytelling compositions for onboarding, handover, guided
+  diagnosis, and visual-identity documentation.
+
+The case study is not evidence for the ExRobotics palette. The brand's yellow,
+neutral foundations, semantic colors, typography, and accessibility rules
+remain authoritative.
+
+## 2026-08-21 queued source
+
+### Robotics Fleet Platform Dashboard & Brand System
+
+Source: [Robotics Fleet Platform Dashboard & Brand System](https://dribbble.com/shots/27644169-Robotics-Fleet-Platform-Dashboard-Brand-System)
+
+This Dribbble shot is intentionally **not yet analysed**. The protected live
+viewer returned no visual content, direct retrieval was challenged, and no
+indexed copy was available. Its title makes it relevant to the question of
+brand-to-product continuity, but does not provide evidence for any particular
+layout, palette, typography, component, or interaction choice.
+
+Once a verified capture is available, review it with
+`REFERENCE_INTAKE_METHOD.md`. Fleet-management subject matter remains outside
+scope; only transferable visual grammar may be considered.
+
+## 2026-08-22 screened reference library
+
+The reference library now contains 33 direct, screen-like UI images plus one
+device-mockup composition isolated under `reference/presentation-only/`.
+The online batch covers topology, observability, industrial operations,
+instrumentation, dense workbenches, editorial hierarchy, and restrained
+floating/glass material studies. Exact names and provenance are recorded in
+`../reference/CATALOG.md` and `../reference/SOURCES.tsv`.
+
+Collection is not adoption. These new sources expand the comparison set but do
+not change the identity rules in this document until a visual trait has been
+analysed, translated to the ExRobotics platform-layer context, and explicitly
+accepted. Source colors remain non-authoritative; ExRobotics yellow remains the
+lead signal.
+
+## 1. `ref-001__dark-resource-overview__stacked-utilization-instrument.jpg`
 
 ### Composition and silhouette
 
@@ -101,7 +238,7 @@ from the whole spatial system:
 - Decorative brackets around every value.
 - Unlabelled series or dramatic chart treatment without diagnostic meaning.
 
-## 2. `3c327b237412bc2ec4d7b1587801da0d.jpg`
+## 2. `ref-002__dark-contract-dashboard__tall-crop.jpg`
 
 ### Composition and silhouette
 
@@ -163,7 +300,7 @@ from the whole spatial system:
 - Repeated cards when a table, trace view, or dependency map is more useful.
 - Muted contrast so low that long diagnostic sessions become tiring.
 
-## 3. `636cdd859efb3ae0e5a9526be29a082e.jpg`
+## 3. `ref-004__light-health-dashboard__treatment-timeline-crop.jpg`
 
 ### Composition and silhouette
 
@@ -221,7 +358,7 @@ from the whole spatial system:
 - Large ornamental curves that do not encode system structure.
 - Pills used for paragraphs or complex content.
 
-## 4. `85ba95ea5a25d4ac98617e3fc81196e4.jpg`
+## 4. `ref-005__light-frosted-workflow-dashboard__tall-navigation.jpg`
 
 ### Composition and silhouette
 
@@ -282,7 +419,7 @@ from the whole spatial system:
 - Simulated material with no information hierarchy.
 - Oversized soft shadows that make the interface feel like consumer hardware.
 
-## 5. `a9c0f048d4b5fa97e09f727cc8f765b9.jpg`
+## 5. `ref-003__dark-contract-dashboard__wide-workbench.jpg`
 
 This is the wide-system expression of reference 2 and provides better evidence
 for proportion, scan order, and module behavior.
@@ -334,7 +471,7 @@ for proportion, scan order, and module behavior.
 - Card repetition without comparison value.
 - Headline greetings that consume space but add no engineering context.
 
-## 6. `d409cdb92b96e4b8ac67559abf4c814a.jpg`
+## 6. `ref-006__dark-instrument-system__mixed-tile-grid.jpg`
 
 ### Composition and silhouette
 

@@ -4,7 +4,7 @@ title: Trust, Transparency, and Appropriate Reliance
 kind: theory
 status: adopted
 use_when: [showing computed or inferred state, health aggregation, autonomy status, uncertainty]
-sources: [lee2004, chen2014, hri-transparency2025]
+sources: [lee2004, chen2014, vicente1992, hri-transparency2025]
 ---
 
 # Trust, Transparency, and Appropriate Reliance
@@ -50,6 +50,15 @@ is healthy, the engineer must be able to reach *what was observed, when, and
 what was not checked* in one step. An aggregate that cannot be decomposed is
 asking for trust it has not earned — and in a platform deployed into ATEX Zone
 1, misplaced confidence has physical consequences.
+
+The strongest available argument for this is not a trust study but an accident.
+At Three Mile Island, operators relied on pressurizer level as a proxy for
+coolant inventory. The cue was valid in normal operation and they did not know
+its boundary conditions; under saturation it inverted, and they acted on the
+inverted reading `[vicente1992]`. A derived indicator that is right most of the
+time, with its validity conditions hidden, is more dangerous than no indicator
+— it earns reliance and then withdraws it silently. **Show the conditions under
+which a derived value stops meaning what it appears to mean.** See `T01`.
 
 **Freshness is part of the value.** A reading without a timestamp is an
 implicit claim of currency. `AGENTS.md` already mandates monospaced timestamps;

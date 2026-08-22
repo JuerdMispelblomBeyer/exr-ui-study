@@ -54,12 +54,13 @@ table,” the visual direction has not yet been applied.
 
 ## Current style specimen
 
-- `36:56` — `Style Direction · Signal Instrumentation` on the foundations page.
-- This specimen predates the stricter chassis/bento/micro-instrument revision
-  and must not be used as the visual benchmark without further restyling.
-- Its navigation and summary tiles remain attached instances with content set
+- `48:3030` — `Style Direction · Signal Instrumentation · Visual Style v2` on
+  the foundations page; this is the current visual benchmark.
+- `36:56` is the archived pre-v2 specimen and must not be extended.
+- The v2 specimen's navigation and summary tiles remain attached instances with content set
   through component properties.
-- Its topology and selected-probe panels are examples of the relationship and
+- Its topology, resource traces, network distribution, subsystem matrix and
+  selected-probe panels are examples of the relationship and
   diagnostic-focus grammar, not production components yet.
 
 Consult `skills/exrobotics-figma-design/references/project-map.md` for the latest

@@ -23,6 +23,10 @@ routes, and autonomy controls are outside this project.
 - `docs/SAFETY_CONTROLS.md` — provisional stop, recovery, state, and failure UX;
   requires safety-engineering review.
 - `docs/REFERENCE_ANALYSIS.md` — visual analysis of every supplied reference.
+- `docs/REFERENCE_INTAKE_METHOD.md` — provenance, analysis, translation, and
+  promotion workflow for turning inspiration into reproducible system rules.
+- `docs/VISUAL_STYLE_V3_PLAN.md` — visual audit of the current v2 implementation
+  and the staged, reference-driven plan for the next visual-system revision.
 - `docs/DESIGN_GUIDELINES.md` — canonical visual and interaction direction.
 - `docs/FIGMA_WORKFLOW.md` — how to translate the system into Figma safely.
 - `docs/FIGMA_IMPLEMENTATION.md` — current Figma page, component, and screen map.
@@ -31,6 +35,13 @@ routes, and autonomy controls are outside this project.
 - `data/platform-system.yaml` — extensible machine-readable platform inventory
   and relationship model.
 - `skills/exrobotics-figma-design/` — reusable Codex skill for this project.
+- `skills/exceptional-ui/` — art direction, composition, reference synthesis,
+  visual critique, and iteration layer above FigWright's `figma-build`.
+- `skills/visual-critique/` — screenshot-first, scored art-direction review with
+  prioritized corrections and a strict PASS/ITERATE gate.
+- `skills/design-reference-analysis/` — converts visual-reference evidence into
+  Visual DNA profiles, transferable principles, signature moves, anti-copy
+  constraints, and original cross-reference directions.
 - `reference/` — supplied visual references; preserve the originals.
 
 ## Figma output

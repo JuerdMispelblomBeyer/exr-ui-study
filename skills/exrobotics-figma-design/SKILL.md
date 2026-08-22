@@ -73,6 +73,20 @@ Load the bundled Figma `figma-use`, `figma-generate-design`, or
 `figma-generate-library` skills when their trigger conditions apply, while
 continuing to use FigWright as this project's Figma MCP.
 
+For new screens, substantial visual redesign, art direction, or visual-quality
+review, also load `../exceptional-ui/SKILL.md`. It governs direction,
+composition, reference translation, and the screenshot critique loop;
+FigWright/`figma-build` remains the execution layer.
+
+For a critique-only request, scored visual review, or independent readiness
+decision, load `../visual-critique/SKILL.md`. It requires inspection of the
+rendered output and returns a strict evidence-based `PASS` or `ITERATE` verdict.
+
+For substantial reference analysis or synthesis across several references,
+load `../design-reference-analysis/SKILL.md` before establishing the visual
+direction. Its Markdown output is design intelligence, not permission to copy a
+source composition or brand system.
+
 ## Documentation workflow
 
 - Put product model, IA, flows, layout intent, screen set, and UX plan in

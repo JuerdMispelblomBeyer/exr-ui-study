@@ -5,7 +5,7 @@ kind: method
 status: adopted
 use_when: [eliciting expert diagnostic reasoning, finding the cues experts use, deriving information requirements]
 cost: low–medium — 4–6 interviews of ~90 min plus analysis
-sources: [klein1989, hoffman1998, endsley1995]
+sources: [klein1989, hoffman1998, cdm-eng2021, endsley1995]
 ---
 
 # Critical Decision Method (CDM)
@@ -63,11 +63,27 @@ time, no ATEX site access.
 
 - **4–6 ExRobotics engineers**, one incident each, ~90 min. Mix experience
   levels — the novice/expert delta is where the design opportunity lives.
-- **Prime the incident request in advance** so they arrive with a case in mind.
-  Ask for one where the answer was not obvious, or where they were wrong first.
+  Remote video calls are fine and are how the published engineering-domain
+  application ran it `[cdm-eng2021]`.
+- **Have them bring the actual material, and get it in advance.** Make it a
+  recruitment criterion: they have access to the logs, tickets, screenshots or
+  notes from that incident, and are willing to walk through them. Then read it
+  *before* the interview. The engineering-domain team's main stated regret was
+  requesting only enough material to screen participants, and then having to
+  understand unfamiliar cases live — a mental load they say they
+  underestimated. You will be in the same position with ROS 2 graphs and CAN
+  traces you did not debug.
+- **Screen-capture the walkthrough**, with consent. The artefacts they open,
+  and the order they open them in, are data.
 - **Let them tell it once, uninterrupted**, before you start structuring. The
   first telling is the story; the value is in passes 2–4.
+- **Walk their own material in sequential order** on pass 2 rather than
+  reconstructing from memory. This is also the standard answer to the standard
+  critique of retrospective methods — memory degradation — because the files
+  carry the recollection.
 - **Draw the timeline visibly** and let them correct it. Corrections are data.
+- **Verify the timeline back with them**, in-session or as a short follow-up.
+  The engineering-domain team flags skipping this as their second regret.
 - **Push on the Aiding probe.** "At 14:20 you still thought it was the
   network. What would have had to be on screen for you to have doubted that?"
   That sentence is a requirement.
@@ -75,13 +91,26 @@ time, no ATEX site access.
 
 ## What it produces
 
-- A **cue inventory** — the observable signals experts actually key on.
-- **Decision points** and what was ambiguous at each.
-- **Novice/expert deltas** — what the interface should make visible so a less
-  experienced engineer reaches the same conclusion.
-- **Timing requirements** — not just *what* information, but *when* it would
-  have changed the outcome.
-- Concrete **diagnostic scenarios** reusable as evaluation tasks in `M10`.
+CDM has two named output artefacts. Build both — they are the deliverable, not
+the transcript.
+
+1. **A situation-assessment timeline** — the incident as a series of decision
+   points, each annotated with the *goals*, *cues*, *knowledge*, *experience*
+   and *actions* in play at that moment.
+2. **A decision requirement table** — per decision point: what was decided,
+   *how* it was decided, **why it was difficult**, and what supporting
+   information was used. The "why difficult" column is where interface
+   requirements come from.
+
+Plus, across participants: a **cue inventory** (the observable signals experts
+key on), **novice/expert deltas**, **timing requirements** (not just *what*
+information but *when* it would have changed the outcome), and concrete
+**diagnostic scenarios** reusable as evaluation tasks in `M10`.
+
+One framing worth carrying into design: the goals and expectations extracted at
+each decision point tell you what engineers want **to do**, not what they want
+**to see**. `docs/UI_FUNCTIONAL_REQUIREMENTS.md` is currently written almost
+entirely in "expose X" form. This is the method that converts it.
 
 ## Traps
 
@@ -93,8 +122,17 @@ time, no ATEX site access.
   reasoning. The "what would a novice have missed" probe is your check.
 - **Leading with your design.** Do not show the Figma file. This runs before,
   not during.
+- **Solo analysis.** The published applications have two or three analysts code
+  independently and then reconcile. You are one person. Mitigate by verifying
+  timelines with participants (above) and by writing your reading down before
+  you look at the next transcript, so later cases cannot quietly reshape
+  earlier ones.
 
 ## Sources
 
-`[hoffman1998]` is the best procedural account. `[klein1989]` is the origin.
-See `SOURCES.md`.
+`[klein1989]` is the origin; `[hoffman1998]` the standard procedural account —
+**both are paywalled and neither has been read in the original.** The
+procedural detail above comes from `[cdm-eng2021]`, an open applied study that
+follows Hoffman et al. in an engineering-design domain, which is close to this
+one. Obtain `[hoffman1998]` before relying on this card for anything load-
+bearing. See `SOURCES.md`.

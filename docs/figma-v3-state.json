@@ -1,0 +1,65 @@
+{
+  "runId": "visual-style-v3-2026-08-21",
+  "phase": "phase7",
+  "step": "implementation-exported-and-documented",
+  "entities": {
+    "sections": {
+      "foundationsV3": "49:4706",
+      "componentsV3": "50:5179",
+      "engineeringV3": "50:5617"
+    },
+    "frames": {
+      "foundationsGraphite": "49:4710",
+      "foundationsLight": "49:4711",
+      "graphiteChassis": "50:4712",
+      "lightChassis": "50:4903",
+      "materialRule": "50:5084",
+      "yellowRule": "50:5085",
+      "instrumentRule": "50:5086"
+    },
+    "components": {
+      "platformTopology": "50:5236",
+      "selectedScope": "50:5245",
+      "resourceMatrix": "50:5284",
+      "networkPulse": "50:5300",
+      "causalTimeline": "50:5325",
+      "evidenceDock": "50:5331",
+      "evidencePlaneExpanded": "50:5573",
+      "applicationChassisGraphite": "50:5499",
+      "runtimeStack": "50:5500",
+      "canDistribution": "50:5501",
+      "focusBracket": "50:5551",
+      "pathValueChip": "50:5552"
+    },
+    "screens": {
+      "healthy": "50:5622",
+      "selectedDegradedMotorDrive": "50:5623",
+      "evidenceExpanded": "50:5624",
+      "degradedMotorDrive": "50:6219",
+      "networkVrrp": "50:6221",
+      "softwareRuntimes": "50:6223",
+      "clockUncertainty": "50:6225",
+      "changeReview": "50:6227",
+      "staleJetson2": "50:6229"
+    }
+  },
+  "pendingValidations": [],
+  "completedSteps": [
+    "phase0",
+    "phase1/foundations-chassis-study",
+    "phase1/foundations-validation",
+    "phase2/foundations-documentation",
+    "phase2/foundations-screenshot",
+    "phase3/component-stage",
+    "phase3/component-api-validation",
+    "phase3/component-screenshot",
+    "phase4/critical-screens",
+    "phase4/critical-screen-screenshots",
+    "phase5/paired-light-expression",
+    "phase6/storyboard-propagation",
+    "phase6/storyboard-screenshots",
+    "phase7/final-visual-qa",
+    "phase7/durable-exports",
+    "phase7/documentation"
+  ]
+}

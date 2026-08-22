@@ -65,17 +65,58 @@ The cycle is the unit of progress in this project. Tag each one.
 
 ## What it produces
 
-Four claim types `[zimmerman2007]`, all four of which you should be able to
-answer at the end:
+Zimmerman, Forlizzi & Evenson's model: the designer integrates **true**
+knowledge (models and theories from behavioural science), **how** knowledge
+(what is technically possible), and **real** knowledge (what is actually the
+case, from fieldwork) in order to make **the right thing** `[zimmerman2007]`.
+Through ideating, iterating and critiquing, the problem is continually
+reframed. The stated output is *"a concrete problem framing and articulation of
+the preferred state, and a series of artifacts — models, prototypes, products,
+and documentation of the design process."*
 
-| Criterion | The question it asks |
+That maps onto this workspace directly, which is why the lanes are shaped as
+they are:
+
+| Their term | Where it lives here |
 |---|---|
-| **Process** | Could someone else follow how you got here and get comparably useful results? |
-| **Invention** | What is genuinely new here, given what already exists? |
-| **Relevance** | Why is this preferred state the right one to aim at? |
-| **Extensibility** | Can the next person build on this, or does it die with the file? |
+| **true** | `1-frameworks/theory/` |
+| **how** | `docs/PLATFORM_SYSTEM_MODEL.md`, `data/platform-system.yaml` |
+| **real** | `2-research/` — currently the empty one |
+| **the right thing** | `4-design/`, `5-prototypes/` |
+
+### The four criteria
+
+Four lenses for judging the contribution `[zimmerman2007]`:
+
+| Criterion | What it actually requires |
+|---|---|
+| **Process** | Not reproducible *results* — explicitly not. What is judged is the **rigour applied to the methods** and **the rationale for selecting those methods**, documented in enough detail to be followed. |
+| **Invention** | A novel integration of subject matters, situated by **an extensive literature review** showing how it advances the state of the art. Not a refinement of something that already exists. |
+| **Relevance** | A shift from *what is true* to *what is real*. You must articulate the **preferred state** the design aims at **and argue why it should be considered preferred**. Work that skips this "appears to be a self-indulgent, personal exploration." |
+| **Extensibility** | That others can build on it — either reusing the process, or leveraging the knowledge the artefacts carry. Requires deliberate documentation. |
 
 Extensibility is the one design projects fail. It is why `M07` exists.
+
+## One honest caveat about this project
+
+Zimmerman et al. draw a sharp line between research artefacts and practice
+artefacts: in RtD "the intent going into the research is to produce knowledge
+for the research and practice communities, not to make a commercially viable
+product," and RtD projects are expected to **de-emphasise** commercial framing
+`[zimmerman2007]`.
+
+This project does not sit cleanly on that side of the line. It is
+industry-internal, and ExRobotics wants a usable interface, not a knowledge
+contribution to HCI. That is fine — but it means:
+
+- **The criteria still apply and are still useful.** Process, relevance and
+  extensibility are exactly what makes design work survive its author.
+- **Invention, in their strict sense, is not the goal.** Do not stretch to
+  claim novelty against the literature. The honest claim here is relevance and
+  extensibility, evidenced.
+- Zimmerman et al. also note why industry design research rarely gets shared:
+  it is a competitive advantage. Assume the output stays internal, and design
+  the documentation for the **next ExRobotics engineer**, not for a conference.
 
 ## Traps
 

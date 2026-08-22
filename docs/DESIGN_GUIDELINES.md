@@ -20,6 +20,13 @@ with yellow as the lead optical signal.
 Existing Figma screens are implementation drafts. When they conflict with this
 document or the reference analysis, this document wins.
 
+The 2026-08-21 audit found that Visual Style v2 does not pass the
+reference-fidelity gates. Treat it as the preserved UX/content baseline.
+Visual Style v3 is now implemented as archive-safe sibling sections following
+`VISUAL_STYLE_V3_PLAN.md`; it is the current visual-reference candidate pending
+user promotion. Its validated Figma nodes and exports are recorded in
+`FIGMA_IMPLEMENTATION.md`.
+
 Product structure, navigation, user flows, layout regions, and screen intent
 are defined in `UX_ARCHITECTURE.md`. Safety-state and stop-control interactions
 are provisional in `SAFETY_CONTROLS.md` and require safety-engineering review.
@@ -112,6 +119,14 @@ type system. Human explanation remains visibly different.
 Brackets, cursors, chips, reticles, handles, and plus/minus controls may appear
 only when they correspond to an actual selectable, inspectable, or manipulable
 state.
+
+### P11. Brand and product share one formal language
+
+Carry a small set of devices—yellow signal, chassis framing, hairline/inset
+edges, monospaced machine metadata, focus brackets, and mixed instrument
+spans—across product UI, system diagrams, onboarding, and presentation. Their
+meaning must remain compatible in every context. Do not create a decorative
+brand skin that contradicts operational behavior.
 
 ## 4. Spatial system
 
@@ -584,6 +599,27 @@ surfaces or use sparse mode as an excuse to remove useful engineering data.
 
 Dark is not a separate cyberpunk theme. Light is not a generic pastel
 dashboard. Both expressions must pass the same color-independent identity test.
+
+### Editorial focus layer
+
+The 2026-08-20 references add a presentation grammar that may be used for
+onboarding, guided diagnosis, incident explanation, hardware-context views,
+and design-system demonstrations.
+
+- Isolate one subsystem, selected path, or instrument as the visual subject.
+- Use large negative space to clarify the subject, not to hide missing data.
+- Add no more than three or four numbered explanation plates in one viewport.
+- Connect a plate to its subject only with a precise anchored leader line.
+- Keep each plate to a short title, one consequence-oriented sentence, and an
+  optional state/value.
+- ExRobotics yellow marks the current subject or active signal; it does not
+  become ambient decoration.
+- Preserve navigation escape, data freshness, and the selected robot context.
+
+This layer floats above or expands from the normal workbench. It is not the
+default layout for dense monitoring, logs, tables, or multi-system comparison.
+Device mockups and cinematic hardware renders belong to product explanation,
+not routine platform operation.
 
 ## 15. Motion and behavior
 

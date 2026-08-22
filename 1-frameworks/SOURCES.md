@@ -5,14 +5,14 @@ by restating the source. One entry per source; add rather than edit.
 
 ## ⚠️ Verification status
 
-**No source below has been read in the original by whoever wrote the framework
-cards.** The cards were built from: one substantial full-chapter fetch
-(`stappers2017`), and otherwise from search-result summaries and abstracts of
-peer-reviewed work.
+Three of the five load-bearing sources have now been **read in the original**:
+`zimmerman2007`, `sleeswijk2005`, and `vicente1992`. The cards that rest on
+them were revised against the actual papers, and several claims changed — see
+the note at the end of this section.
 
-That is adequate for *orienting a design project* — the methods and models are
-well-established and consistently described across sources. It is **not**
-adequate for citing in a deliverable, quoting, or defending a specific claim.
+The rest are still search-result summaries: adequate for *orienting* a design
+project, since these methods are well established and consistently described,
+but **not** adequate for quoting or for defending a specific claim.
 
 `verified` records where each source stands:
 
@@ -23,20 +23,47 @@ adequate for citing in a deliverable, quoting, or defending a specific claim.
   orientation. **Obtain before citing.**
 - `industry` — vendor or trade material. Context only, never a claim.
 
-Before any of this reaches an ExRobotics deliverable, promote the sources the
-argument actually rests on to `read`. The priority set is `stappers2017`,
-`zimmerman2007`, `sleeswijk2005`, `vicente1992`, and `hoffman1998` — those five
-carry most of the weight. TU Delft library access covers all of them.
+### Still to obtain
+
+| Source | Why it matters | Status |
+|---|---|---|
+| `hoffman1998` | The procedural account behind `M04`, the method most likely to be run first | Paywalled (Sage). `[cdm-eng2021]` stands in — an open applied study in an engineering domain that follows it. |
+| `klein1989` | Origin of CDM and the probe set | Paywalled (IEEE). |
+| `stappers2017` | The anchor framing source | Full chapter fetched and summarised; not read in the original. |
+| `braun2022`, `sanders2012`, `hekkert2011`, `vanboeijen2020` | Books behind `M05`, `M02`, `M08` | Not obtained. TU Delft library. |
 
 Update the `verified` column as you read. That column is the honest state of
 this project's theoretical grounding.
+
+### What changed when the papers were actually read
+
+Worth recording, because it is the argument for finishing the list:
+
+- **`zimmerman2007`** — the summaries omitted the **true / how / real / right**
+  model entirely, which turned out to map directly onto this workspace's lanes.
+  "Process" also does *not* mean reproducible results, as the secondary
+  accounts imply; it means documented rigour **plus a rationale for method
+  selection**. And the paper explicitly expects RtD to de-emphasise commercial
+  framing — a real tension for an industry-internal project, now flagged in
+  `M01`.
+- **`sleeswijk2005`** — corrected two procedural facts the card had wrong:
+  optimal session size is **4–6**, not 2–4, and sensitizing is **5–10 min/day
+  over 1–2 weeks**. Added three practices the summaries did not mention: write
+  your preconceptions down first, keep the sensitizing subject broader than the
+  session topic, and beware groups of problem-solution-minded participants —
+  which is a direct warning for a study whose participants are engineers.
+- **`vicente1992`** — the summaries gave the three principles as bland
+  paraphrase and omitted **procedural traps** and the Three Mile Island case
+  altogether. That case is now the sharpest concrete argument in the whole
+  knowledge base for how this interface should treat derived indicators, and it
+  propagated into `T01`, `T03`, and `T05`.
 
 ## Research through Design and design-research epistemology
 
 | Key | Source | Verified |
 |---|---|---|
 | `frayling1993` | Frayling, C. (1993). *Research in Art and Design*. RCA Research Papers 1(1). Origin of research **into / for / through** design. | summary |
-| `zimmerman2007` | Zimmerman, J., Forlizzi, J., & Evenson, S. (2007). Research through design as a method for interaction design research in HCI. *CHI '07*, 493–502. | summary |
+| `zimmerman2007` | Zimmerman, J., Forlizzi, J., & Evenson, S. (2007). Research through design as a method for interaction design research in HCI. *CHI '07*, 493–502. | **read** |
 | `zimmerman2010` | Zimmerman, J., Stolterman, E., & Forlizzi, J. (2010). An analysis and critique of Research through Design. *DIS '10*. | summary |
 | `gaver2012` | Gaver, W. (2012). What should we expect from research through design? *CHI '12*, 937–946. | summary |
 | `stappers2017` | Stappers, P. J., & Giaccardi, E. (2017). Research through Design. In *The Encyclopedia of Human-Computer Interaction* (2nd ed.). Interaction Design Foundation. **The anchor source for this project.** | fetched |
@@ -57,7 +84,7 @@ this project's theoretical grounding.
 | Key | Source | Verified |
 |---|---|---|
 | `vanboeijen2020` | van Boeijen, A., Daalhuizen, J., & Zijlstra, J. (2020). *Delft Design Guide* (revised ed.). BIS Publishers. 70 perspectives, models, approaches and methods from the IDE curriculum, each as a practical two-pager. | summary |
-| `sleeswijk2005` | Sleeswijk Visser, F., Stappers, P. J., van der Lugt, R., & Sanders, E. B. N. (2005). Contextmapping: experiences from practice. *CoDesign* 1(2), 119–149. | summary |
+| `sleeswijk2005` | Sleeswijk Visser, F., Stappers, P. J., van der Lugt, R., & Sanders, E. B. N. (2005). Contextmapping: experiences from practice. *CoDesign* 1(2), 119–149. | **read** |
 | `sleeswijk2009` | Sleeswijk Visser, F. (2009). *Bringing the Everyday Life of People into Design*. PhD thesis, TU Delft. Ch. 7 covers communicating insights to design teams. | summary |
 | `sanders2012` | Sanders, E. B. N., & Stappers, P. J. (2012). *Convivial Toolbox: Generative Research for the Front End of Design*. BIS Publishers. | summary |
 | `hekkert2011` | Hekkert, P., & van Dijk, M. (2011). *ViP — Vision in Design: A Guidebook for Innovators*. BIS Publishers. | summary |
@@ -74,6 +101,7 @@ this project's theoretical grounding.
 | `klein1989` | Klein, G., Calderwood, R., & MacGregor, D. (1989). Critical decision method for eliciting knowledge. *IEEE SMC* 19(3). | summary |
 | `hoffman1998` | Hoffman, R. R., Crandall, B., & Shadbolt, N. (1998). Use of the Critical Decision Method to elicit expert knowledge. *Human Factors* 40(2), 254–276. | summary |
 | `braun2022` | Braun, V., & Clarke, V. (2022). *Thematic Analysis: A Practical Guide*. Sage. Reflexive TA, six phases. | summary |
+| `cdm-eng2021` | Applied CDM study in engineering design (Ergonomics & Human Factors 2021, CIEHF): four engineers, 1.5 h screen-captured remote interviews, following Hoffman et al. 1998. Source of the procedural detail in `M04`. | **read** |
 | `braun2021` | Braun, V., & Clarke, V. (2021). One size fits all? What counts as quality practice in reflexive thematic analysis. *Qualitative Research in Psychology* 18(3). | summary |
 
 ## Prototyping
@@ -96,7 +124,7 @@ this project's theoretical grounding.
 
 | Key | Source | Verified |
 |---|---|---|
-| `vicente1992` | Vicente, K. J., & Rasmussen, J. (1992). Ecological interface design: theoretical foundations. *IEEE SMC* 22(4), 589–606. | summary |
+| `vicente1992` | Vicente, K. J., & Rasmussen, J. (1992). Ecological interface design: theoretical foundations. *IEEE SMC* 22(4), 589–606. | **read** |
 | `vicente2002` | Vicente, K. J. (2002). Ecological interface design: progress and challenges. *Human Factors* 44(1), 62–78. | summary |
 | `vicente1999` | Vicente, K. J. (1999). *Cognitive Work Analysis*. Lawrence Erlbaum. | summary |
 | `rasmussen1983` | Rasmussen, J. (1983). Skills, rules, and knowledge. *IEEE SMC* 13(3), 257–266. | summary |

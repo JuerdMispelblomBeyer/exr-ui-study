@@ -180,7 +180,7 @@ lists or generic cards.
 
 ## D021 — Task-led redesign replaces category-led dashboards
 
-**Status:** Accepted and implemented  
+**Status:** Accepted and implemented
 **Decision:** Replace the current six-category navigation and repeated screen
 templates with an Inspect → Diagnose → Change flow. Represent Physical,
 Network, Software, Time and Integration as lenses on one stable platform map.
@@ -211,3 +211,76 @@ and Change review before creating new screens.
 **Reason:** A component-backed requirement model keeps future POI, CAN, API,
 cybersecurity, ROS 2/DDS, compute and storage work consistent while the system
 inventory grows.
+
+## D024 — Visual Style v2 is promoted through archive-safe siblings
+
+**Status:** Accepted and implemented
+**Decision:** Preserve the pre-v2 foundations specimen, component stage and
+nine-screen storyboard unchanged, and promote the stricter Signal
+Instrumentation expression through dated v2 siblings on the same three Figma
+pages. Persistent data surfaces use opaque neutral materials, one-pixel borders
+and inset contours; yellow remains the active signal; stronger elevation is
+reserved for selected or temporary ownership.
+**Reason:** Append-only promotion keeps earlier design reasoning recoverable
+while allowing the live reference direction to adopt the chassis, continuous
+bento, micro-instrument and low-relief grammar consistently.
+
+## D025 — Editorial focus is an auxiliary visual layer
+
+**Status:** Accepted
+**Decision:** Add the 2026-08-20 supplied editorial mobile composition and the
+Solar21 application case study to the durable reference set. Use their
+isolation, annotated storytelling, hardware context, and simplified-view
+principles for onboarding, guided diagnosis, incident explanation, focus mode,
+and visual-identity presentation. Do not use their colors as design tokens or
+replace the operational bento workbench with device-mockup theater.
+**Reason:** These sources add a valuable spacious focus state and explanatory
+narrative to Signal Instrumentation while preserving the density, legibility,
+truthfulness, and ExRobotics-yellow semantics required by the engineering UI.
+
+## D026 — References enter through a provenance-to-system pipeline
+
+**Status:** Accepted
+**Decision:** Process new inspiration through `REFERENCE_INTAKE_METHOD.md`:
+preserve provenance, analyse without color first, classify each observation as
+adopt/translate/presentation-only/reject, synthesize across sources, and promote
+only into documented principles, component rules, tokens where justified, and
+falsifiable acceptance tests. Store inaccessible sources as queued rather than
+substituting similar search results or inventing visual claims.
+**Reason:** This turns visual browsing into a reproducible identity-building
+practice and prevents attractive but unrelated fleet, mission, autonomy, or
+generic dashboard patterns from diluting Signal Instrumentation.
+
+## D027 — Visual Style v2 becomes the UX baseline; v3 rebuilds visual fidelity
+
+**Status:** Accepted and implemented
+
+**Decision:** Reclassify the v2 foundations, components, and nine-screen
+storyboard as the preserved UX/content baseline. Visual Style v3 was built as
+archive-safe siblings using the sequence in `VISUAL_STYLE_V3_PLAN.md`: chassis
+and material hierarchy, heterogeneous micro-instruments and live topology,
+three critical stress-test frames, paired light identity expression, and the
+remaining six operational states. The implementation is mapped in
+`FIGMA_IMPLEMENTATION.md`.
+
+**Reason:** The v2 implementation contains the correct task flow and platform
+geography but fails the chassis, bento, instrumentation, density, greyscale,
+and yellow-allocation gates. Restyling the existing white cards would not fix
+the structural mismatch with the references.
+
+## D028 — Operational states change instruments and task planes, not only color
+
+**Status:** Accepted and implemented
+
+**Decision:** Keep the platform geography and graphite chassis stable across
+the v3 storyboard, while each state introduces a domain-specific visual object:
+degraded dependency path, shared-clock evidence, VRRP failover path, runtime
+ownership stack, chrony uncertainty envelope, controlled change-review plane,
+or stale-data hatching and duration. Yellow owns current focus and deliberate
+action; orange owns degraded or caution state. Selection and degradation remain
+independently legible through brackets, dashed paths, patterns, labels, and
+time values.
+
+**Reason:** Engineers should retain spatial orientation while moving from
+Inspect to Diagnose to Change, and must be able to distinguish state without
+depending on hue or rereading a category dashboard.

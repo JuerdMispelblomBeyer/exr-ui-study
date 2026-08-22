@@ -89,15 +89,22 @@ of truth.
 | Product model, user flow, IA, or layout | `docs/UX_ARCHITECTURE.md` |
 | Safety state or stop/recovery control | `docs/SAFETY_CONTROLS.md` |
 | Visual direction or review | `docs/DESIGN_GUIDELINES.md` |
+| Visual Style v3 planning or implementation | `docs/VISUAL_STYLE_V3_PLAN.md`, then `docs/DESIGN_GUIDELINES.md` |
 | Reference-image interpretation | `docs/REFERENCE_ANALYSIS.md` |
+| New inspiration URL, shot, case study, or image intake | `docs/REFERENCE_INTAKE_METHOD.md`, then `docs/REFERENCE_ANALYSIS.md` |
+| Structured visual-reference analysis or multi-reference design synthesis | `skills/design-reference-analysis/SKILL.md` |
 | Figma mutation or component work | `docs/FIGMA_WORKFLOW.md` |
 | Exact colors, spacing, radii, motion | `tokens/exrobotics-ui.tokens.json` |
 | Why a decision exists | `docs/DECISION_LOG.md` |
 | Reusable agent workflow | `skills/exrobotics-figma-design/SKILL.md` |
+| Exceptional UI art direction, composition, or visual QA | `skills/exceptional-ui/SKILL.md`, then `skills/exrobotics-figma-design/SKILL.md` |
+| Rendered UI critique, visual-quality scoring, or PASS/ITERATE review | `skills/visual-critique/SKILL.md` |
 
 ## Filesystem rules
 
 - Preserve all original files under `reference/`.
+- Record inaccessible web references as queued sources; never treat a nearby
+  search result as the requested visual evidence.
 - Store authored guidance under `docs/`, machine values under `tokens/`, and
   agent workflows under `skills/`.
 - Use deterministic, descriptive names. Do not add unexplained exports or

@@ -21,7 +21,7 @@ automatic to deliberate:
 | Level | How it works | Example here | Its failure mode |
 |---|---|---|---|
 | **Skill-based** | Automatic, perceptual-motor, no conscious attention | Glancing at the platform overview and knowing it is normal | **Slips** — right intention, wrong execution. Fast and confident. |
-| **Rule-based** | Learned if-then patterns from experience | "Inspection frames missing → check the capture service before the camera" | **Mistakes from misapplied rules** — a familiar-looking cue triggers the wrong stored rule. |
+| **Rule-based** | Learned if-then patterns from experience | "Inspection frames missing → check the capture service before the camera" | **Procedural traps** — a novel situation where the normal rule set is applied and silently stops working. See `T01`; the Three Mile Island case is the canonical example. |
 | **Knowledge-based** | Effortful reasoning from first principles | A fault pattern nobody has seen; reasoning over the platform's actual structure | Slow, error-prone, high workload. Fails under time pressure. |
 
 Experts operate at the lowest level a situation permits and only escalate when
@@ -54,10 +54,14 @@ into deliberate reasoning. That is a legitimate use of the strongest available
 presentation — and the argument for why it must look unlike anything in the
 routine vocabulary, not merely louder.
 
-**The novice/expert delta is the design opportunity.** `M04`'s "what would a
-less experienced engineer have missed" probe maps directly: what an expert
-handles rule-based, a novice must handle knowledge-based. Making the expert's
-rule visible in the interface is how you close that gap without training.
+**The novice/expert delta is the design opportunity, and there is a mechanism
+for closing it.** `M04`'s "what would a less experienced engineer have missed"
+probe maps directly: what an expert handles rule-based, a novice must handle
+knowledge-based. Vicente & Rasmussen give the lever — where the interface
+provides a true one-to-one mapping between the domain's constraints and its
+displayed signs, an operator "can exhibit what looks like KBB by merely relying
+on RBB" `[vicente1992]`. Making the expert's rule perceptible is how you close
+the gap without training.
 
 ## How to use it
 

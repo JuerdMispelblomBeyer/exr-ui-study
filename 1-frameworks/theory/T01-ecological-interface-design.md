@@ -44,15 +44,49 @@ is it achieved?"). An interface that supports both directions lets an engineer
 who finds an anomaly at one level trace its meaning at another — which is
 exactly what diagnosis is.
 
-### Design principles by control level
+### The three principles
 
-- **Skill-based** — make high-level information *directly perceptible* as
-  aggregate visual form, so it can be read at a glance rather than computed.
-- **Rule-based** — provide consistent one-to-one mappings between system
-  constraints and displayed information, so learned cue→action rules stay
-  reliable. Consistency is a correctness requirement, not a style preference.
-- **Knowledge-based** — give the operator the abstraction hierarchy itself as
-  an **external mental model** to reason over when no rule applies.
+Stated closely to the source `[vicente1992]`:
+
+**1. Skill-based** — *the operator should be able to act directly on the
+display, and the structure of the displayed information should be isomorphic to
+the part–whole structure of movements.* Achieved by "revealing higher level
+information as an aggregation of lower level information," so that **multiple
+levels are visible at the same time** and the operator can direct attention to
+whichever level suits their expertise and the current demand. Direct
+manipulation, not command entry.
+
+Note this is a stronger claim than "make it glanceable." It says the visual
+chunking should mirror the action chunking — which is the theoretical backing
+for the "direct-manipulation stage" already required in
+`docs/DESIGN_GUIDELINES.md` §10.
+
+**2. Rule-based** — *provide a consistent one-to-one mapping between the work
+domain constraints and the cues or signs provided by the interface.*
+
+The failure this prevents is the **procedural trap**: a novel situation where
+operators apply their normal, usually-reliable rule set and it silently stops
+working. The paper's example is Three Mile Island. Operators used pressurizer
+level as their cue for total primary inventory. It worked in the usual state.
+They did not know the boundary conditions under which the cue was valid, so
+when the coolant system reached saturation and voids formed, they read a
+pressurizer full of steam as a pressurizer full of water — and acted on it.
+
+The design response is not "add a warning." It is to make cues map to the
+*fundamental constraints* governing the system, so they cannot decouple from
+what they represent.
+
+There is a second benefit worth naming, because it is the mechanism behind the
+novice/expert gap: with a true 1:1 mapping between constraints and signs, "the
+operator can exhibit what looks like KBB by merely relying on RBB." Good
+mapping buys knowledge-level performance at rule-level cost.
+
+**3. Knowledge-based** — *represent the work domain as an abstraction hierarchy
+to serve as an externalised mental model supporting problem solving.*
+
+Supporting the lower levels is explicitly **not sufficient** — operators will
+be forced into knowledge-based reasoning by novel faults regardless of how well
+the interface serves routine work.
 
 ## Why it matters here
 
@@ -71,7 +105,7 @@ That predicts a specific weakness: the interface will handle *"which component
 is faulty"* well and *"is this platform still fit to deploy"* badly — because
 the second is an abstract-function question and there is nothing to show.
 
-Two concrete implications:
+Three concrete implications:
 
 - **Extend the platform model upward.** Add abstract-function entities (power,
   thermal, data-flow, freshness) as first-class objects in
@@ -81,6 +115,13 @@ Two concrete implications:
   afford "why does this exist / what depends on it" and "how is it realised."
   `docs/SYSTEM_VISUALIZATION_SPEC.md` covers spatial encoding; it does not
   currently cover this vertical movement.
+- **Audit every derived indicator for procedural-trap risk.** Any place the
+  interface shows a convenient proxy rather than the thing itself — a rolled-up
+  health state, a "last seen" heuristic, a link-quality bar standing in for
+  actual delivery — is a candidate TMI. Ask: under what conditions does this
+  cue stop tracking what the engineer will read it as? Then show that boundary,
+  or show the underlying constraint instead. This is the sharpest, most
+  concrete thing EID has to say to this project.
 
 ## How to use it
 

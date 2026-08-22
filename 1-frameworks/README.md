@@ -5,7 +5,9 @@ with. Grounded in credible academic sources, biased toward TU Delft IDE
 practice, and written to be *applied here* rather than summarised.
 
 **Agents:** grep `frameworks.yaml` first, then open exactly one card. Do not
-read this lane end to end — it is ~70 KB and no task needs all of it.
+read this lane end to end — it is ~100 KB and no task needs all of it. Budget:
+authored cards stay under 8 KB; `SOURCES.md` and `frameworks.yaml` are
+registers, meant to be grepped rather than read whole.
 
 **Humans:** the tables below are the map. Every card is one page.
 
@@ -70,7 +72,11 @@ If you read nothing else:
 - **`T01` Ecological Interface Design** — the native theory for this exact kind
   of interface. It predicts a specific current weakness: the platform model in
   `data/platform-system.yaml` is almost entirely physical-function level, so
-  *"is this platform fit to deploy"* has nothing to render.
+  *"is this platform fit to deploy"* has nothing to render. It also supplies the
+  **procedural trap** — the Three Mile Island failure, where a proxy cue that
+  was right in normal operation inverted under saturation and operators acted
+  on it. That is the sharpest concrete warning in this knowledge base about how
+  to treat every rolled-up health indicator in this product.
 - **`M07` Annotated Portfolio** — how your in-between versions stop being a
   folder and start being knowledge. It is the method that answers the
   extensibility question design projects usually fail.
@@ -82,6 +88,10 @@ borrowed knowledge about how to *get* that evidence and how to think about it.
 Findings belong in `2-research/` and `3-insights/`.
 
 ## Forward references
+
+Source verification is recorded honestly in `SOURCES.md`. Three of the five
+load-bearing papers have been read in the original; the rest are summaries and
+are marked as such, with a list of what still needs obtaining.
 
 Cards point at lanes from the workspace plan that are not built yet:
 `0-meta/CONVENTIONS.md`, `0-meta/GLOSSARY.md`, `2-research/`, `3-insights/`,

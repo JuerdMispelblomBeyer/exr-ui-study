@@ -17,25 +17,32 @@ it. Then have them make something rather than answer questions.**
 
 The TU Delft generative-research method `[sleeswijk2005]`. Its premise: people
 are not reliable reporters of their own routine work. Ask an engineer "how do
-you diagnose a robot" and you get the tidy version. Contextmapping gets past
-that with two moves:
+you diagnose a robot" and you get the tidy version.
 
-1. **Sensitizing** — participants receive a small booklet or set of tasks days
-   before the session. They observe and record their own practice: annotate a
-   fault they hit, photograph their screen setup, log what they checked and in
-   what order. This primes memory and shifts them from answering to noticing.
-2. **Generative session** — participants *make* something (a collage, a map, a
-   timeline) using a provided toolkit, then explain it. The artefact is a
-   vehicle for talking, not a deliverable.
+**Five phases:** preparation → sensitizing → group sessions → analysis →
+communication.
 
-Sanders & Stappers call the underlying structure the **path of expression**:
-four steps from **facts** → **feelings** → **memories** → **values**
-`[sanders2012]`. Present first, past second, future last — you can only design
-for what someone aspires to once they have retrieved what they have lived.
+The mechanism is that participants **make a designerly artefact and then tell a
+story about what they made**. Making is what gives access: people "reflect on,
+re-live and to some degree re-feel their experiences" while constructing
+something. The artefact is a vehicle — *"especially in their stories, there is
+rich and useful information for designers."*
 
-Three levels of knowledge come out, and only contextmapping reliably reaches
-the third: what people **say** (explicit), what they **do** (observable), and
-what they **dream or know tacitly** (latent).
+Conventional techniques (interviews, observation, focus groups) reach explicit
+and observable knowledge, and give "little hold on the future." Generative
+techniques reach two further levels: **tacit knowledge** — what people can act
+on but cannot readily put into words — and **latent needs** — needs they are
+not yet aware of. Diagnostic expertise is largely tacit, which is the whole
+argument for using this here.
+
+The experience domain spans **past memories → the present moment → future
+dreams**; generative exercises walk participants through it in that order,
+because aspiration is only reachable after recollection.
+
+**Contextmapping produces a map, not a route.** The output should give the
+design team *"roads, dangers, and opportunities to the traveller, not… a mere
+route prescribing a fixed solution."* Insight that over-prescribes has failed —
+it removes the designing.
 
 ## Why it fits this project
 
@@ -50,15 +57,32 @@ docs most conspicuously lack.
 
 ## How to run it here
 
-- **Recruit 4–6 ExRobotics engineers** who actually diagnose returned or
-  misbehaving platforms. Small n is correct — this is depth, not incidence.
-- **Sensitizing booklet, 5–7 days.** Daily prompts: *Draw where you looked
-  first today. What did you have open at once? Where did you get stuck? What
-  did you wish the system had just told you?* Keep it to five minutes a day.
-- **Sessions of 2–4 people, ~2 hours.** Toolkit: blank platform-topology cards
-  (compute nodes, CAN, ROS 2 nodes, cameras, network), timeline strips,
-  friction stickers. Have them reconstruct a real recent fault as a path across
-  the topology, then mark where confidence dropped.
+**Start at least three weeks before the session** — that is the paper's own
+figure, and it is mostly recruiting plus sensitizing lead time.
+
+- **Write your preconceptions down first.** The paper's practice is to build a
+  mindmap of what the team already assumes *before* the study, so new material
+  can be recognised as new rather than absorbed into existing belief. You are
+  unusually well set up for this: `docs/UX_ARCHITECTURE.md` §3, §19 and
+  `docs/UI_FUNCTIONAL_REQUIREMENTS.md` §15 already *are* the preconception map.
+  Freeze a copy before you start.
+- **Group size: 4–6 per session, and run at least two sessions.** Four is
+  enough for genuine group discussion; above six you cannot attend to
+  individuals. Three works but yields fewer stories — participants need each
+  other to react to. Multiple sessions stop one dominant voice defining the
+  findings.
+- **Sensitizing package sent 1–2 weeks ahead, 5–10 minutes of work per day.**
+  Keep the subject **broader than the session topic** — the paper is explicit
+  that over-specific exercises make participants arrive with prepared answers.
+  So probe *how the working day goes, where attention goes, what gets checked
+  and re-checked*, not "how do you diagnose CAN faults." Pilot it on one person
+  first.
+- **Session toolkit:** blank platform-topology cards (compute nodes, CAN, ROS 2
+  nodes, cameras, network), timeline strips, friction stickers. Have them
+  reconstruct a real recent fault as a path across the topology, then mark
+  where confidence dropped.
+- **Record video and audio**, and transcribe the verbal protocol — the stories,
+  not the collages, carry the findings.
 - **Analyse** with `M05`. **Communicate** via `3-insights/` — Sleeswijk Visser
   is explicit that the communication phase is where contextmapping usually
   fails `[sleeswijk2009]`.
@@ -80,6 +104,14 @@ engineers reconstruct mentally that the tooling should hold for them, and what
   `0-meta/ETHICS.md`).
 - **Recruiting managers instead of practitioners.** You want the people whose
   hands are on the diagnosis.
+- **The problem-solvers trap — the big one for this project.** The paper warns
+  that a group made up mainly of designers is difficult because they are
+  *"problem-solution minded and therefore fail to make their own experiences
+  explicit."* Your participants are **engineers**, who have exactly this
+  disposition and more of it. They will jump to proposing features. Expect it,
+  and structure exercises so that the first move is always *reconstruct what
+  happened*, never *what should it do*. Consider including one participant from
+  outside engineering.
 - **A toolkit that leads.** If your cards already encode your intended IA, you
   will get your IA back. Use neutral primitives.
 

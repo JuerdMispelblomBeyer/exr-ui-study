@@ -2,7 +2,7 @@
 
 ## Reference identity and evidence quality
 
-- Source: `reference/f6c54336ad5d2131a4d75c72327ed7cb.jpg`.
+- Source: `reference/f6c5437e7ada0bee51048397889b48b2.jpg`.
 - Type: direct dark operational dashboard screenshot.
 - Evidence: high for composition, matrix styling, and cross-view hierarchy; medium for interaction; low for motion.
 
@@ -148,4 +148,3 @@ platform silhouette, yellow probe path, and technical type/mark grammar.
 - **Anti-patterns/limitations:** oversized heading consumes capacity; accent may
   carry conflicting meanings; compact labels challenge readability; a matrix
   should not be used when topology or time is the actual question.
-

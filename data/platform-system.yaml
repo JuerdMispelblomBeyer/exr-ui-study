@@ -1,11 +1,46 @@
-schema_version: 0.2.0
+schema_version: 0.3.0
 model_id: exrobotics-onboard-platform
-last_updated: 2026-08-20
+last_updated: 2026-08-22
 status: partial
 scope: single_robot_platform
-source:
-  kind: user_statement
-  date: 2026-08-20
+sources:
+  - id: source.platform_owner_2026_08_20
+    kind: user_statement
+    date: 2026-08-20
+    authority: stated
+
+  - id: source.exr2_electrical_overview_2023_11_08
+    kind: attached_reference_document
+    file_name: Electrical drawing ExR-2 -overview.drawio.pdf
+    exported_at: 2023-11-08T11:56:43
+    pages: 2
+    document_marking: confidential
+    covers:
+      - enclosure_and_component_topology
+      - minimum_standard_and_optional_configuration
+      - power_switching_channels
+      - main_and_optional_can_paths
+      - camera_module_internals
+      - battery_charging_and_drive_signals
+      - functional_data_directions_and_relative_rates
+    authority: stated_reference_not_runtime_verified
+    applicability: hardware_revision_and_current_robot_installation_unknown
+
+  - id: source.exr2_hardware_overview_attachment
+    kind: attached_reference_document
+    file_name: ExR-2 harware overview_1.pptx.pdf
+    pages: 1
+    covers:
+      - external_robot_form
+      - component_mounting_context
+    limitation: browser_capture_shows_cover_one_unlabelled_assembly_slide_and_partial_next_slide
+    authority: visual_reference_not_runtime_verified
+
+truth_labels:
+  stated: supplied_by_platform_owner_or_reference
+  verified: checked_against_machine_configuration_or_implementation
+  unknown: needed_but_not_established
+  reference_documented: shown_in_a_source_but_current_installation_or_revision_not_verified
 
 platform:
   id: platform.robot
@@ -16,8 +51,13 @@ platform:
     - compute.jetson_1
     - compute.jetson_2
     - bus.can
+    - enclosure.electronics_box
+    - enclosure.communication_box
+    - module.power_injector
     - vision.drive_camera
     - vision.inspection_camera
+    - sensor.imu
+    - sensor.lidar
     - audio.microphone
     - software.poi_capture
     - software.can_subsystem
@@ -37,26 +77,48 @@ compute_nodes:
       - runtime.docker
     roles:
       - can_gateway_host
+      - electronics_box_compute
+    reference_documented_attachments:
+      - io.motherboard_stm
+      - module.power_injector
+      - sensor.imu
+      - module.audio_card
+      - storage.usb_stick
+      - vision.drive_camera
+    reference_documented_interfaces:
+      motherboard_stm: uart_and_main_can_path
+      power_injector: switched_usb3
+      local_peripherals: usb2_hub
+    provenance:
+      - source.exr2_electrical_overview_2023_11_08
 
   - id: compute.jetson_1
     label: Jetson 1
     architecture_family: nvidia_jetson
-    exact_model: unknown
+    exact_model: nvidia_jetson_xavier_nx
     connected_to:
       - network.lan
     runs:
       - runtime.docker
     roles: []
+    reference_role_assignment: one_of_the_two_drawn_xavier_nx_nodes_is_in_the_communication_box
+    identity_to_drawn_role: unknown
+    provenance:
+      - source.exr2_electrical_overview_2023_11_08
 
   - id: compute.jetson_2
     label: Jetson 2
     architecture_family: nvidia_jetson
-    exact_model: unknown
+    exact_model: nvidia_jetson_xavier_nx
     connected_to:
       - network.lan
     runs:
       - runtime.docker
     roles: []
+    reference_role_assignment: one_of_the_two_drawn_xavier_nx_nodes_is_in_the_communication_box
+    identity_to_drawn_role: unknown
+    provenance:
+      - source.exr2_electrical_overview_2023_11_08
 
 networks:
   - id: network.lan
@@ -66,23 +128,43 @@ networks:
       - compute.intel
       - compute.jetson_1
       - compute.jetson_2
-    switch_or_topology: unknown
+    switch_or_topology: current_three_node_topology_unknown
+    reference_documented_links:
+      - endpoints: intel_processor_to_xavier_nx
+        speed: 1_gigabit_ethernet
+        exact_node_identity: unknown
+      - component: network.optional_ethernet_switch
+        configuration: optional
+    provenance:
+      - source.platform_owner_2026_08_20
+      - source.exr2_electrical_overview_2023_11_08
 
   - id: network.wifi
     label: WiFi uplink
     kind: external_uplink
-    provider_or_hardware: unknown
+    provider_or_hardware: communication_board_wifi_plus_reference_documented_backup_wifi_dongle
+    reference_role: wifi_dongle_often_used_as_backup
+    current_role: unknown
 
   - id: network.cellular
     label: 4G/5G uplink
     kind: external_uplink
-    provider_or_hardware: unknown
+    provider_or_hardware: communication_box_4g_lte_modem
+    reference_role: main_communication
+    five_g_support: stated_elsewhere_not_shown_in_2023_reference
 
   - id: network.vpn
     label: Tailscale VPN
     kind: overlay_vpn
     implementation: tailscale
     endpoint_placement: unknown
+
+  - id: network.optional_ethernet_switch
+    label: Ethernet switch
+    kind: ethernet_switch
+    configuration: optional_reference_configuration
+    contained_by: enclosure.electronics_box
+    exact_ports_speed_and_current_installation: unknown
 
 high_availability:
   - id: ha.internet_uplink
@@ -98,31 +180,106 @@ high_availability:
 
 field_buses:
   - id: bus.can
-    label: CAN network
+    label: Main CAN network
     kind: can
     gateway_host: compute.intel
+    gateway_controller: io.motherboard_stm
     bitrate: unknown
     connected_objects:
       - subsystem.charging
       - subsystem.battery
       - subsystem.motor_drive
       - io.power_gpio_bank
-      - sensor.gas_adc
+    reference_documented_traffic:
+      robot_to_bus:
+        - gpio_switching_once_or_on_change
+        - motor_settings_once_or_low_frequency
+        - motor_speed_high_frequency
+      bus_to_robot:
+        - battery_pack_information
+        - induction_charger_information
+        - gas_sensor_values_via_motherboard_path
+        - motor_feedback_and_odometry_high_frequency
+    provenance:
+      - source.exr2_electrical_overview_2023_11_08
+
+  - id: bus.zippermast_can
+    label: Optional zippermast CAN
+    kind: can
+    gateway_host: compute.intel
+    gateway_controller: io.power_injector_usb_can
+    configuration: special_optional
+    usually_present: false
+    connected_objects:
+      - subsystem.zippermast
+    bitrate: unknown
+    provenance:
+      - source.exr2_electrical_overview_2023_11_08
 
 subsystems:
   - id: subsystem.charging
-    label: Charging subsystem
+    label: Induction charging subsystem
     connected_via: bus.can
+    configuration: standard_reference_configuration
+    receiver_hardware: HP_induction_charger_RX_reference_label
+    operating_behavior:
+      robot_side_action_required_to_start: false
+      powers_up_when_properly_docked: true
+    reports:
+      - transmitter_voltage
+      - transmitter_current
+      - transmitter_state
+      - receiver_voltage
+      - receiver_current
+      - receiver_state
+      - docking_station_communication_identifier
+      - receiver_communication_identifier
+      - transmitted_power
+    reporting_units_rates_and_fault_contracts: unknown
+    provenance:
+      - source.exr2_electrical_overview_2023_11_08
 
   - id: subsystem.battery
     label: Battery subsystem
     connected_via: bus.can
+    configuration: minimal_reference_configuration
+    reference_documented_cell_groups: 3
+    monitor: controller.botp
+    monitor_observes:
+      - individual_cell_voltage
+      - battery_temperature
+    capacity_estimate_source: controller.botp_battery_gauge
+    separate_measurement_paths:
+      pack_state: controller.botp
+      electronics_box_input_voltage_and_current: sensor.motherboard_power_gauge
+    provenance:
+      - source.exr2_electrical_overview_2023_11_08
 
   - id: subsystem.motor_drive
     label: Motor drive subsystem
     connected_via: bus.can
+    configuration: minimal_reference_configuration
+    hardware: module.motor_drive_pcb
+    power_switch_channel: io.power_gpio_bank.gpio_7
+    command_traffic:
+      settings: once_or_low_frequency
+      speed: high_frequency
+    feedback_traffic:
+      motor_feedback_and_odometry: high_frequency
     protection_states:
       - protection.drive_stall
+    provenance:
+      - source.exr2_electrical_overview_2023_11_08
+
+  - id: subsystem.zippermast
+    label: Zippermast subsystem
+    configuration: special_optional
+    connected_via: bus.zippermast_can
+    shares_power_switch_channel_with: subsystem.motor_drive
+    power_switch_channel: io.power_gpio_bank.gpio_7
+    installed_on_current_robot: unknown
+    provenance:
+      - source.exr2_electrical_overview_2023_11_08
 
 protection_functions:
   - id: protection.drive_stall
@@ -138,36 +295,259 @@ protection_functions:
       - drive_enable_or_restart
     classification: motor_protection_function_safety_status_unknown
 
+  - id: protection.battery_temperature
+    label: Battery temperature protection
+    applies_to: subsystem.battery
+    controller: controller.botp
+    observes:
+      - individual_cell_voltage
+      - battery_temperature
+    behavior: unknown
+    thresholds: unknown
+    reset_and_recovery: unknown
+    classification: protection_function_safety_status_unknown
+    provenance:
+      - source.exr2_electrical_overview_2023_11_08
+
 io:
   - id: io.power_gpio_bank
-    label: Subsystem power GPIOs
+    label: Motherboard USOM/STM switching GPIOs
     kind: gpio_bank
     channel_count: 8
-    purpose: control_subsystem_power
-    host_or_controller: unknown
+    documented_index_range: gpio_0_through_gpio_8
+    indexing_conflict: prior_eight_channel_statement_vs_nine_rows_in_2023_reference
+    purpose: control_subsystem_power_and_selected_peripherals
+    host_or_controller: io.motherboard_stm
     connected_via: bus.can
-    channel_mapping: unknown
+    control_message_id: "0x200"
+    mapping_status: reference_documented_not_runtime_verified
+    channels:
+      - id: io.power_gpio_bank.gpio_0
+        target: legacy_exr1_led_1
+        exr2_use: not_used
+      - id: io.power_gpio_bank.gpio_1
+        target: legacy_exr1_led_2
+        exr2_use: not_used
+      - id: io.power_gpio_bank.gpio_2
+        target: vision.thk_ptz_camera
+      - id: io.power_gpio_bank.gpio_3
+        target: sensor.gas_adc
+      - id: io.power_gpio_bank.gpio_4
+        target: sensor.flir_g300a
+      - id: io.power_gpio_bank.gpio_5
+        target: none
+        exr2_use: not_used
+      - id: io.power_gpio_bank.gpio_6
+        target: power_injector_camera_power
+      - id: io.power_gpio_bank.gpio_7
+        target:
+          - subsystem.motor_drive
+          - subsystem.zippermast
+      - id: io.power_gpio_bank.gpio_8
+        target: power_injector_switched_usb3
+    provenance:
+      - source.exr2_electrical_overview_2023_11_08
+
+  - id: io.communication_box_gpio
+    label: Xavier/Quark GPIO bank
+    kind: gpio_bank
+    host_or_controller: communication_box_xavier_identity_unknown
+    channels:
+      - id: io.communication_box_gpio.gpio_1
+        target: sensor.lidar
+        function: enable_12v
+      - id: io.communication_box_gpio.gpio_2
+        target: vision.inspection_camera
+        function: enable_36v
+      - id: io.communication_box_gpio.gpio_3
+        target: module.status_indicator
+        function: status_indicator_plus_aux
+      - id: io.communication_box_gpio.gpio_4
+        target: module.status_indicator
+        function: status_indicator_plus_aux
+      - id: io.communication_box_gpio.gpio_5
+        target: module.status_indicator
+        function: status_indicator
+      - id: io.communication_box_gpio.gpio_6
+        target: module.status_indicator
+        function: status_indicator
+    provenance:
+      - source.exr2_electrical_overview_2023_11_08
+
+  - id: io.motherboard_stm
+    label: Motherboard STM controller
+    kind: embedded_controller
+    contained_by: enclosure.electronics_box
+    connected_to_compute: compute.intel
+    compute_interface: uart
+    bus_attachment: bus.can
+    roles:
+      - main_can_controller_or_bridge
+      - gpio_switch_controller
+
+  - id: io.power_injector_usb_can
+    label: Power-injector USB-to-CAN STM controller
+    kind: usb_to_can_controller
+    contained_by: module.power_injector
+    configuration: special_optional
+    usually_present: false
+    purpose: zippermast_can
 
 sensors:
   - id: sensor.gas_adc
-    label: Gas sensor ADCs
-    kind: adc
-    channel_count: unknown
-    sensor_types: unknown
-    connected_via: bus.can
+    label: Motherboard gas-sensor ADC inputs
+    kind: analog_input_bank
+    channel_count_maximum: 4
+    signal_standard: 4_to_20_mA
+    contained_by: enclosure.electronics_box
+    host_or_controller: io.motherboard_stm
+    direct_can_device: false
+    value_path_to_compute: motherboard_controller_to_compute_intel
+    supported_or_depicted_detector_models:
+      - Honeywell_3000_MK11
+      - Honeywell_Sensepoint_XRL
+      - Ion_Science_Falco_1_1
+      - Crowcon_IR_Max
+      - Simtronics_unspecified_model
+      - PointWatch_Eclipse
+    installed_models_and_channel_mapping: unknown
+    detectors_physical_location: inside_hull_not_shown
+    power_switch_channel: io.power_gpio_bank.gpio_3
+    provenance:
+      - source.exr2_electrical_overview_2023_11_08
+
+  - id: sensor.imu
+    label: IMU
+    kind: inertial_measurement_unit
+    configuration: minimal_reference_configuration
+    host_attachment: compute.intel
+    transport: usb2_hub
+    exact_model: unknown
+
+  - id: sensor.lidar
+    label: LiDAR module
+    kind: lidar
+    configuration: standard_reference_configuration
+    reference_image_brand: velodyne
+    exact_model: unknown
+    host_attachment: communication_box_xavier_identity_unknown
+    power_switch_channel: io.communication_box_gpio.gpio_1
+    power_domain: 12v
+    data_transport: unknown
+
+  - id: sensor.motherboard_power_gauge
+    label: Electronics-box input power gauge
+    kind: voltage_and_current_sensor
+    contained_by: enclosure.electronics_box
+    measures:
+      - motherboard_input_voltage
+      - motherboard_input_current
+    explicitly_not_equivalent_to:
+      - battery_pack_current
+      - battery_state_of_charge
+    transport_to_compute: motherboard_controller_path
+
+  - id: sensor.acoustic_analyzer
+    label: Acoustic analyzer
+    kind: acoustic_sensor
+    configuration: optional_reference_callout
+    host_attachment: unknown
+    exact_model: unknown
+
+  - id: sensor.flir_g300a
+    label: FLIR G300-a module
+    kind: optical_gas_or_ir_inspection_sensor
+    configuration: optional_reference_configuration
+    power_switch_channel: io.power_gpio_bank.gpio_4
+    incompatible_with:
+      - vision.thk_ptz_camera
+    exact_attachment_and_transport: unknown
 
 vision:
   - id: vision.drive_camera
     label: Drive camera
-    kind: camera
-    control: fixed_or_unknown
-    host_attachment: unknown
-    transport: unknown
+    kind: camera_module
+    configuration: standard_reference_configuration
+    reference_composition:
+      - low_definition_visual_camera
+      - led_illuminator
+      - module.pzir_board
+      - usb_hub
+      - ftdi_controller
+      - flex_pcbs
+    control: fixed_orientation_module_can_face_up_or_down
+    host_attachment: compute.intel
+    transport: switched_usb3_through_module.power_injector
+    power_switch_channel: io.power_gpio_bank.gpio_6
+    led_control: ftdi
+    stream_health_and_exact_device_identity: unknown
+    provenance:
+      - source.exr2_electrical_overview_2023_11_08
 
   - id: vision.inspection_camera
     label: Inspection camera
+    kind: panning_camera_module
+    configuration: standard_reference_configuration
+    reference_composition:
+      - visual_camera
+      - infrared_camera
+      - led_illuminator
+      - dynamixel_pan_servo
+      - module.pzir_board
+      - usb_hub
+      - ftdi_controller
+      - flex_pcbs
+    control: pan_via_dynamixel_servo_through_ftdi
+    host_attachment: communication_box_xavier_identity_unknown
+    transport: usb2_through_module_hub_and_flex_pcbs
+    power_switch_channel: io.communication_box_gpio.gpio_2
+    power_domain: 36v
+    led_control: ftdi
+    current_variant_installed: unknown
+    replaced_by_optional_variant:
+      - vision.thk_ptz_camera
+    stream_health_protocol_limits_and_presets: unknown
+    provenance:
+      - source.exr2_electrical_overview_2023_11_08
+
+  - id: vision.front_camera
+    label: Front camera module
+    kind: camera_module
+    configuration: optional_reference_configuration
+    usual_sensor: infrared_camera
+    host_attachment: compute.intel
+    transport: switched_usb3_through_module.power_injector
+    power_switch_channel: io.power_gpio_bank.gpio_6
+
+  - id: vision.rear_camera
+    label: Rear camera module
+    kind: camera_module
+    configuration: optional_reference_configuration
+    usual_sensor: visual_camera_plus_led
+    host_attachment: compute.intel
+    transport: switched_usb3_through_module.power_injector
+    power_switch_channel: io.power_gpio_bank.gpio_6
+    led_control: ftdi
+
+  - id: vision.thk_ptz_camera
+    label: THK PTZ camera
     kind: ptz_camera
-    control: pan_tilt_zoom
+    configuration: optional_replacement_for_standard_inspection_camera
+    host_attachment: network.optional_ethernet_switch
+    power_switch_channel: io.power_gpio_bank.gpio_2
+    replaces:
+      - vision.inspection_camera
+    incompatible_with:
+      - sensor.flir_g300a
+      - vision.ir_leak_module
+    transport_and_control_protocol: unknown
+
+  - id: vision.ir_leak_module
+    label: IR leak module
+    kind: infrared_inspection_module
+    configuration: special_optional
+    incompatible_with:
+      - vision.thk_ptz_camera
     host_attachment: unknown
     transport: unknown
 
@@ -175,9 +555,216 @@ audio:
   - id: audio.microphone
     label: POI capture microphone
     kind: microphone
-    host_attachment: unknown
-    transport: unknown
+    configuration: standard_reference_configuration
+    host_attachment: compute.intel
+    transport: module.audio_card
     channel_count: unknown
+    exact_device_identity: unknown
+
+  - id: audio.speaker
+    label: Speaker
+    kind: speaker
+    configuration: optional_reference_configuration
+    reference_model: Eaton_MEDC_unspecified_model
+    host_attachment: compute.intel
+    transport: audio_card_via_optional_audio_amplifier
+
+physical_enclosures:
+  - id: enclosure.electronics_box
+    label: Electronics box
+    configuration: minimal_reference_configuration
+    contains:
+      - compute.intel
+      - io.motherboard_stm
+      - sensor.motherboard_power_gauge
+      - sensor.imu
+      - storage.usb_stick
+      - module.power_injector
+      - controller.botp
+    optional_contents:
+      - network.optional_ethernet_switch
+      - module.audio_amplifier
+      - storage.sd_card
+
+  - id: enclosure.communication_box
+    label: Communication box
+    configuration: standard_reference_configuration
+    contains:
+      - communication_box_xavier_identity_unknown
+      - module.communication_carrier_board
+      - module.communication_board
+      - network.cellular
+      - network.wifi
+      - module.communication_power_board
+      - module.status_indicator
+    reference_behavior:
+      cellular_role: main_communication
+      status_indicator: always_installed
+
+hardware_modules:
+  - id: module.power_injector
+    label: Power injector
+    configuration: standard_reference_configuration
+    contained_by: enclosure.electronics_box
+    compute_attachment: compute.intel
+    compute_transport: switched_usb3
+    contains:
+      - usb_hubs
+      - switched_camera_connectors
+      - reference_documented_36v_and_5v_outputs
+      - reference_documented_backup_wifi_dongle
+    optional_contents:
+      - io.power_injector_usb_can
+    connector_to_camera_mapping: partially_documented_exact_current_mapping_unknown
+
+  - id: module.audio_card
+    label: Audio card
+    contained_by: enclosure.electronics_box
+    attached_to: compute.intel
+    serves:
+      - audio.microphone
+      - audio.speaker
+
+  - id: module.communication_carrier_board
+    label: Communication-box Xavier carrier board
+    contained_by: enclosure.communication_box
+    hosts: communication_box_xavier_identity_unknown
+
+  - id: module.communication_board
+    label: Communication board
+    contained_by: enclosure.communication_box
+    contains:
+      - network.wifi
+      - network.cellular
+      - usb_hub
+
+  - id: module.communication_power_board
+    label: Communication-box power board
+    contained_by: enclosure.communication_box
+    controls:
+      - sensor.lidar
+      - vision.inspection_camera
+
+  - id: module.audio_amplifier
+    label: Audio amplifier
+    configuration: optional_reference_configuration
+    contained_by: enclosure.electronics_box
+
+  - id: module.status_indicator
+    label: Status indicator
+    configuration: always_present_with_standard_communication_box
+    controlled_by: io.communication_box_gpio
+
+  - id: module.backup_wifi_dongle
+    label: Backup WiFi dongle
+    configuration: standard_reference_configuration
+    reference_role: often_used_as_backup_wifi
+    contained_by: enclosure.electronics_box
+    exact_host_attachment: module.power_injector
+
+  - id: module.stm_programmer
+    label: STM programmer
+    configuration: standard_reference_configuration
+    contained_by: enclosure.electronics_box
+    attachment: compute_intel_usb2_hub
+
+  - id: module.gps_antenna
+    label: GPS antenna
+    configuration: optional_reference_configuration
+    exact_receiver_and_attachment: unknown
+
+  - id: module.motor_drive_pcb
+    label: Motor drive PCB
+    contained_by: subsystem.motor_drive
+
+  - id: module.pzir_board
+    label: PZIR camera interface board
+    contained_by: camera_module_variant
+    exact_function_and_part_number: unknown
+
+controllers:
+  - id: controller.botp
+    label: BOTP battery temperature protection controller
+    contained_by: enclosure.electronics_box
+    connected_via: bus.can
+    sends_to: compute.intel
+    observes:
+      - individual_cell_voltage
+      - battery_temperature
+    contains:
+      - controller.botp_battery_gauge
+
+  - id: controller.botp_battery_gauge
+    label: BOTP battery capacity gauge
+    parent: controller.botp
+    estimates: battery_capacity
+
+storage_devices:
+  - id: storage.usb_stick
+    label: USB stick
+    configuration: minimal_reference_configuration
+    host_attachment: compute.intel
+    transport: usb2_hub
+
+  - id: storage.sd_card
+    label: SD card
+    configuration: board_revision_dependent
+    host_attachment: compute.intel
+    reference_note: absent_on_older_motherboards_standard_on_newer_boards
+
+configuration_profiles:
+  - id: configuration.minimal_reference_2023
+    label: Minimal installation
+    authority: reference_documented_not_runtime_verified
+    includes:
+      - subsystem.battery
+      - subsystem.motor_drive
+      - enclosure.electronics_box
+      - compute.intel
+      - io.motherboard_stm
+      - storage.usb_stick
+      - sensor.imu
+      - controller.botp
+
+  - id: configuration.standard_reference_2023
+    label: Standard installation
+    authority: reference_documented_not_runtime_verified
+    includes_profile: configuration.minimal_reference_2023
+    includes:
+      - module.power_injector
+      - module.backup_wifi_dongle
+      - module.stm_programmer
+      - audio.microphone
+      - vision.drive_camera
+      - subsystem.charging
+      - enclosure.communication_box
+      - vision.inspection_camera
+      - sensor.lidar
+    notes:
+      - camera_module_configuration_can_change
+      - communication_box_uses_LTE_as_main_communication
+      - communication_box_status_indicator_is_always_installed
+
+  - id: configuration.optional_reference_2023
+    label: Optional equipment
+    authority: reference_documented_not_runtime_verified
+    options:
+      - network.optional_ethernet_switch
+      - module.audio_amplifier
+      - storage.sd_card
+      - vision.front_camera
+      - vision.rear_camera
+      - module.gps_antenna
+      - audio.speaker
+      - vision.thk_ptz_camera
+      - vision.ir_leak_module
+      - subsystem.zippermast
+      - sensor.gas_adc
+      - sensor.acoustic_analyzer
+    special_options:
+      - vision.ir_leak_module
+      - subsystem.zippermast
+    current_as_built_selection: unknown
 
 software_subsystems:
   - id: software.poi_capture
@@ -319,8 +906,59 @@ relationships:
     type: connected_by
     to: bus.can
   - from: sensor.gas_adc
+    type: analog_input_to
+    to: io.motherboard_stm
+  - from: io.motherboard_stm
+    type: attached_to
+    to: compute.intel
+  - from: io.motherboard_stm
+    type: controls_attachment_to
+    to: bus.can
+  - from: controller.botp
     type: connected_by
     to: bus.can
+  - from: controller.botp
+    type: observes
+    to: subsystem.battery
+  - from: protection.battery_temperature
+    type: protects
+    to: subsystem.battery
+  - from: module.power_injector
+    type: switched_usb_attached_to
+    to: compute.intel
+  - from: vision.drive_camera
+    type: attached_through
+    to: module.power_injector
+  - from: vision.front_camera
+    type: attached_through
+    to: module.power_injector
+  - from: vision.rear_camera
+    type: attached_through
+    to: module.power_injector
+  - from: vision.inspection_camera
+    type: attached_to
+    to: communication_box_xavier_identity_unknown
+  - from: sensor.lidar
+    type: attached_to
+    to: communication_box_xavier_identity_unknown
+  - from: vision.thk_ptz_camera
+    type: replaces
+    to: vision.inspection_camera
+  - from: vision.thk_ptz_camera
+    type: incompatible_with
+    to: sensor.flir_g300a
+  - from: vision.thk_ptz_camera
+    type: incompatible_with
+    to: vision.ir_leak_module
+  - from: subsystem.zippermast
+    type: connected_by
+    to: bus.zippermast_can
+  - from: bus.zippermast_can
+    type: reports_through
+    to: compute.intel
+  - from: audio.microphone
+    type: attached_through
+    to: module.audio_card
   - from: integration.fleet_manager
     type: integrates_with
     to: platform.robot
@@ -354,19 +992,29 @@ relationships:
 
 open_questions:
   - id: q.compute_models
-    question: What are the exact Intel and Jetson models, hostnames, stable IDs, and hardware roles?
+    question: What is the Intel model, which stable Jetson ID maps to the communication-box Xavier NX, and what are all hostnames, addresses, OS versions, and installed resources?
   - id: q.lan_topology
-    question: What switch, ports, addresses, VLANs, and link speeds define the on-board LAN?
+    question: Does the current three-node robot use the documented direct 1 GigE Intel-Xavier link, the optional Ethernet switch, or another topology, and what ports, addresses, VLANs, and negotiated speeds apply?
   - id: q.uplink_ha
     question: Which nodes participate in keepalived/VRRP, what virtual IP or route is protected, and how do WiFi and cellular fail over?
   - id: q.can
-    question: What CAN adapter, bitrate, node IDs, protocol, and authoritative health signals are available?
+    question: Is the motherboard STM the current main-CAN controller or bridge, what bitrate, node IDs, protocol, and health signals apply, and is the optional power-injector USB-to-CAN controller installed for a zippermast?
   - id: q.gpio
-    question: Which subsystem or power domain does each of the eight GPIO channels control?
+    question: Does the 2023 motherboard GPIO 0-8 mapping still apply, how does it reconcile with the stated eight-channel bank, and what requested-state, observed-state, interlock, voltage, current, and feedback signals exist per channel?
   - id: q.gas
-    question: How many gas ADC channels and sensor types exist, and what thresholds or calibration states matter?
+    question: Which of the maximum four 4-20 mA motherboard ADC channels and reference-listed detector models are installed, and what units, ranges, calibration, validity, thresholds, alarm latching, and power feedback apply?
   - id: q.cameras
-    question: Which compute node and transport attach each camera, and what PTZ state and actions are observable?
+    question: Which camera variants are installed now, which Jetson ID hosts the standard panning inspection module, are the drive/front/rear paths still switched USB3 through the power injector, and what stream, FTDI, servo, PTZ, illumination, and power telemetry is observable?
+  - id: q.reference_applicability
+    question: Which hardware revision and current robot configuration does the 2023 electrical drawing describe, and which minimal, standard, optional, or special components are physically installed on the target robot?
+  - id: q.battery_monitoring
+    question: What are the BOTP thresholds and fault semantics, cell-voltage and temperature channel definitions, battery-capacity estimator quality, contactor state, and recovery behavior?
+  - id: q.power_measurement
+    question: What telemetry distinguishes the motherboard input gauge, pack voltage and current, charger power flow, and observed downstream power at each switched domain?
+  - id: q.induction_charger
+    question: What are the exact induction-charger identifiers, units, update rates, states, docking criteria, faults, stale limits, and CAN message contract?
+  - id: q.motor_and_mast_traffic
+    question: What exact rates qualify the documented low- and high-frequency motor traffic, and how are drive and optional zippermast commands, feedback, odometry, power, faults, and shared GPIO behavior separated?
   - id: q.chrony
     question: What are the chrony sources, server/client roles, offset limits, and unsynchronized-state criteria?
   - id: q.containers

@@ -2,7 +2,7 @@
 
 ## Reference identity and evidence quality
 
-- Source: `reference/fc14e236e4cfe20e2b420ba8f53d4a2f.jpg`.
+- Source: `reference/fc14a5c09e381f8e860a9259563daf9b.jpg`.
 - Type: direct energy dashboard concept.
 - Evidence: high for surface hierarchy, chart craft, and image integration; medium for full navigation and interaction.
 
@@ -148,4 +148,3 @@ truthful instrumentation, and scale—not applied effects.
 - **Anti-patterns/limitations:** too much inversion can fragment reading; large
   graphics may hide exact values; stark contrast can fatigue; every region must
   earn its span.
-

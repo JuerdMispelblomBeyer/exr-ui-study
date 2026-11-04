@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "figwright": {
+      "command": "/opt/homebrew/bin/figwright-mcp"
+    }
+  }
+}

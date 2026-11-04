@@ -2,7 +2,7 @@
 
 ## Reference identity and evidence quality
 
-- Source: `reference/presentation-only/pres-001__mobile-turbine-app__dark-editorial-presentation.jpg`.
+- Source: `reference/presentation-only/pres-001__editorial-mobile-turbine-app__device-mockups.jpg`.
 - Type: presentation/marketing composition, not a direct application screenshot.
 - Evidence: high for art direction and callout composition; low for desktop UI architecture and real interaction.
 
@@ -149,4 +149,3 @@ discipline, not the device-mockup staging.
 - **Anti-patterns/limitations:** not a direct UI reference; wastes operational
   space; tiny captions; dark-on-dark callouts; floating tiles can detach from
   causality if connectors are merely decorative.
-

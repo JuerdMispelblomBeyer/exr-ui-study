@@ -1,116 +1,101 @@
 ---
 name: exrobotics-figma-design
-description: Design, review, document, and maintain the ExRobotics Figma system for its internal engineering platform interface. Use for ExRobotics visual-direction work, reference-image synthesis, Figma foundations, variables, styles, components, desktop/mobile screens, platform-console UX, compute/subsystem/network/log interfaces, or changes that must preserve the project's reproducible design guidance.
+description: Design, review, document, and maintain the ExRobotics Figma system for its internal robot-platform engineering interface. Use for ExRobotics visual direction, Figma foundations/components/screens, or compute, subsystem, network, telemetry, log, and diagnostic UX that must preserve the project's product and design constraints.
 ---
 
 # ExRobotics Figma design
 
-## Start
+This skill supplies project truth. `exceptional-ui` orchestrates substantial
+design; FigWright builds; the specialist critic and reference analyst remain
+independent.
 
-1. Locate the `ExRobotics_Figma` project root.
-2. Read `AGENTS.md`.
-3. Read `docs/UX_ARCHITECTURE.md` for product, navigation, user-flow, screen,
-   or layout work.
-4. Read `docs/SAFETY_CONTROLS.md` for any safety-state, stop, reset, recovery,
-   or restart work. Treat it as provisional until safety-engineering review.
-5. Read `docs/DESIGN_GUIDELINES.md` and
-   `tokens/exrobotics-ui.tokens.json` completely.
-6. Read `docs/REFERENCE_ANALYSIS.md` only when evaluating or changing visual
-   direction.
-7. Read `docs/FIGMA_WORKFLOW.md` before any live Figma mutation.
-8. Read `references/project-map.md` for the current operational inventory, then
-   verify every ID through FigWright.
+## Cheap grounding
 
-## Product constraint
+1. Locate the project root and read `AGENTS.md` once.
+2. Load only task-relevant sources:
+   - product/flow/layout: `docs/UX_ARCHITECTURE.md`;
+   - platform facts: `docs/PLATFORM_SYSTEM_MODEL.md` and relevant
+     `data/platform-system.yaml` entries;
+   - functional scope: `docs/UI_FUNCTIONAL_REQUIREMENTS.md`;
+   - safety action/state: `docs/SAFETY_CONTROLS.md`;
+   - visual direction: `docs/DESIGN_GUIDELINES.md`; its section 18a carries the
+     working principles, 19a selection, 20a charts, 6.2a surface glow;
+   - exact reusable value: matching entry in
+     `tokens/exrobotics-ui.tokens.json`;
+   - Figma mutation: `docs/FIGMA_WORKFLOW.md` and
+     `references/project-map.md`.
+3. Put paths plus only decisive constraints into the compact design-run packet.
+   Do not paste or repeatedly reread whole documents. Reopen the exact section
+   only when a decision depends on it.
 
-Keep the interface focused on platform introspection: compute, memory,
-accelerators, storage, services, containers, subsystems, network, telemetry,
-logs, events, configuration, health, and diagnostics.
+## Product boundary
 
-Do not introduce fleet management, missions, routes, checkpoints, autonomy
-controls, dispatch, or operator tasking unless the user explicitly changes the
-scope.
+The interface introspects the robot platform: compute, accelerators, memory,
+storage, containers/services, CAN and other subsystems, network/uplink/VPN/time,
+telemetry, events, configuration, health, logs, and diagnostics.
 
-## Visual constraint
+Exclude fleet operations, missions, routes, checkpoints, autonomy, SLAM,
+navigation, dispatch, and operator tasking unless the user changes scope.
 
-Apply **Signal Instrumentation**:
+Safety stop, stall reset, power control, and recovery work must follow
+`docs/SAFETY_CONTROLS.md` and remain explicitly provisional where documented.
 
-- a visibly bounded, layered systems chassis rather than a generic webpage;
-- a 12-column mixed-span bento workbench with aligned edges and purposeful
-  module proportions;
-- primary tiles that behave as micro-instruments with meaningful traces,
-  topology, matrices, paths, or direct-manipulation stages;
-- warm-neutral light canvas and derived near-black dark expression;
-- ExRobotics yellow for action, selection, current datum, and attention;
-- Space Grotesk for hierarchy, Inter for interface copy, Roboto Mono for data;
-- large outer radii contrasted with exact inner diagrams;
-- a low-relief edge stack of hairline border, subtle inner contour, and
-  restrained elevation;
-- glass limited to navigation, overlays, and selected floating controls;
-- meaningful charts and topology views instead of decorative widgets.
+## Visual invariant
 
-Do not treat gradients, equal metric cards, or a conventional sidebar as
-evidence that the style has been applied. Run the eight-part reference-fidelity
-gate in `docs/DESIGN_GUIDELINES.md` before visual QA.
+Apply **Signal Instrumentation** as product logic, not decoration:
 
-Use the canonical project docs for detailed values. Do not restate or invent a
-parallel token system inside prompts or Figma nodes.
+- bounded layered systems chassis;
+- mixed-span diagnostic workbench rather than equal card grid;
+- topology, traces, paths, matrices, timelines, and direct evidence shaped by
+  real platform relationships;
+- ExRobotics yellow reserved for action, selection, current datum, and attention;
+- strong hierarchy, exact inner instruments, restrained atmospheric depth;
+- glass only for navigation, overlays, or selected floating controls;
+- realistic machine data and non-color status cues.
 
-## Figma workflow
+Canonical type, color, spacing, geometry, and motion values remain in project
+guidelines/tokens. Never restate a parallel token system in prompts or nodes.
 
-1. Use FigWright for all Figma reads and writes.
-2. Ping and confirm the routed file is
-   `EX Robotics — Visual Identity & UI Foundations`.
-3. Inspect variables, styles, local components, and the exact target subtree.
-4. Reuse existing tokens, styles, and instances.
-5. Add missing foundations before components; add components before screens.
-6. Make small sequential mutations and validate after each major section.
-7. Capture component and screen screenshots.
-8. Audit text for excluded product concepts and update project documentation
-   when a reusable rule changes.
+The dark expression has diverged from the brand neutral ramp: its surfaces are
+`primitives.graphite`, healthy is neutral, and only yellow, amber and red carry
+hue. See D032 and D034 before touching dark colour.
 
-Load the bundled Figma `figma-use`, `figma-generate-design`, or
-`figma-generate-library` skills when their trigger conditions apply, while
-continuing to use FigWright as this project's Figma MCP.
+## Workflow routing
 
-For new screens, substantial visual redesign, art direction, or visual-quality
-review, also load `../exceptional-ui/SKILL.md`. It governs direction,
-composition, reference translation, and the screenshot critique loop;
-FigWright/`figma-build` remains the execution layer.
+- Substantial new screen, redesign, art direction, or build-and-critique loop:
+  load `../exceptional-ui/SKILL.md`; it invokes the other layers.
+- Reference-analysis-only deliverable: load
+  `../design-reference-analysis/SKILL.md` directly.
+- Critique-only or readiness request: load `../visual-critique/SKILL.md`
+  directly.
+- Mechanical Figma change: follow `docs/FIGMA_WORKFLOW.md` and FigWright
+  `figma-build`; do not load the art-direction stack unless visual judgment is
+  material.
 
-For a critique-only request, scored visual review, or independent readiness
-decision, load `../visual-critique/SKILL.md`. It requires inspection of the
-rendered output and returns a strict evidence-based `PASS` or `ITERATE` verdict.
+## Figma efficiency
 
-For substantial reference analysis or synthesis across several references,
-load `../design-reference-analysis/SKILL.md` before establishing the visual
-direction. Its Markdown output is design intelligence, not permission to copy a
-source composition or brand system.
+Confirm the routed file once, then inspect variables/styles/components and the
+exact target subtree in batched reads. Reuse existing foundations and attached
+instances. Build small coherent sections, returning node IDs rather than full
+trees. Capture legible full frames and targeted dense-region crops; do not save
+tokens by lowering visual fidelity. Re-query only changed or failing regions.
 
-## Documentation workflow
+## Documentation
 
-- Put product model, IA, flows, layout intent, screen set, and UX plan in
-  `docs/UX_ARCHITECTURE.md`.
-- Put provisional safety-state and stop/recovery interaction requirements in
-  `docs/SAFETY_CONTROLS.md`; do not silently convert provisional decisions into
-  approved behavior.
-- Put visual rationale in `docs/REFERENCE_ANALYSIS.md`.
-- Put accepted rules in `docs/DESIGN_GUIDELINES.md`.
-- Put exact reusable values in `tokens/exrobotics-ui.tokens.json`.
-- Put material decisions and rationale in `docs/DECISION_LOG.md`.
-- Put agent operating changes in `AGENTS.md` and this skill.
+Update only the authoritative source affected by a reusable change:
 
-Keep each source focused and avoid duplicated guidance.
+- UX/product model → `docs/UX_ARCHITECTURE.md`;
+- safety behavior → `docs/SAFETY_CONTROLS.md`;
+- visual rule → `docs/DESIGN_GUIDELINES.md`;
+- exact value → `tokens/exrobotics-ui.tokens.json`;
+- durable rationale → `docs/DECISION_LOG.md`;
+- agent workflow → this skill or `AGENTS.md`.
 
-## Quality gate
+Do not duplicate unchanged rationale across them.
 
-Before completion, confirm:
+## Project completion checks
 
-- component attachment and token/style reuse;
-- readable contrast and non-color status cues;
-- 44 px minimum interactive targets;
-- no clipping, overflow, or placeholder copy;
-- correct font roles for human and machine data;
-- light/dark semantic consistency;
-- screenshots for every materially changed view;
-- documentation updated for new reusable decisions.
+Confirm scope, realistic content/states, component/token reuse, readable
+contrast and non-color cues, 44 px targets where applicable, no clipping or
+placeholder copy, correct human/machine type roles, legible screenshots for
+every changed view, and documentation only where reusable decisions changed.

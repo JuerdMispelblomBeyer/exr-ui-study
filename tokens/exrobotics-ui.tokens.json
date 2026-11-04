@@ -40,6 +40,35 @@
     "red": {
       "100": "#FCE4E2",
       "600": "#B93A36"
+    },
+    "orangeDark": {
+      "field": "#3A2415",
+      "mark": "#A05B23",
+      "strong": "#FF8A3D"
+    },
+    "redDark": {
+      "field": "#3A1B21",
+      "mark": "#A83A48",
+      "strong": "#FF5765"
+    },
+    "graphite": {
+      "canvasFloor": "#0F1113",
+      "canvas": "#121416",
+      "inset": "#16181B",
+      "plane": "#171A1D",
+      "planeTop": "#1B1F23",
+      "control": "#262A2E",
+      "border": "#292D31",
+      "lens": "#252A2F",
+      "lensFloor": "#1D2125",
+      "lensEdge": "#353B41"
+    },
+    "coolText": {
+      "primary": "#F8F9F7",
+      "secondary": "#CBD1D6",
+      "muted": "#8B939B",
+      "faint": "#6D757D",
+      "dim": "#555D65"
     }
   },
   "themes": {
@@ -61,21 +90,21 @@
       "border.focus": "{primitives.yellow.600}"
     },
     "dark": {
-      "status": "proposed-paired-collection",
-      "bg.canvas": "{primitives.neutral.950}",
-      "bg.surface": "{primitives.neutral.900}",
-      "bg.subtle": "{primitives.neutral.800}",
-      "bg.elevated": "{primitives.neutral.800}",
-      "bg.inverse": "{primitives.neutral.25}",
+      "status": "adopted graphite/iron; see D034 and D038",
+      "bg.canvas": "{primitives.graphite.canvas}",
+      "bg.surface": "{primitives.graphite.plane}",
+      "bg.subtle": "{primitives.graphite.inset}",
+      "bg.elevated": "{primitives.graphite.lens}",
+      "bg.inverse": "{primitives.coolText.primary}",
       "bg.accent": "{primitives.yellow.500}",
-      "bg.selected": "{primitives.yellow.700}",
-      "text.primary": "{primitives.neutral.25}",
-      "text.secondary": "{primitives.neutral.200}",
-      "text.muted": "{primitives.neutral.400}",
-      "text.inverse": "{primitives.neutral.950}",
+      "bg.selected": "rgba(245,196,0,0.07)",
+      "text.primary": "{primitives.coolText.primary}",
+      "text.secondary": "{primitives.coolText.secondary}",
+      "text.muted": "{primitives.coolText.muted}",
+      "text.inverse": "{primitives.graphite.canvas}",
       "text.onAccent": "{primitives.neutral.950}",
-      "border.default": "{primitives.neutral.700}",
-      "border.strong": "{primitives.neutral.400}",
+      "border.default": "{primitives.graphite.border}",
+      "border.strong": "{primitives.graphite.lensEdge}",
       "border.focus": "{primitives.yellow.500}"
     }
   },
@@ -90,12 +119,40 @@
     "danger.foreground": "{primitives.red.600}"
   },
   "gradients": {
-    "atmosphere": ["#F8F9F7", "#FFFFFF", "rgba(227,238,255,0.72)"],
-    "signal": ["#FFF0A3", "#FFF8D6", "#FFFFFF"],
-    "compute": ["#E3EEFF", "#F6FAFF", "#FFFFFF"],
-    "healthy": ["#DDF6E9", "#F5FCF8", "#FFFFFF"]
+    "atmosphere": [
+      "#F8F9F7",
+      "#FFFFFF",
+      "rgba(227,238,255,0.72)"
+    ],
+    "signal": [
+      "#FFF0A3",
+      "#FFF8D6",
+      "#FFFFFF"
+    ],
+    "compute": [
+      "#E3EEFF",
+      "#F6FAFF",
+      "#FFFFFF"
+    ],
+    "healthy": [
+      "#DDF6E9",
+      "#F5FCF8",
+      "#FFFFFF"
+    ]
   },
-  "spacing": [0, 4, 8, 12, 16, 20, 24, 32, 40, 48, 64],
+  "spacing": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    32,
+    40,
+    48,
+    64
+  ],
   "layout": {
     "desktop.viewport": 1440,
     "desktop.viewportInset.min": 24,
@@ -146,5 +203,121 @@
     "display": "Space Grotesk",
     "interface": "Inter",
     "data": "Roboto Mono"
+  },
+  "statusDark": {
+    "status": "iron — adopted 2026-08-23; see D032 and D034",
+    "healthy.field": "#242A2E",
+    "healthy.mark": "#757E88",
+    "healthy.foreground": "#CBD1D6",
+    "warning.field": "rgba(255,138,61,0.12)",
+    "warning.cell": "#A05B23",
+    "warning.foreground": "#FF8A3D",
+    "danger.field": "rgba(255,87,101,0.12)",
+    "danger.cell": "#A83A48",
+    "danger.foreground": "#FF5765",
+    "unknown.border": "#555D65",
+    "unknown.foreground": "#8B939B",
+    "note": "Warm progression: signal 48°, caution 24°, critical 355°. All three fully saturated so they separate by hue rather than by lightness. Healthy stays neutral."
+  },
+  "surfaceDark": {
+    "status": "industrial evidence atlas — refined 2026-08-24; see D038",
+    "tint": "hue 210°, saturation 18 % — a cold neutral, not a colour",
+    "canvas": "#121416",
+    "canvas.atmosphere": "one optional radial wash, #24292E at 0.34 -> transparent; page-level only",
+    "plane.background": "#171A1D",
+    "plane.border": "#292D31",
+    "plane.radius": "8–10 px for persistent evidence fields",
+    "plane.innerLight": "none by default; optional 1 px white at 0.065 only on raised ownership",
+    "plane.shadow": "none",
+    "inset.background": "#16181B",
+    "inset.gridline": "#212429",
+    "chart.gridline": "#272B2F",
+    "divider.hairline": "#24272B",
+    "divider.strong": "#2E3236",
+    "lens.gradient": "linear-gradient(180deg, #252A2F 0%, #1D2125 100%)",
+    "lens.border": "#353B41",
+    "lens.leadingEdge": "#F5C400 3 px on the ownership edge",
+    "lens.innerLight": "inset 0 1px 0 rgba(255,255,255,0.085)",
+    "lens.innerGlow": "inset 0 10px 26px rgba(255,255,255,0.05)",
+    "lens.innerFloor": "inset 0 -8px 22px rgba(0,0,0,0.20)",
+    "lens.shadow": "0 18px 44px -14px rgba(0,0,0,0.6)",
+    "control.background": "#262A2E",
+    "control.border": "#3A3F44",
+    "field.background": "#16181B",
+    "field.border": "#303439",
+    "hero.background": "#171A1D — dominance comes from scale and evidence, not a brighter card",
+    "glow.neutral": "exception only; never repeated per persistent module",
+    "glow.signal": "optional radial #F5C400 0.10 → 0 on a selected lens or manipulation target"
+  },
+  "selectionDark": {
+    "status": "refined 2026-08-24; see D038 and guideline 19a",
+    "border": "#F5C400 1 px",
+    "field": "rgba(245,196,0,0.07) — 0.05 on a large region",
+    "glow": "optional radial #F5C400 0.10 → 0; selection does not require glow",
+    "glyph": "#F5C400",
+    "label": "#F8F9F7 — the label never turns yellow",
+    "solidFill": "reserved for the single primary action in a region",
+    "path.core.width": 2,
+    "path.halo.width": 8,
+    "path.halo.opacity": 0.12,
+    "path.bendDot.radius": "3–4 px",
+    "note": "Selection is normally an outline or leading edge plus a tint; a falloff is exceptional. Never use a filled yellow block."
+  },
+  "typographyDark": {
+    "status": "adopted 2026-08-23; see D035 and guideline 8a",
+    "families.identity": "Space Grotesk — sheet title, module title, object names in diagrams",
+    "families.language": "Inter — explanations, captions, meta, notes, labels, column headers",
+    "families.machine": "Roboto Mono — values, units, identifiers, hostnames, paths, timestamps, hex",
+    "display": "Space Grotesk Medium 46/52, tracking -2%",
+    "title": "Space Grotesk Medium 22/28, tracking -1%",
+    "object": "Space Grotesk Regular 15/20, tracking -0.5%",
+    "eyebrow": "Inter Regular 10/12 UPPER, tracking +13%",
+    "body": "Inter Regular 13/20",
+    "caption": "Inter Regular 12/16",
+    "micro": "Inter Regular 11/14, tracking +2%",
+    "data-xl": "Roboto Mono Medium 34/40, tracking -2%",
+    "data": "Roboto Mono Regular 12/18",
+    "data-s": "Roboto Mono Regular 10/14, tracking +2%",
+    "specimen.display": "Space Grotesk Regular 64/72, tracking -1.8 px — editorial documentation only",
+    "specimen.orientation": "Space Grotesk Regular 30/38, tracking -0.5 px — editorial documentation only",
+    "rule.tracking": "negative above 20 px, zero from 11 to 20, positive below 11",
+    "rule.mono": "mono only for strings containing a measured value, identifier or timestamp — prose is never mono",
+    "rule.count": "one display per sheet, one title per module, one data-xl per module"
+  },
+  "spatialModelsDark": {
+    "status": "approved and visually refined 2026-08-24; see D036, D038 and guideline 11.3a",
+    "approved": [
+      "busSchematic",
+      "hexCellCluster"
+    ],
+    "specimen.width": 760,
+    "specimen.height": 440,
+    "specimen.radius": 8,
+    "node.radius": "3–4 px",
+    "node.fill": "#1B1F23",
+    "node.border": "#30363C 1 px",
+    "bus.rail.width": 3,
+    "bus.connectorDot.radius": "3–4 px at meaningful selected bends; omit decorative dots",
+    "selectedPath.halo.width": 8,
+    "selectedPath.halo.opacity": 0.12,
+    "selectedPath.core.width": 2,
+    "selectedPath.bendDot.radius": "3–4 px",
+    "label.clearance": "at least 10 px optical separation from rails and paths",
+    "rule.bus": "orthogonal literal wiring; scan left to right within each bus; depth by row",
+    "rule.hex": "tessellated composition plus fan-out; adjacency is packing; drawn edges are authoritative"
+  },
+  "instrumentDark": {
+    "status": "refined 2026-08-24; see D038 and guideline 10a",
+    "anatomy": "title + right caption / eyebrow / data-xl + unit + optional status annotation / stage / source caption",
+    "pill.height": 26,
+    "pill.radius": 13,
+    "pill.neutral": "plate gradient #262B31 -> #1A1E22, border #2A2F35, label #CBD1D6",
+    "pill.state": "exception for removable or switchable tokens; persistent status uses glyph + label + evidence",
+    "control.radius": "5–8 px; full pill only for a token",
+    "bar.fill": "matte #8B939B neutral or #FF8A3D caution; subtle vertical value shift optional",
+    "bar.highlight": "optional 1 px white at <= 0.08 when track/measure separation needs it",
+    "bar.track": "#242A2E matte groove",
+    "cell.radius": 3,
+    "cell.fill": "gradient; healthy #2E343A -> #23282D, caution #B4682A -> #8E4F1D, fault #B84252 -> #93313F"
   }
 }

@@ -1,0 +1,421 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1760" height="3200" viewBox="0 0 1760 3200">
+  <defs>
+    <radialGradient id="atmosphere" cx="72%" cy="18%" r="78%">
+      <stop offset="0" stop-color="#24292E" stop-opacity="0.34"/>
+      <stop offset="0.52" stop-color="#171A1D" stop-opacity="0.10"/>
+      <stop offset="1" stop-color="#121416" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="lens" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#252A2F"/>
+      <stop offset="1" stop-color="#1D2125"/>
+    </linearGradient>
+    <pattern id="hatch" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="9" stroke="#CBD1D6" stroke-opacity="0.13" stroke-width="1"/>
+    </pattern>
+    <clipPath id="traceClip">
+      <path d="M144 2073 C205 2048 254 2078 314 2049 C374 2020 418 2063 480 2035 C545 2006 592 2048 654 2021 C714 1995 756 2028 810 2003 L810 2134 L144 2134 Z"/>
+    </clipPath>
+    <style>
+      .display{font-family:'Space Grotesk';font-size:64px;letter-spacing:-1.8px;fill:#F8F9F7}
+      .orientation{font-family:'Space Grotesk';font-size:30px;letter-spacing:-.5px;fill:#F8F9F7}
+      .title{font-family:'Space Grotesk';font-size:22px;letter-spacing:-.25px;fill:#F8F9F7}
+      .section{font-family:'Space Grotesk';font-size:18px;letter-spacing:-.1px;fill:#F8F9F7}
+      .object{font-family:'Space Grotesk';font-size:15px;fill:#F8F9F7}
+      .body{font-family:'Inter';font-size:13px;fill:#CBD1D6}
+      .caption{font-family:'Inter';font-size:11px;fill:#8B939B}
+      .micro{font-family:'Inter';font-size:10px;letter-spacing:1.2px;fill:#6D757D}
+      .microbright{font-family:'Inter';font-size:10px;letter-spacing:1px;fill:#CBD1D6}
+      .monoXL{font-family:'Roboto Mono';font-size:34px;letter-spacing:-1px;fill:#F8F9F7}
+      .mono{font-family:'Roboto Mono';font-size:11px;fill:#CBD1D6}
+      .monoDim{font-family:'Roboto Mono';font-size:10px;fill:#8B939B}
+      .monoYellow{font-family:'Roboto Mono';font-size:11px;fill:#F5C400}
+      .monoAmber{font-family:'Roboto Mono';font-size:11px;fill:#FF8A3D}
+      .amber{fill:#FF8A3D}
+      .yellow{fill:#F5C400}
+      .rule{stroke:#292D31;stroke-width:1}
+      .ruleSoft{stroke:#292D31;stroke-width:1;stroke-opacity:.58}
+      .grid{stroke:#272B2F;stroke-width:1}
+      .bus{stroke:#555E67;stroke-width:3;fill:none}
+      .link{stroke:#464E56;stroke-width:1.4;fill:none}
+      .selected{stroke:#F5C400;stroke-width:2;fill:none}
+      .selectedSoft{stroke:#F5C400;stroke-opacity:.12;stroke-width:8;fill:none}
+      .node{fill:#1B1F23;stroke:#30363C;stroke-width:1}
+      .nodeFault{fill:#211D1B;stroke:#FF8A3D;stroke-width:1.2}
+    </style>
+  </defs>
+
+  <!-- Canvas and nameplate -->
+  <rect width="1760" height="3200" fill="#121416"/>
+  <rect width="1760" height="1160" fill="url(#atmosphere)"/>
+  <g id="Nameplate">
+    <path d="M72 72h8M72 72v8M94 72h-8M94 72v8M72 94h8M72 94v-8M94 94h-8M94 94v-8" stroke="#F5C400" stroke-width="2" fill="none"/>
+    <text x="110" y="88" class="object">EXROBOTICS</text>
+    <text x="286" y="86" class="micro">PLATFORM INTROSPECTION / VISUAL SYSTEM 04</text>
+    <text x="72" y="172" class="display">Signal Instrumentation</text>
+    <text x="74" y="210" class="body">An industrial evidence atlas for platform introspection.</text>
+    <text x="1400" y="82" class="micro">EXPRESSION</text>
+    <text x="1688" y="82" class="caption" text-anchor="end">graphite · iron</text>
+    <text x="1400" y="108" class="micro">CURRENT SIGNAL</text>
+    <text x="1688" y="108" class="monoYellow" text-anchor="end">#F5C400</text>
+    <text x="1400" y="134" class="micro">ISSUED</text>
+    <text x="1688" y="134" class="monoDim" text-anchor="end">2026-08-24<tspan class="caption"> · illustrative</tspan></text>
+    <line x1="72" y1="260" x2="1688" y2="260" class="rule"/>
+    <line x1="72" y1="260" x2="220" y2="260" stroke="#F5C400" stroke-width="2"/>
+  </g>
+
+  <!-- Dominant platform evidence field -->
+  <g id="Platform evidence field">
+    <text x="72" y="314" class="micro">01 / DOMINANT RELATIONSHIP</text>
+    <text x="72" y="356" class="orientation">Platform field / current degradation</text>
+    <text x="1688" y="348" class="caption" text-anchor="end">Locate → verify path → inspect evidence</text>
+    <rect x="72" y="386" width="1616" height="774" rx="10" fill="#171A1D" stroke="#292D31"/>
+
+    <text x="104" y="424" class="micro">LIVE PLATFORM / EXR-04</text>
+    <text x="1656" y="424" class="monoDim" text-anchor="end">can0 · 0x2C1 · chrony ±0.4 ms</text>
+    <line x1="1208" y1="446" x2="1208" y2="1010" class="rule"/>
+    <line x1="104" y1="1010" x2="1656" y2="1010" class="rule"/>
+
+    <!-- Topology stage -->
+    <text x="104" y="468" class="micro">OUTSIDE THE PLATFORM</text>
+    <text x="214" y="500" class="caption">fleet-manager</text>
+    <text x="410" y="500" class="caption">tailscale</text>
+    <text x="574" y="500" class="caption">wi-fi</text>
+    <text x="714" y="500" class="caption">cellular</text>
+    <line x1="184" y1="512" x2="820" y2="512" class="ruleSoft" stroke-dasharray="4 5"/>
+    <line x1="630" y1="512" x2="630" y2="552" class="link"/>
+    <rect x="534" y="552" width="192" height="42" rx="3" class="node"/>
+    <text x="630" y="578" class="caption" text-anchor="middle">uplink · vrrp master</text>
+
+    <text x="126" y="636" class="monoDim">onboard LAN · 1 GbE</text>
+    <line x1="124" y1="652" x2="1118" y2="652" class="bus"/>
+    <line x1="630" y1="594" x2="630" y2="652" class="link"/>
+    <line x1="296" y1="652" x2="296" y2="694" class="link"/>
+    <line x1="594" y1="652" x2="594" y2="694" class="link"/>
+    <line x1="892" y1="652" x2="892" y2="694" class="link"/>
+
+    <rect x="208" y="694" width="176" height="62" rx="4" class="node"/>
+    <text x="226" y="720" class="object">intel</text>
+    <text x="226" y="742" class="monoDim">cpu 62.4 % · 6 ctr</text>
+    <rect x="506" y="694" width="176" height="62" rx="4" class="node"/>
+    <text x="524" y="720" class="object">jetson-1</text>
+    <text x="524" y="742" class="monoDim">cpu 41.8 % · 3 ctr</text>
+    <rect x="804" y="694" width="176" height="62" rx="4" class="nodeFault"/>
+    <text x="822" y="720" class="object">jetson-2</text>
+    <text x="822" y="742" class="monoAmber">cpu 88.6 % · 4 ctr</text>
+    <path d="M950 710l7 12h-14z" fill="none" stroke="#FF8A3D" stroke-width="1.4"/>
+
+    <text x="126" y="800" class="monoDim">can0 · 500 kbit/s · intel-attached</text>
+    <line x1="124" y1="820" x2="1118" y2="820" class="bus"/>
+    <line x1="296" y1="756" x2="296" y2="820" class="link"/>
+    <line x1="594" y1="756" x2="594" y2="820" class="link"/>
+    <line x1="892" y1="756" x2="892" y2="820" class="link"/>
+
+    <path d="M296 756V820H610V902H1060V820" class="selectedSoft"/>
+    <path d="M296 756V820H610V902H1060V820" class="selected"/>
+    <circle cx="296" cy="820" r="4" class="yellow"/>
+    <circle cx="610" cy="820" r="4" class="yellow"/>
+    <circle cx="610" cy="902" r="4" class="yellow"/>
+    <circle cx="1060" cy="902" r="4" class="yellow"/>
+
+    <line x1="242" y1="820" x2="242" y2="866" class="link"/>
+    <line x1="418" y1="820" x2="418" y2="866" class="link"/>
+    <line x1="610" y1="820" x2="610" y2="866" class="selected"/>
+    <line x1="800" y1="820" x2="800" y2="866" class="link"/>
+    <line x1="980" y1="820" x2="980" y2="866" class="link"/>
+    <text x="242" y="886" class="caption" text-anchor="middle">charging</text>
+    <text x="418" y="886" class="caption" text-anchor="middle">battery</text>
+    <line x1="552" y1="866" x2="668" y2="866" stroke="#F5C400" stroke-width="1.4"/>
+    <text x="610" y="886" class="object" text-anchor="middle">motor-drive</text>
+    <text x="800" y="886" class="caption" text-anchor="middle">power gpio ×8</text>
+    <text x="980" y="886" class="caption" text-anchor="middle">gas adc ×2</text>
+    <text x="126" y="958" class="caption">physical bus</text>
+    <line x1="104" y1="954" x2="118" y2="954" class="bus"/>
+    <text x="286" y="958" class="caption">selected path</text>
+    <line x1="252" y1="954" x2="274" y2="954" class="selected"/>
+
+    <!-- Attached diagnostic ledger -->
+    <rect x="1236" y="458" width="420" height="520" rx="6" fill="url(#lens)" stroke="#353B41"/>
+    <line x1="1236" y1="458" x2="1236" y2="978" stroke="#F5C400" stroke-width="3"/>
+    <text x="1268" y="500" class="micro">SELECTED OBJECT</text>
+    <text x="1268" y="542" class="title">motor-drive</text>
+    <path d="M1270 560l7 12h-14z" fill="none" stroke="#FF8A3D" stroke-width="1.5"/>
+    <text x="1288" y="571" class="body" fill="#FF8A3D">Degraded</text>
+    <text x="1624" y="570" class="monoDim" text-anchor="end">0x2C1</text>
+    <line x1="1268" y1="602" x2="1624" y2="602" class="rule"/>
+    <text x="1268" y="638" class="body">Observed message rate fell to 42 Hz against an expected</text>
+    <text x="1268" y="660" class="body">50 Hz and remained below rate for four minutes.</text>
+    <text x="1268" y="716" class="caption">observed rate</text>
+    <text x="1624" y="716" class="monoAmber" text-anchor="end">42 / 50 Hz</text>
+    <text x="1268" y="746" class="caption">last message</text>
+    <text x="1624" y="746" class="mono" text-anchor="end">0.8 s ago</text>
+    <text x="1268" y="776" class="caption">bus load · can0</text>
+    <text x="1624" y="776" class="mono" text-anchor="end">31 %</text>
+    <text x="1268" y="830" class="micro">NEXT ACTION</text>
+    <rect x="1268" y="850" width="212" height="46" rx="5" fill="#262A2E" stroke="#3A3F44"/>
+    <rect x="1268" y="850" width="3" height="46" fill="#F5C400"/>
+    <text x="1290" y="879" class="body">Open CAN evidence</text>
+    <text x="1504" y="879" class="caption">Mute 15 min</text>
+    <line x1="1504" y1="890" x2="1584" y2="890" class="rule"/>
+    <text x="1268" y="940" class="monoDim">src can0 · threshold 50 Hz · state observed</text>
+
+    <!-- Shared time datum within hero -->
+    <text x="104" y="1044" class="micro">SHARED TIME DATUM</text>
+    <text x="1656" y="1044" class="monoDim" text-anchor="end">window 20 min · 14:08:04</text>
+    <line x1="132" y1="1080" x2="1624" y2="1080" class="grid"/>
+    <circle cx="438" cy="1080" r="4" fill="#171A1D" stroke="#8B939B"/>
+    <text x="438" y="1108" class="caption" text-anchor="middle">container restart</text>
+    <circle cx="818" cy="1080" r="4" fill="#171A1D" stroke="#8B939B"/>
+    <text x="818" y="1108" class="caption" text-anchor="middle">config change</text>
+    <line x1="1450" y1="1058" x2="1450" y2="1114" stroke="#F5C400" stroke-dasharray="3 3"/>
+    <circle cx="1450" cy="1080" r="4" class="yellow"/>
+    <text x="1450" y="1108" class="caption" text-anchor="middle" fill="#F5C400">rate below expected</text>
+  </g>
+
+  <!-- Foundation ledger: type, state, material, controls -->
+  <g id="Foundation ledger">
+    <text x="72" y="1226" class="micro">02 / FOUNDATION LEDGER</text>
+    <text x="72" y="1268" class="orientation">Language, signal, state, control</text>
+    <text x="1688" y="1262" class="caption" text-anchor="end">Specifications recede; canonical behavior stays visible.</text>
+    <line x1="72" y1="1300" x2="1688" y2="1300" class="rule"/>
+    <line x1="760" y1="1330" x2="760" y2="1730" class="rule"/>
+    <line x1="1180" y1="1330" x2="1180" y2="1730" class="rule"/>
+
+    <!-- Type and colour -->
+    <text x="72" y="1348" class="micro">TYPE / CONTENT CLASS</text>
+    <text x="72" y="1400" class="orientation" font-size="38">Platform Inspect</text>
+    <text x="72" y="1440" class="title">CAN subsystem</text>
+    <text x="72" y="1480" class="body">Message availability held at 100 % across every monitored identifier.</text>
+    <text x="72" y="1510" class="caption">Filter · Window 15 min · Source can0</text>
+    <text x="72" y="1572" class="monoXL">41.8<tspan font-size="13"> %</tspan></text>
+    <text x="72" y="1608" class="mono">1 284 MB/s  −0.42 ms  0x2C1</text>
+    <text x="72" y="1634" class="monoDim">src can0 · thr 85 % · 2026-08-24T14:07:31Z</text>
+    <text x="530" y="1400" class="caption">Space Grotesk names</text>
+    <text x="530" y="1480" class="caption">Inter explains</text>
+    <text x="530" y="1572" class="caption">Roboto Mono measures</text>
+    <text x="72" y="1682" class="micro">GRAPHITE / SIGNAL</text>
+    <rect x="72" y="1700" width="92" height="16" fill="#0F1113"/>
+    <rect x="164" y="1700" width="92" height="16" fill="#121416"/>
+    <rect x="256" y="1700" width="92" height="16" fill="#16181B"/>
+    <rect x="348" y="1700" width="92" height="16" fill="#1A1D20"/>
+    <rect x="440" y="1700" width="92" height="16" fill="#1F2225"/>
+    <rect x="532" y="1700" width="92" height="16" fill="#292D31"/>
+    <rect x="624" y="1700" width="92" height="16" fill="#3A3F44"/>
+    <line x1="72" y1="1728" x2="716" y2="1728" stroke="#F5C400" stroke-width="3"/>
+    <line x1="72" y1="1728" x2="430" y2="1728" stroke="#FFDA4D" stroke-width="3"/>
+
+    <!-- State and material -->
+    <text x="792" y="1348" class="micro">STATE / MATERIAL OWNERSHIP</text>
+    <path d="M796 1380l4 4 8-10" stroke="#CBD1D6" stroke-width="1.5" fill="none"/>
+    <text x="824" y="1386" class="body">Verified healthy</text>
+    <line x1="1030" y1="1382" x2="1136" y2="1382" stroke="#545D66" stroke-width="4"/>
+    <path d="M801 1418l7 12h-14z" fill="none" stroke="#FF8A3D" stroke-width="1.4"/>
+    <text x="824" y="1428" class="body">Caution · degraded</text>
+    <line x1="1030" y1="1424" x2="1136" y2="1424" stroke="#FF8A3D" stroke-width="4"/>
+    <rect x="795" y="1454" width="13" height="13" rx="2" fill="none" stroke="#FF5765"/>
+    <path d="M798 1457l7 7M805 1457l-7 7" stroke="#FF5765"/>
+    <text x="824" y="1466" class="body">Critical · fault</text>
+    <line x1="1030" y1="1462" x2="1136" y2="1462" stroke="#FF5765" stroke-width="4"/>
+    <circle cx="802" cy="1504" r="7" fill="none" stroke="#F5C400"/>
+    <circle cx="802" cy="1504" r="2.5" class="yellow"/>
+    <text x="824" y="1509" class="body">Selected · current</text>
+    <line x1="1030" y1="1505" x2="1136" y2="1505" stroke="#F5C400" stroke-width="4"/>
+    <line x1="792" y1="1540" x2="1148" y2="1540" class="rule"/>
+    <text x="792" y="1574" class="caption">Persistent work surface</text>
+    <rect x="792" y="1590" width="356" height="106" rx="6" fill="#171A1D" stroke="#292D31"/>
+    <rect x="816" y="1614" width="216" height="58" rx="3" fill="#121416"/>
+    <polyline points="830,1652 866,1637 902,1644 940,1623 1018,1642" fill="none" stroke="#CBD1D6" stroke-width="1.5"/>
+    <rect x="978" y="1598" width="150" height="66" rx="5" fill="url(#lens)" stroke="#3A3F44"/>
+    <line x1="978" y1="1598" x2="978" y2="1664" stroke="#F5C400" stroke-width="2"/>
+    <text x="998" y="1626" class="object">motor-drive</text>
+    <text x="998" y="1648" class="monoAmber">42 / 50 Hz</text>
+    <text x="792" y="1726" class="caption">Matte persists. Only the selected lens owns depth.</text>
+
+    <!-- Controls -->
+    <text x="1212" y="1348" class="micro">CONTROL / CANONICAL STATES</text>
+    <text x="1212" y="1386" class="caption">Primary action</text>
+    <rect x="1212" y="1400" width="180" height="42" rx="5" fill="#262A2E" stroke="#3A3F44"/>
+    <rect x="1212" y="1400" width="3" height="42" fill="#F5C400"/>
+    <text x="1232" y="1426" class="body">Run diagnostic</text>
+    <text x="1212" y="1480" class="caption">Input and selection</text>
+    <rect x="1212" y="1494" width="404" height="40" rx="5" fill="#101316" stroke="#30363C"/>
+    <text x="1230" y="1519" class="mono">jetson-1</text>
+    <line x1="1230" y1="1534" x2="1326" y2="1534" stroke="#F5C400"/>
+    <text x="1594" y="1519" class="caption" text-anchor="end">×</text>
+    <text x="1212" y="1572" class="caption">Navigation</text>
+    <text x="1212" y="1604" class="body">Overview</text>
+    <text x="1308" y="1604" class="caption">Containers</text>
+    <text x="1416" y="1604" class="caption">Timing</text>
+    <line x1="1212" y1="1616" x2="1280" y2="1616" stroke="#F5C400" stroke-width="2"/>
+    <line x1="1212" y1="1616" x2="1616" y2="1616" class="rule"/>
+    <text x="1212" y="1654" class="caption">Status and token</text>
+    <path d="M1216 1680l4 4 8-10" stroke="#CBD1D6" stroke-width="1.4" fill="none"/>
+    <text x="1240" y="1685" class="body">Healthy</text>
+    <path d="M1352 1674l7 12h-14z" fill="none" stroke="#FF8A3D" stroke-width="1.3"/>
+    <text x="1374" y="1685" class="body">Degraded</text>
+    <rect x="1482" y="1666" width="78" height="28" rx="14" fill="#171A1D" stroke="#A57E00"/>
+    <text x="1521" y="1684" class="monoYellow" text-anchor="middle">can0 ×</text>
+    <text x="1212" y="1726" class="caption">Pills are reserved for removable tokens.</text>
+  </g>
+
+  <!-- Evidence instruments -->
+  <g id="Evidence instruments">
+    <text x="72" y="1806" class="micro">03 / EVIDENCE INSTRUMENTS</text>
+    <text x="72" y="1848" class="orientation">Unequal spans follow diagnostic purpose</text>
+    <text x="1688" y="1842" class="caption" text-anchor="end">Trace leads. Matrix verifies. Host lanes compare.</text>
+    <rect x="72" y="1882" width="1616" height="374" rx="8" fill="#171A1D" stroke="#292D31"/>
+    <line x1="840" y1="1912" x2="840" y2="2226" class="rule"/>
+    <line x1="1320" y1="1912" x2="1320" y2="2226" class="rule"/>
+
+    <!-- Trace -->
+    <text x="104" y="1928" class="title">CPU load · jetson-1</text>
+    <text x="808" y="1928" class="caption" text-anchor="end">15 min window · 1 s sampling</text>
+    <text x="104" y="1962" class="micro">CURRENT LOAD</text>
+    <text x="104" y="2004" class="monoXL">41.8<tspan font-size="13"> %</tspan></text>
+    <text x="808" y="1996" class="caption" text-anchor="end">caution threshold at 85 %</text>
+    <line x1="144" y1="2054" x2="810" y2="2054" class="grid"/>
+    <line x1="144" y1="2094" x2="810" y2="2094" class="grid"/>
+    <line x1="144" y1="2134" x2="810" y2="2134" class="grid"/>
+    <g clip-path="url(#traceClip)"><rect x="144" y="1990" width="666" height="144" fill="url(#hatch)"/></g>
+    <path d="M144 2073 C205 2048 254 2078 314 2049 C374 2020 418 2063 480 2035 C545 2006 592 2048 654 2021 C714 1995 756 2028 810 2003" fill="none" stroke="#F8F9F7" stroke-width="2"/>
+    <line x1="694" y1="1988" x2="694" y2="2140" stroke="#F5C400" stroke-dasharray="4 4"/>
+    <circle cx="694" cy="2017" r="4" class="yellow"/>
+    <text x="104" y="2194" class="monoDim">14:00</text>
+    <text x="477" y="2194" class="monoDim" text-anchor="middle">14:05</text>
+    <text x="808" y="2194" class="monoDim" text-anchor="end">now</text>
+    <text x="104" y="2228" class="caption">Source /proc/stat · updated 2 s ago</text>
+
+    <!-- CAN matrix -->
+    <text x="872" y="1928" class="title">CAN identifiers</text>
+    <text x="1288" y="1928" class="caption" text-anchor="end">can0 · 10 min</text>
+    <text x="872" y="1962" class="micro">LOWEST OBSERVED RATE</text>
+    <text x="872" y="2004" class="monoXL" fill="#FF8A3D">42<tspan font-size="13"> Hz</tspan></text>
+    <text x="1288" y="1996" class="caption" text-anchor="end">expected 50 Hz</text>
+    <g fill="#262C31">
+      <rect x="936" y="2030" width="30" height="18" rx="2"/><rect x="970" y="2030" width="30" height="18" rx="2"/><rect x="1004" y="2030" width="30" height="18" rx="2"/><rect x="1038" y="2030" width="30" height="18" rx="2"/><rect x="1072" y="2030" width="30" height="18" rx="2"/><rect x="1106" y="2030" width="30" height="18" rx="2"/><rect x="1140" y="2030" width="30" height="18" rx="2"/><rect x="1174" y="2030" width="30" height="18" rx="2"/><rect x="1208" y="2030" width="30" height="18" rx="2"/><rect x="1242" y="2030" width="30" height="18" rx="2"/>
+      <rect x="936" y="2054" width="30" height="18" rx="2"/><rect x="970" y="2054" width="30" height="18" rx="2"/><rect x="1004" y="2054" width="30" height="18" rx="2"/><rect x="1038" y="2054" width="30" height="18" rx="2"/><rect x="1072" y="2054" width="30" height="18" rx="2"/><rect x="1106" y="2054" width="30" height="18" rx="2"/><rect x="1140" y="2054" width="30" height="18" rx="2"/><rect x="1174" y="2054" width="30" height="18" rx="2"/><rect x="1208" y="2054" width="30" height="18" rx="2"/><rect x="1242" y="2054" width="30" height="18" rx="2"/>
+      <rect x="936" y="2078" width="30" height="18" rx="2"/><rect x="970" y="2078" width="30" height="18" rx="2"/><rect x="1004" y="2078" width="30" height="18" rx="2"/><rect x="1038" y="2078" width="30" height="18" rx="2"/><rect x="1072" y="2078" width="30" height="18" rx="2"/><rect x="1106" y="2078" width="30" height="18" rx="2"/><rect x="1140" y="2078" width="30" height="18" rx="2"/><rect x="1174" y="2078" width="30" height="18" rx="2"/><rect x="1208" y="2078" width="30" height="18" rx="2"/><rect x="1242" y="2078" width="30" height="18" rx="2"/>
+      <rect x="936" y="2102" width="30" height="18" rx="2"/><rect x="970" y="2102" width="30" height="18" rx="2"/><rect x="1004" y="2102" width="30" height="18" rx="2"/><rect x="1038" y="2102" width="30" height="18" rx="2"/><rect x="1072" y="2102" width="30" height="18" rx="2"/><rect x="1106" y="2102" width="30" height="18" rx="2"/><rect x="1140" y="2102" width="30" height="18" rx="2"/><rect x="1174" y="2102" width="30" height="18" rx="2"/><rect x="1208" y="2102" width="30" height="18" rx="2"/><rect x="1242" y="2102" width="30" height="18" rx="2"/>
+      <rect x="936" y="2126" width="30" height="18" rx="2"/><rect x="970" y="2126" width="30" height="18" rx="2"/><rect x="1004" y="2126" width="30" height="18" rx="2"/><rect x="1038" y="2126" width="30" height="18" rx="2"/><rect x="1072" y="2126" width="30" height="18" rx="2"/><rect x="1106" y="2126" width="30" height="18" rx="2"/>
+    </g>
+    <g fill="#9B5129">
+      <rect x="1140" y="2126" width="30" height="18" rx="2"/><rect x="1174" y="2126" width="30" height="18" rx="2"/><rect x="1208" y="2126" width="30" height="18" rx="2"/><rect x="1242" y="2126" width="30" height="18" rx="2"/>
+    </g>
+    <rect x="1106" y="2078" width="30" height="18" rx="2" fill="#7C3038"/>
+    <path d="M1115 2084l12 7M1127 2084l-12 7" stroke="#FF5765"/>
+    <text x="872" y="2044" class="monoDim">0x100</text><text x="872" y="2068" class="monoDim">0x181</text><text x="872" y="2092" class="monoDim">0x1A0</text><text x="872" y="2116" class="monoDim">0x201</text><text x="872" y="2140" class="monoAmber">0x2C1</text>
+    <text x="872" y="2194" class="monoDim">−10 m</text><text x="1288" y="2194" class="monoDim" text-anchor="end">now</text>
+    <text x="872" y="2228" class="caption">One identifier below expected rate.</text>
+
+    <!-- Host lanes -->
+    <text x="1352" y="1928" class="title">Host comparison</text>
+    <text x="1656" y="1928" class="caption" text-anchor="end">3 hosts</text>
+    <text x="1352" y="1962" class="micro">PEAK MEMORY / JETSON-2</text>
+    <text x="1352" y="2004" class="monoXL" fill="#FF8A3D">92.1<tspan font-size="13"> %</tspan></text>
+    <line x1="1352" y1="2040" x2="1656" y2="2040" class="rule"/>
+    <text x="1352" y="2074" class="object">intel</text><text x="1656" y="2074" class="monoDim" text-anchor="end">68 °C</text>
+    <rect x="1432" y="2062" width="184" height="7" rx="2" fill="#242A2F"/><rect x="1432" y="2062" width="112" height="7" rx="2" fill="#8B939B"/>
+    <line x1="1344" y1="2093" x2="1344" y2="2150" stroke="#F5C400" stroke-width="2"/>
+    <text x="1352" y="2112" class="object">jetson-1</text><text x="1656" y="2112" class="monoDim" text-anchor="end">74 °C</text>
+    <rect x="1432" y="2100" width="184" height="7" rx="2" fill="#242A2F"/><rect x="1432" y="2100" width="102" height="7" rx="2" fill="#8B939B"/>
+    <text x="1352" y="2150" class="object">jetson-2</text><text x="1656" y="2150" class="monoAmber" text-anchor="end">81 °C</text>
+    <rect x="1432" y="2138" width="184" height="7" rx="2" fill="#242A2F"/><rect x="1432" y="2138" width="170" height="7" rx="2" fill="#FF8A3D"/>
+    <text x="1352" y="2194" class="caption">Selected host marked by edge, not a filled plate.</text>
+    <text x="1352" y="2228" class="monoDim">cpu / mem / thermal</text>
+  </g>
+
+  <!-- Approved spatial models -->
+  <g id="Approved spatial models">
+    <text x="72" y="2332" class="micro">04 / APPROVED SPATIAL APPROACHES</text>
+    <text x="72" y="2374" class="orientation">Two models, one incident, shared evidence</text>
+    <text x="1688" y="2368" class="caption" text-anchor="end">Relationship determines encoding; object truth remains stable.</text>
+    <rect x="72" y="2408" width="1616" height="616" rx="8" fill="#171A1D" stroke="#292D31"/>
+    <line x1="916" y1="2438" x2="916" y2="2790" class="rule"/>
+    <line x1="104" y1="2790" x2="1656" y2="2790" class="rule"/>
+
+    <!-- Bus schematic -->
+    <text x="104" y="2452" class="micro">01 / LITERAL WIRING</text>
+    <text x="104" y="2484" class="section">Bus schematic</text>
+    <text x="104" y="2508" class="caption">Answers which bus carries the fault.</text>
+    <text x="870" y="2484" class="caption" text-anchor="end">orthogonal · left-to-right scan</text>
+    <text x="128" y="2562" class="monoDim">lan · 1 GbE</text>
+    <line x1="128" y1="2578" x2="850" y2="2578" class="bus"/>
+    <line x1="280" y1="2578" x2="280" y2="2612" class="link"/>
+    <line x1="502" y1="2578" x2="502" y2="2612" class="link"/>
+    <line x1="724" y1="2578" x2="724" y2="2612" class="link"/>
+    <rect x="206" y="2612" width="148" height="54" rx="3" class="node"/><text x="224" y="2636" class="object">intel</text><text x="224" y="2656" class="monoDim">62.4 %</text>
+    <rect x="428" y="2612" width="148" height="54" rx="3" class="node"/><text x="446" y="2636" class="object">jetson-1</text><text x="446" y="2656" class="monoDim">41.8 %</text>
+    <rect x="650" y="2612" width="148" height="54" rx="3" class="nodeFault"/><text x="668" y="2636" class="object">jetson-2</text><text x="668" y="2656" class="monoAmber">88.6 %</text>
+    <text x="128" y="2708" class="monoDim">can0 · 500 kbit/s</text>
+    <line x1="128" y1="2724" x2="850" y2="2724" class="bus"/>
+    <path d="M280 2666V2724H540V2762H790V2724" class="selected"/>
+    <circle cx="280" cy="2724" r="3.5" class="yellow"/><circle cx="540" cy="2724" r="3.5" class="yellow"/><circle cx="540" cy="2762" r="3.5" class="yellow"/>
+    <text x="210" y="2750" class="caption">charging</text><text x="352" y="2750" class="caption">battery</text><text x="540" y="2750" class="object" text-anchor="middle">motor-drive</text><text x="682" y="2750" class="caption">power gpio</text>
+
+    <!-- Hex membership lattice -->
+    <text x="948" y="2452" class="micro">02 / COMPOSITION + MEMBERSHIP</text>
+    <text x="948" y="2484" class="section">Hex cell cluster</text>
+    <text x="948" y="2508" class="caption">Answers what the compute core is made of.</text>
+    <text x="1656" y="2484" class="caption" text-anchor="end">tessellated core · explicit fan-out</text>
+    <g fill="#1B1F23" stroke="#3A424A" stroke-width="1">
+      <path d="M1038 2570l30-18 30 18v36l-30 18-30-18z"/>
+      <path d="M1102 2534l30-18 30 18v36l-30 18-30-18z"/>
+      <path d="M1102 2606l30-18 30 18v36l-30 18-30-18z"/>
+      <path d="M1166 2570l30-18 30 18v36l-30 18-30-18z"/>
+      <path d="M1038 2642l30-18 30 18v36l-30 18-30-18z"/>
+    </g>
+    <path d="M1166 2570l30-18 30 18v36l-30 18-30-18z" class="nodeFault"/>
+    <text x="1068" y="2592" class="object" text-anchor="middle">intel</text>
+    <text x="1132" y="2556" class="object" text-anchor="middle">uplink</text>
+    <text x="1132" y="2628" class="object" text-anchor="middle">lan</text>
+    <text x="1196" y="2592" class="object" text-anchor="middle">jetson-2</text>
+    <text x="1068" y="2664" class="object" text-anchor="middle">can0</text>
+    <line x1="1068" y1="2696" x2="1068" y2="2722" class="selected"/>
+    <path d="M1068 2722H1328V2560" class="selected"/>
+    <circle cx="1068" cy="2722" r="3.5" class="yellow"/><circle cx="1328" cy="2722" r="3.5" class="yellow"/>
+    <line x1="1328" y1="2560" x2="1328" y2="2748" class="link"/>
+    <line x1="1328" y1="2572" x2="1628" y2="2572" class="link"/>
+    <line x1="1328" y1="2616" x2="1628" y2="2616" class="link"/>
+    <line x1="1328" y1="2660" x2="1628" y2="2660" class="selected"/>
+    <line x1="1328" y1="2704" x2="1628" y2="2704" class="link"/>
+    <line x1="1328" y1="2748" x2="1628" y2="2748" class="link"/>
+    <circle cx="1350" cy="2572" r="3" fill="#6D757D"/><circle cx="1350" cy="2616" r="3" fill="#6D757D"/><circle cx="1350" cy="2660" r="3" fill="#FF8A3D"/><circle cx="1350" cy="2704" r="3" fill="#6D757D"/><circle cx="1350" cy="2748" r="3" fill="#6D757D"/>
+    <text x="1368" y="2560" class="caption">charging</text><text x="1618" y="2560" class="monoDim" text-anchor="end">idle</text>
+    <text x="1368" y="2604" class="caption">battery</text><text x="1618" y="2604" class="monoDim" text-anchor="end">94 %</text>
+    <text x="1368" y="2648" class="object">motor-drive</text><text x="1618" y="2648" class="monoAmber" text-anchor="end">42 / 50 Hz</text>
+    <text x="1368" y="2692" class="caption">power gpio</text><text x="1618" y="2692" class="monoDim" text-anchor="end">8 ch</text>
+    <text x="1368" y="2736" class="caption">gas adc</text><text x="1618" y="2736" class="monoDim" text-anchor="end">2 ch</text>
+
+    <!-- Shared evidence rail -->
+    <text x="104" y="2826" class="micro">SHARED TIME DATUM / BOTH MODELS</text>
+    <text x="1656" y="2826" class="monoDim" text-anchor="end">window 20 min · chrony ±0.4 ms</text>
+    <line x1="136" y1="2866" x2="1624" y2="2866" class="grid"/>
+    <circle cx="442" cy="2866" r="4" fill="#171A1D" stroke="#8B939B"/><text x="442" y="2850" class="caption" text-anchor="middle">container restart</text>
+    <circle cx="862" cy="2866" r="4" fill="#171A1D" stroke="#8B939B"/><text x="862" y="2850" class="caption" text-anchor="middle">config change</text>
+    <circle cx="1174" cy="2866" r="4" fill="#171A1D" stroke="#8B939B"/><text x="1174" y="2850" class="caption" text-anchor="middle">uplink failover</text>
+    <line x1="1452" y1="2838" x2="1452" y2="2910" stroke="#F5C400" stroke-dasharray="3 3"/>
+    <circle cx="1452" cy="2866" r="4" class="yellow"/>
+    <text x="1452" y="2850" class="caption" text-anchor="middle" fill="#F5C400">rate below expected</text>
+    <line x1="104" y1="2920" x2="1656" y2="2920" class="rule"/>
+    <text x="104" y="2946" class="monoDim">2026-08-24T14:07:58Z</text><text x="340" y="2946" class="monoDim">intel</text><text x="476" y="2946" class="monoDim">can0</text><text x="590" y="2946" class="monoDim">0x2C1 rate 50 Hz nominal · bus load 29 %</text>
+    <rect x="100" y="2954" width="1560" height="24" fill="#F5C400" opacity=".055"/>
+    <rect x="100" y="2954" width="3" height="24" fill="#F5C400"/>
+    <text x="104" y="2971" class="monoDim">2026-08-24T14:08:04Z</text><text x="340" y="2971" class="monoDim">intel</text><text x="476" y="2971" class="monoDim">can0</text><text x="590" y="2971" class="monoAmber">0x2C1 rate fell to 42 Hz · below expected 50 Hz</text>
+    <text x="104" y="2996" class="monoDim">2026-08-24T14:08:06Z</text><text x="340" y="2996" class="monoDim">intel</text><text x="476" y="2996" class="monoDim">motor-drive</text><text x="590" y="2996" class="monoDim">state degraded · reason rate_below_expected · no fault code</text>
+  </g>
+
+  <!-- Footer principles -->
+  <g id="System rules">
+    <text x="72" y="3080" class="micro">05 / SYSTEM RULES</text>
+    <text x="72" y="3120" class="section">One field owns the page.</text>
+    <text x="400" y="3120" class="section">Matte persists; depth proves ownership.</text>
+    <text x="900" y="3120" class="section">Yellow is a cursor, not a coating.</text>
+    <text x="1328" y="3120" class="section">Status is annotation.</text>
+    <text x="72" y="3154" class="caption">Composition before components</text>
+    <text x="400" y="3154" class="caption">Persistent planes remain quiet</text>
+    <text x="900" y="3154" class="caption">Current datum, selected path, primary action</text>
+    <text x="1328" y="3154" class="caption">Glyph + label + machine evidence</text>
+    <line x1="72" y1="3180" x2="1688" y2="3180" class="rule"/>
+    <text x="72" y="3198" class="caption">EX Robotics · Visual Identity &amp; UI Foundations · Industrial Evidence Atlas</text>
+    <text x="1688" y="3198" class="caption" text-anchor="end">paired light expression pending · values illustrative</text>
+  </g>
+</svg>

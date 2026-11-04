@@ -2,7 +2,7 @@
 
 ## Reference identity and evidence quality
 
-- Source: `reference/a769f2187ee7e2ca41b6ae9c26f9bfde.jpg`.
+- Source: `reference/a769f6fe4311d05ca55ee129d195d5a6.jpg`.
 - Type: direct authentication-screen concept.
 - Evidence: high for composition, typography, and surface treatment; low for a full product system.
 
@@ -144,4 +144,3 @@ not this emblem or its premium-brand mood.
 - **Anti-patterns/limitations:** far too sparse for monitoring; low-contrast form
   edges; symbolism could obscure safety meaning; cinematic black can feel
   theatrical during urgent recovery.
-

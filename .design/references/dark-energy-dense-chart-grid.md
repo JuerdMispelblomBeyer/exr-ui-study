@@ -2,7 +2,7 @@
 
 ## Reference identity and evidence quality
 
-- Source: `reference/ref-015__energy-operations__dark-dense-chart-grid.png`.
+- Source: `reference/ref-015__dark-energy-operations__dense-multi-chart-workbench.png`.
 - Type: direct real-world operations dashboard screenshot.
 - Evidence: high for data density, chart labeling, and expert workflow; medium for interaction; low for distinct art direction.
 
@@ -151,4 +151,3 @@ distinctiveness through topology, probe path, and chassis language.
 - **Anti-patterns/limitations:** equal visual weight; conventional dashboard
   structure; potential color overload; weak focal hierarchy; no causal topology;
   expert density must not degrade readability.
-

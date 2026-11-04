@@ -2,7 +2,7 @@
 
 ## Reference identity and evidence quality
 
-- Source: `reference/a73dbc9e8bd7e3725ee097144d81c0f4.jpg`.
+- Source: `reference/a73dbc92e59677b6315ca5d9e49e280b.jpg`.
 - Type: direct dark operational dashboard screenshot.
 - Evidence: high for composition and spatial visualization; medium for interaction; low for motion.
 
@@ -148,4 +148,3 @@ let diagnostics attach to real nodes and paths.
 - **Accidental:** crop resolution and unproven hover/motion behavior.
 - **Anti-patterns/limitations:** tiny labels; color-dependent intensity; a glowing
   center can become ornamental if it does not map to real system state.
-

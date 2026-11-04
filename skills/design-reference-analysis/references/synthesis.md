@@ -1,7 +1,8 @@
 # Multi-reference synthesis
 
-Synthesis creates a new visual thesis from several bodies of evidence. It is
-not voting, averaging, or assembling one feature from each source.
+Synthesis turns several bodies of reference evidence into a decision-ready
+handoff. It is not voting, averaging, assembling one feature from each source,
+or choosing the target product's final visual thesis.
 
 ## Normalize before comparing
 
@@ -78,68 +79,69 @@ a dominant principle for each layer:
 - interaction/motion.
 
 One source may influence a layer, but no source should determine the entire
-direction. Target product truth and existing design-system constraints arbitrate.
+direction. Record how target product truth and existing design-system
+constraints affect compatibility; leave final selection to `exceptional-ui`.
 
-## ORIGINAL DESIGN DIRECTION template
+## REFERENCE SYNTHESIS HANDOFF template
 
 ```markdown
-# ORIGINAL DESIGN DIRECTION — [working name]
+# REFERENCE SYNTHESIS HANDOFF — [reference set]
 
 ## Target context
-User, job, environment, content pressure, and existing-system constraints.
+Known user, job, environment, content pressure, and existing-system constraints
+used only to evaluate transferability.
 
-## Visual thesis
-One sentence describing the product-specific formal idea. Do not name references.
+## Common mechanisms
+Mechanisms supported by multiple references, with observation IDs and a note on
+whether they are distinctive or merely conventional.
 
-## Intended personality
-Three calibrated qualities and three explicit opposites.
+## Complementary mechanisms
+Principles that can coexist because they solve different visual or interaction
+layers, including required conditions.
 
-## Dominant composition
-Primary object, silhouette, grid logic, scan order, density rhythm, and whitespace ownership.
+## Conflicts and tensions
+Incompatible principles, the source of the conflict, and the product condition
+that should decide between them.
 
-## Signature grammar
-Two to four original moves, each with product meaning and permitted uses.
+## Interesting combinations
+Promising combinations and why they may produce an original effect without
+copying a source.
 
-## Typography
-Role contrast and compositional function; no unlicensed source fonts.
+## Target-specific opportunities
+Product objects, relationships, states, content, or imagery absent from the
+references that could become original compositional material.
 
-## Color
-Role allocation, accent budget, contrast logic, and brand-system relationship.
-
-## Geometry and surfaces
-Shape roles, edge grammar, elevation, and persistent/temporary ownership.
-
-## Imagery and iconography
-Asset role, crop/integration rules, and source-independent icon language.
-
-## Interaction and motion
-State, disclosure, continuity, and motion purposes—not copied transitions.
+## Candidate principles by layer
+Composition, hierarchy/density, typography, color, geometry/surfaces, imagery,
+and interaction/motion. List options and evidence; do not select final tokens
+or a target visual thesis.
 
 ## Explicit exclusions
-Copied layouts/assets, incompatible principles, generic trends, and accidental details.
-
-## Reference traceability
-For internal use, map each principle to supporting observation IDs without describing the target as looking like a source.
+Copied layouts, proprietary assets, brand-owned motifs, incompatible
+mechanisms, generic trends, and accidental details.
 
 ## Open design decisions
-Questions that require product content, system inspection, or composition exploration.
+Questions that require the orchestrator to choose a direction, inspect the
+target system, or explore composition.
+
+## Reference traceability
+Map every mechanism and opportunity to supporting observation IDs.
 ```
 
-## Originality tests
+## Handoff tests
 
 Before handoff:
 
-1. **Source-hidden test:** the direction is understandable with reference names
-   and images removed.
-2. **Product-substitution test:** replacing target content with another SaaS
-   product should break the composition.
-3. **Structure-distance test:** the target information architecture and dominant
-   mass do not reproduce one source.
-4. **Signature-budget test:** two to four meaningful moves dominate; the design
-   is not a collage of all extracted motifs.
-5. **System-fit test:** the direction can reuse or deliberately extend the
-   target's typography, color, spacing, and components.
-6. **Anti-copy test:** brand-specific and accidental details are absent.
+1. **Evidence test:** every claim traces to an observation ID.
+2. **Source-hidden test:** the principles remain understandable when source
+   names are hidden.
+3. **Decision-boundary test:** the handoff has not selected the final target
+   thesis, composition, tokens, or component language.
+4. **Combination test:** proposed combinations state dependencies and tensions;
+   they are not a collage of attractive motifs.
+5. **System-fit test:** compatibility with the target system is described
+   without inventing unseen variables or components.
+6. **Anti-copy test:** brand-specific, structural-copy, and accidental details
+   are excluded.
 
-If any test fails, revise the synthesis before sending it to a designer.
-
+If any test fails, revise the synthesis before handing it to `exceptional-ui`.

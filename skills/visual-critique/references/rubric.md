@@ -1,8 +1,12 @@
-# Visual-quality rubric
+# Ten-category diagnostic profile
 
 Score the rendered outcome. Do not score the prompt, process, component tree,
 or the designer's intent. Structural inspection may explain a visible issue;
 it does not replace the render.
+
+This profile diagnoses visible strengths and failures on ten 0–10 axes. It is
+not a second quality gate. The authoritative weighted score and `PASS` rule are
+in `../../exceptional-ui/references/quality-rubric.md`.
 
 ## Universal score anchors
 
@@ -153,10 +157,24 @@ pixel-level coherence.
 - If no rendered screenshot was inspected, mark scores provisional and do not
   return `PASS`.
 
-## Decision rule
+## Crosswalk to the authoritative rubric
 
-`PASS` only when every category is at least 7, Composition/Visual hierarchy/
-Distinctiveness are each at least 8, the mean is at least 8, and no critical or
-high-severity override remains. Otherwise return `ITERATE`. Do not round the
-mean upward to pass.
+Use these relationships as evidence, not as a formula for mechanically
+converting 0–10 scores into points:
 
+| Diagnostic category | Primary 100-point dimensions |
+|---|---|
+| Composition | C1 Composition and spatial logic |
+| Visual hierarchy | C2 Visual hierarchy and attention control |
+| Typography | C3 Typography |
+| Spacing | C4 Spacing, density, and alignment |
+| Color | C5 Color and contrast |
+| Geometry | C6 Geometry, surfaces, and craft |
+| Consistency | B Design-system correctness; also visible C6 evidence |
+| Content quality | A Functional correctness; C2 hierarchy evidence |
+| Distinctiveness | D Distinctiveness |
+| Craft/detail | C6 Geometry, surfaces, and craft; implementation blocker evidence |
+
+Do not average the ten diagnostic scores into a verdict. Complete the weighted
+100-point record separately, apply all floors and overrides there, and use that
+result as the critique decision.

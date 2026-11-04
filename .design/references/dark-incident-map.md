@@ -2,7 +2,7 @@
 
 ## Reference identity and evidence quality
 
-- Source: `reference/ca82e275bfb3d1dd342790098d9a1c80.jpg`.
+- Source: `reference/ca82a1f762bc89f3f6fbb4775da24655.jpg`.
 - Type: direct map-based incident monitoring concept.
 - Evidence: high for hierarchy and event localization; medium for data semantics; low for interaction and motion.
 
@@ -145,4 +145,3 @@ a real fault, allowing the fault’s location and consequence to take over.
 - **Anti-patterns/limitations:** glow obscures precision; red/orange alone is not
   accessible; a map-first view fails if the system diagram is not truthful;
   context text may be too small during incidents.
-

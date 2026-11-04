@@ -2,7 +2,7 @@
 
 ## Reference identity and evidence quality
 
-- Source: `reference/ref-012__compute-network__dark-regional-health.jpg`.
+- Source: `reference/ref-012__dark-compute-network__regional-health-table.jpg`.
 - Type: direct dark infrastructure dashboard concept.
 - Evidence: high for shell and regional status table; medium for hierarchy; low for genuine topology despite the title.
 
@@ -151,4 +151,3 @@ reject its generic visual identity.
 - **Anti-patterns/limitations:** excessive radii and padding; generic SaaS
   symmetry; atmosphere without meaning; category screens; falsely visualized
   topology; limited diagnostic depth.
-

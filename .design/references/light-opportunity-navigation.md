@@ -2,7 +2,7 @@
 
 ## Reference identity and evidence quality
 
-- Source: `reference/b0bd807e984f7c44809f8fe7d403355e.jpg`.
+- Source: `reference/b0bd857d26850dbacf029d60cca8932e.jpg`.
 - Type: close crop of a light enterprise workspace.
 - Evidence: high for navigation layering; low for content, hierarchy, and interaction states beyond selection.
 
@@ -144,4 +144,3 @@ own instrument geometry, type, and signal behavior.
 - **Anti-patterns/limitations:** generic enterprise character; weak selected
   contrast; icon-only global rail needs tooltips and labels; two rails can become
   expensive if both are always fully open.
-

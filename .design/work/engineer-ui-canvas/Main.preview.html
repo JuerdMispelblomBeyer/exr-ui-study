@@ -1,0 +1,279 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+</head>
+<body>
+
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=Roboto+Mono:wght@400;500&amp;family=Space+Grotesk:wght@400;500&amp;display=swap">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: #121416; font-family: Inter, "Helvetica Neue", Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+    a { color: #F5C400; } a:hover { color: #FFDA4D; }
+    .sg { font-family: "Space Grotesk", "Helvetica Neue", Arial, sans-serif; }
+    .mono { font-family: "Roboto Mono", ui-monospace, "SF Mono", Menlo, monospace; }
+    .t-title { font-family: "Space Grotesk", "Helvetica Neue", Arial, sans-serif; font-weight: 500; font-size: 22px; line-height: 28px; letter-spacing: -0.22px; color: #F8F9F7; }
+    .t-object { font-family: "Space Grotesk", "Helvetica Neue", Arial, sans-serif; font-weight: 400; font-size: 15px; line-height: 20px; letter-spacing: -0.08px; color: #F8F9F7; }
+    .t-eyebrow { font-size: 10px; line-height: 12px; letter-spacing: 1.3px; text-transform: uppercase; color: #6D757D; }
+    .t-body { font-size: 13px; line-height: 20px; color: #CBD1D6; }
+    .t-caption { font-size: 12px; line-height: 16px; color: #8B939B; }
+    .t-micro { font-size: 11px; line-height: 14px; letter-spacing: 0.22px; color: #8B939B; }
+    .t-data { font-family: "Roboto Mono", ui-monospace, Menlo, monospace; font-size: 12px; line-height: 18px; color: #CBD1D6; }
+    .t-datas { font-family: "Roboto Mono", ui-monospace, Menlo, monospace; font-size: 10px; line-height: 14px; letter-spacing: 0.2px; color: #8B939B; }
+    .plane { background: #171A1D; border: 1px solid #22262A; border-radius: 10px; }
+    .rule { height: 1px; background: #212528; }
+    .node { background: #1E2226; border-radius: 6px; }
+  </style>
+
+
+<div style="width: 1440px; height: 900px; position: relative; overflow: hidden; background: #121416;">
+  <div style="position: absolute; inset: 0; background: radial-gradient(1100px 620px at 50% -10%, rgba(36,41,46,0.30), rgba(36,41,46,0) 70%); pointer-events: none;"></div>
+  <header style="position: relative; height: 56px; display: flex; align-items: center; gap: 16px; padding: 0 22px; border-bottom: 1px solid #212528;">
+    <div style="display: flex; align-items: center; gap: 9px;">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.2 5.2V1.2h4M10.8 1.2h4v4M14.8 10.8v4h-4M5.2 14.8h-4v-4" stroke="#F5C400" stroke-width="1.4" stroke-linecap="square"></path></svg>
+      <span style="font-size: 11px; letter-spacing: 1.1px; color: #CBD1D6; font-weight: 500;">EXROBOTICS</span>
+    </div>
+    <div style="width: 1px; height: 22px; background: #212528;"></div>
+
+    <div style="display: flex; align-items: center; gap: 10px; height: 34px; padding: 0 12px; border: 1px solid #2A2E33; border-radius: 6px;">
+      <span class="t-object">EXR-04</span>
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 4.6L6 7.6l3-3" stroke="#8B939B" stroke-width="1.2"></path></svg>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 7px;">
+      <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="3.2" stroke="#757E88" stroke-width="1.3"></circle><circle cx="5" cy="5" r="1.2" fill="#757E88"></circle></svg>
+      <span class="t-caption" style="color: #CBD1D6;">Connected</span>
+      <span class="t-datas">0.8 s ago</span>
+    </div>
+
+    <div style="margin-left: auto; display: flex; align-items: center; gap: 14px;">
+      <div style="text-align: right;">
+        <div class="t-eyebrow">SAFETY CHAIN</div>
+        <div style="display: flex; align-items: center; gap: 6px; justify-content: flex-end; margin-top: 3px;">
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4" stroke="#757E88" stroke-width="1.3"></circle><path d="M3.6 5.5l1.4 1.4 2.4-2.6" stroke="#757E88" stroke-width="1.3"></path></svg>
+          <span class="t-caption" style="color: #CBD1D6;">Ready</span>
+          <span class="t-datas">0.4 s</span>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 9px; height: 36px; padding: 0 14px; border: 1px solid #3A3F44; border-radius: 6px;">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M4.7 1.4h4.6L12.6 4.7v4.6L9.3 12.6H4.7L1.4 9.3V4.7z" stroke="#FF5765" stroke-width="1.3" stroke-linejoin="round"></path></svg>
+        <span class="t-body" style="color: #F8F9F7;">Safety Stop</span>
+      </div>
+    </div>
+  </header>
+
+  <div style="position: relative; display: flex; height: 844px;">
+
+    <nav style="width: 76px; border-right: 1px solid #212528; display: flex; flex-direction: column; align-items: center; padding: 14px 0 16px;">
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
+        <div style="width: 60px; height: 58px; border-radius: 8px; border: 1px solid #F5C400; background: rgba(245,196,0,0.07); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2.5" y="3.5" width="15" height="5" rx="1" stroke="#F5C400" stroke-width="1.3"></rect><rect x="2.5" y="11.5" width="6.5" height="5" rx="1" stroke="#F5C400" stroke-width="1.3"></rect><path d="M12.5 11.5h5m-5 5h5" stroke="#F5C400" stroke-width="1.3"></path></svg>
+          <span class="t-micro" style="color: #F8F9F7;">Inspect</span>
+        </div>
+        <div style="width: 60px; height: 58px; border-radius: 8px; border: 1px solid transparent; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M2 12h3l2.2-6.5L11 15.5l2-3.5h5" stroke="#8B939B" stroke-width="1.3" stroke-linejoin="round"></path></svg>
+          <span class="t-micro" style="">Diagnose</span>
+        </div>
+        <div style="width: 60px; height: 58px; border-radius: 8px; border: 1px solid transparent; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 6h14M3 14h14" stroke="#8B939B" stroke-width="1.3"></path><circle cx="7.5" cy="6" r="2.2" fill="#171A1D" stroke="#8B939B" stroke-width="1.3"></circle><circle cx="13" cy="14" r="2.2" fill="#171A1D" stroke="#8B939B" stroke-width="1.3"></circle></svg>
+          <span class="t-micro" style="">Change</span>
+        </div>
+      </div>
+      <div style="margin-top: auto; width: 60px; height: 48px; display: flex; align-items: center; justify-content: center;">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="2.6" stroke="#6D757D" stroke-width="1.3"></circle><path d="M10 2.5v2.2M10 15.3v2.2M17.5 10h-2.2M4.7 10H2.5M15.3 4.7l-1.6 1.6M6.3 13.7l-1.6 1.6M15.3 15.3l-1.6-1.6M6.3 6.3L4.7 4.7" stroke="#6D757D" stroke-width="1.3"></path></svg>
+      </div>
+    </nav>
+
+    <div style="flex: 1; padding: 18px; display: flex; flex-direction: column;">
+
+      <div style="height: 44px; display: flex; align-items: center; gap: 16px;">
+        <div class="t-title">Inspect</div>
+        <div style="width: 1px; height: 20px; background: #212528;"></div>
+        <div style="display: flex; align-items: center; gap: 2px;"><div style="height: 30px; padding: 0 11px; display: flex; align-items: center; border-radius: 6px; border: 1px solid #F5C400; background: rgba(245,196,0,0.07);"><span class="t-caption" style="color: #F8F9F7;">Physical</span></div><div style="height: 30px; padding: 0 11px; display: flex; align-items: center; border-radius: 6px;"><span class="t-caption" style="color: #6D757D;">Network</span></div><div style="height: 30px; padding: 0 11px; display: flex; align-items: center; border-radius: 6px;"><span class="t-caption" style="color: #6D757D;">Software</span></div><div style="height: 30px; padding: 0 11px; display: flex; align-items: center; border-radius: 6px;"><span class="t-caption" style="color: #6D757D;">Time</span></div><div style="height: 30px; padding: 0 11px; display: flex; align-items: center; border-radius: 6px;"><span class="t-caption" style="color: #6D757D;">Integration</span></div></div>
+        <div style="margin-left: auto; display: flex; align-items: center; gap: 16px;">
+          
+          <div style="height: 32px; padding: 0 12px; display: flex; align-items: center; gap: 9px; border-radius: 6px; border: 1px solid #2A2E33;">
+            <span class="t-caption">window</span>
+            <span class="t-data">20 min</span>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 4.6L6 7.6l3-3" stroke="#8B939B" stroke-width="1.2"></path></svg>
+          </div>
+        </div>
+      </div>
+
+      <div style="height: 14px;"></div>
+      <div style="display: flex; gap: 16px; height: 498px;">
+        <div class="plane" style="width: 992px; height: 498px; position: relative; overflow: hidden;">
+          <svg width="992" height="498" viewBox="0 0 992 498" fill="none" style="position: absolute; left: 0; top: 0;">
+            <path d="M540 82v18" stroke="#31363B" stroke-width="1"></path>
+            <path d="M700 82v30h-72" stroke="#282D32" stroke-width="1" stroke-dasharray="4 4"></path>
+            <path d="M540 134v42" stroke="#31363B" stroke-width="1"></path>
+            <path d="M60 176h880" stroke="#383D42" stroke-width="2"></path>
+            <path d="M197 176v30M497 176v30M797 176v30" stroke="#2C3136" stroke-width="1"></path>
+            <path d="M197 262v68" stroke="#2C3136" stroke-width="1"></path>
+            <path d="M120 262v96" stroke="#2C3136" stroke-width="1"></path>
+            <path d="M286 262v32h280" stroke="#2C3136" stroke-width="1"></path>
+            <path d="M197 330h493" stroke="#383D42" stroke-width="2"></path>
+            <path d="M258 330v28M382 330v28M506 330v28M634 330v28" stroke="#2C3136" stroke-width="1"></path>
+            <path d="M497 262v10h443M797 262v10h143" stroke="#282D32" stroke-width="1" stroke-dasharray="4 4"></path>
+            <path d="M940 289v41" stroke="#282D32" stroke-width="1" stroke-dasharray="4 4"></path>
+            <circle cx="940" cy="282" r="7" fill="#171A1D" stroke="#4A525A" stroke-width="1"></circle>
+            <path d="M726 330h230" stroke="#383D42" stroke-width="2"></path>
+            <path d="M776 330v28M900 330v28" stroke="#2C3136" stroke-width="1"></path>
+          </svg>
+          <div style="position: absolute; left: 22px; top: 16px;"><span class="t-eyebrow">LIVE PLATFORM / EXR-04</span></div>
+          <div style="position: absolute; right: 22px; top: 16px;"><span class="t-datas" style="color: #6D757D;">chrony &plusmn;0.4 ms &middot; 14:08:04</span></div>
+
+          <div style="position: absolute; left: 22px; top: 48px;"><span class="t-eyebrow">OUTSIDE THE PLATFORM</span></div>
+          <div style="position: absolute; left: 120px; top: 62px; width: 120px; text-align: center;"><span class="t-caption" style="color: #6D757D;">fleet-manager</span></div>
+          <div style="position: absolute; left: 300px; top: 62px; width: 120px; text-align: center;"><span class="t-caption" style="color: #6D757D;">tailscale</span></div>
+          <div style="position: absolute; left: 480px; top: 62px; width: 120px; text-align: center;"><span class="t-caption" style="color: #CBD1D6;">wi-fi</span></div>
+          <div style="position: absolute; left: 640px; top: 62px; width: 120px; text-align: center;"><span class="t-caption" style="color: #6D757D;">cellular</span></div>
+          <div style="position: absolute; left: 762px; top: 63px;"><span class="t-datas" style="color: #565E65;">standby</span></div>
+
+          <div style="position: absolute; left: 452px; top: 100px; width: 176px; height: 34px; background: #1E2226; border-radius: 6px; display: flex; align-items: center; justify-content: center; gap: 8px;">
+            <span class="t-caption" style="color: #CBD1D6;">uplink</span><span class="t-datas" style="color: #6D757D;">vrrp master</span>
+          </div>
+
+          <div style="position: absolute; left: 60px; top: 154px;"><span class="t-datas" style="color: #6D757D;">onboard LAN &middot; 1 GbE</span></div>
+
+          <div style="position: absolute; left: 92px; top: 206px; width: 210px; height: 56px; background: #1E2226; border-radius: 6px; padding: 9px 14px;">
+            <div class="t-object">intel</div>
+            <svg width="150" height="16" viewBox="0 0 150 16" fill="none" style="display: block; margin-top: 4px;"><path d="M 1.00 5.20 C 3.24 5.03 9.97 4.27 14.45 4.15 C 18.94 4.03 23.42 4.62 27.91 4.50 C 32.39 4.38 36.88 3.57 41.36 3.45 C 45.85 3.33 50.33 3.92 54.82 3.80 C 59.30 3.68 63.79 2.81 68.27 2.75 C 72.76 2.69 77.24 3.51 81.73 3.45 C 86.21 3.39 90.70 2.46 95.18 2.40 C 99.67 2.34 104.15 2.87 108.64 3.10 C 113.12 3.33 117.61 3.74 122.09 3.80 C 126.58 3.86 131.06 3.45 135.55 3.45 C 140.03 3.45 146.76 3.74 149.00 3.80" stroke="#6D757D" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"></path></svg>
+          </div>
+          <div style="position: absolute; left: 392px; top: 206px; width: 210px; height: 56px; background: #1E2226; border-radius: 6px; padding: 9px 14px;">
+            <div class="t-object">jetson-1</div>
+            <svg width="150" height="16" viewBox="0 0 150 16" fill="none" style="display: block; margin-top: 4px;"><path d="M 1.00 11.85 C 3.24 11.73 9.97 11.21 14.45 11.15 C 18.94 11.09 23.42 11.62 27.91 11.50 C 32.39 11.38 36.88 10.51 41.36 10.45 C 45.85 10.39 50.33 10.97 54.82 11.15 C 59.30 11.32 63.79 11.56 68.27 11.50 C 72.76 11.44 77.24 11.03 81.73 10.80 C 86.21 10.57 90.70 10.16 95.18 10.10 C 99.67 10.04 104.15 10.28 108.64 10.45 C 113.12 10.62 117.61 11.09 122.09 11.15 C 126.58 11.21 131.06 10.86 135.55 10.80 C 140.03 10.74 146.76 10.80 149.00 10.80" stroke="#6D757D" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"></path></svg>
+          </div>
+          <div style="position: absolute; left: 692px; top: 206px; width: 210px; height: 56px; background: #1E2226; border-radius: 6px; padding: 9px 14px;">
+            <div class="t-object">jetson-2</div>
+            <svg width="150" height="16" viewBox="0 0 150 16" fill="none" style="display: block; margin-top: 4px;"><path d="M 1.00 12.90 C 3.24 12.96 9.97 13.37 14.45 13.25 C 18.94 13.13 23.42 12.32 27.91 12.20 C 32.39 12.08 36.88 12.61 41.36 12.55 C 45.85 12.49 50.33 11.91 54.82 11.85 C 59.30 11.79 63.79 12.08 68.27 12.20 C 72.76 12.32 77.24 12.61 81.73 12.55 C 86.21 12.49 90.70 11.91 95.18 11.85 C 99.67 11.79 104.15 12.26 108.64 12.20 C 113.12 12.14 117.61 11.50 122.09 11.50 C 126.58 11.50 131.06 12.08 135.55 12.20 C 140.03 12.32 146.76 12.20 149.00 12.20" stroke="#6D757D" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"></path></svg>
+          </div>
+
+          <div style="position: absolute; left: 300px; top: 270px;"><span class="t-datas" style="color: #565E65;">usb3 &middot; switched</span></div>
+          <div style="position: absolute; left: 566px; top: 277px; width: 134px; height: 34px; background: #1E2226; border-radius: 6px; display: flex; align-items: center; justify-content: center;">
+            <span class="t-object" style="font-size: 14px;">drive camera</span>
+          </div>
+
+          <div style="position: absolute; left: 215px; top: 308px;"><span class="t-datas" style="color: #6D757D;">can0 &middot; 500 kbit/s &middot; intel-attached via motherboard</span></div>
+          <div style="position: absolute; left: 726px; top: 308px;"><span class="t-datas" style="color: #6D757D;">comms box &middot; switched power</span></div>
+          <div style="position: absolute; left: 800px; top: 290px; width: 128px; text-align: right;"><span class="t-datas" style="color: #8B939B;">host TBD</span></div>
+
+          <div style="position: absolute; left: 64px; top: 358px; width: 112px; height: 34px; background: #1E2226; border-radius: 6px; display: flex; align-items: center; justify-content: center;">
+            <span class="t-object" style="font-size: 14px;">gas adc</span>
+          </div>
+          <div style="position: absolute; left: 64px; top: 398px; width: 112px; text-align: center;"><span class="t-datas" style="color: #565E65;">4&ndash;20 mA analog</span></div>
+
+          <div style="position: absolute; left: 206px; top: 358px; width: 104px; height: 34px; background: #1E2226; border-radius: 6px; display: flex; align-items: center; justify-content: center; gap: 8px;  white-space: nowrap;"><span class="t-object" style="font-size: 14px;">charging</span></div>
+          <div style="position: absolute; left: 330px; top: 358px; width: 104px; height: 34px; background: #1E2226; border-radius: 6px; display: flex; align-items: center; justify-content: center; gap: 8px;  white-space: nowrap;"><span class="t-object" style="font-size: 14px;">battery</span></div>
+          <div style="position: absolute; left: 448px; top: 358px; width: 116px; height: 34px; background: #1E2226; border-radius: 6px; display: flex; align-items: center; justify-content: center; gap: 8px;  white-space: nowrap;"><span class="t-object" style="font-size: 14px;">motor-drive</span></div>
+          <div style="position: absolute; left: 579px; top: 358px; width: 110px; height: 34px; background: #1E2226; border-radius: 6px; display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 0 11px; white-space: nowrap;"><span class="t-object" style="font-size: 14px;">power gpio</span><span class="t-datas" style="color: #6D757D;">&times;8</span></div>
+          <div style="position: absolute; left: 576px; top: 400px; display: flex; gap: 3px; "><div style="width: 12px; height: 10px; border-radius: 2px; background: #434A51;"></div><div style="width: 12px; height: 10px; border-radius: 2px; background: #434A51;"></div><div style="width: 12px; height: 10px; border-radius: 2px; background: #1A1E22;"></div><div style="width: 12px; height: 10px; border-radius: 2px; background: #434A51;"></div><div style="width: 12px; height: 10px; border-radius: 2px; background: #1A1E22;"></div><div style="width: 12px; height: 10px; border-radius: 2px; background: #434A51;"></div><div style="width: 12px; height: 10px; border-radius: 2px; background: #434A51;"></div><div style="width: 12px; height: 10px; border-radius: 2px; background: #1A1E22;"></div></div>
+          <div style="position: absolute; left: 579px; top: 416px; width: 110px; text-align: center;"><span class="t-datas" style="color: #565E65;">5 of 8 on</span></div>
+
+          <div style="position: absolute; left: 720px; top: 358px; width: 112px; height: 34px; background: #1E2226; border-radius: 6px; display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 0 11px; white-space: nowrap;"><span class="t-object" style="font-size: 14px;">lidar</span><span class="t-datas" style="color: #6D757D;">12 V</span></div>
+          <div style="position: absolute; left: 844px; top: 358px; width: 112px; height: 34px; background: #1E2226; border-radius: 6px; display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 0 11px; white-space: nowrap;"><span class="t-object" style="font-size: 14px;">inspection</span><span class="t-datas" style="color: #6D757D;">36 V</span></div>
+
+          <div style="position: absolute; left: 22px; bottom: 18px; display: flex; align-items: center; gap: 18px;">
+            <div style="display: flex; align-items: center; gap: 7px;"><svg width="18" height="3"><path d="M0 1.5h18" stroke="#383D42" stroke-width="2"></path></svg><span class="t-datas" style="color: #565E65;">physical bus</span></div>
+            <div style="display: flex; align-items: center; gap: 7px;"><svg width="18" height="3"><path d="M0 1.5h18" stroke="#282D32" stroke-width="1" stroke-dasharray="4 4"></path></svg><span class="t-datas" style="color: #565E65;">unconfirmed attachment</span></div>
+          </div>
+        </div>
+        <div class="plane" style="width: 320px; height: 498px; padding: 20px; display: flex; flex-direction: column;">
+          <div><span class="t-eyebrow">ATTENTION</span></div>
+          <div style="margin-top: 12px; display: flex; align-items: flex-start; gap: 10px;">
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" style="margin-top: 4px; flex: none;"><circle cx="7.5" cy="7.5" r="6" stroke="#5F686F" stroke-width="1.3"></circle><path d="M4.8 7.6l2 2 3.5-3.9" stroke="#5F686F" stroke-width="1.3"></path></svg>
+            <span class="t-title" style="font-size: 18px; line-height: 24px;">Nothing needs attention</span>
+          </div>
+          <div style="margin-top: 8px; padding-left: 25px;"><span class="t-datas" style="color: #565E65;">last full analysis 14:08:04 &middot; 3 s ago</span></div>
+
+          <div class="rule" style="margin: 20px 0 12px;"></div>
+          <div><span class="t-eyebrow">VERIFIED IN THIS WINDOW</span></div>
+          <div style="margin-top: 6px;"><div style="display: flex; align-items: flex-start; gap: 10px; padding: 5px 0;">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="margin-top: 3px; flex: none;"><path d="M2.2 6.2l2.5 2.5L9.8 3.4" stroke="#5F686F" stroke-width="1.4"></path></svg>
+              <span class="t-caption" style="color: #A7AEB4;">all <span class="mono" style="font-size: 11px;">8</span> can0 identifiers in rate</span>
+            </div><div style="display: flex; align-items: flex-start; gap: 10px; padding: 5px 0;">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="margin-top: 3px; flex: none;"><path d="M2.2 6.2l2.5 2.5L9.8 3.4" stroke="#5F686F" stroke-width="1.4"></path></svg>
+              <span class="t-caption" style="color: #A7AEB4;">chrony offset within <span class="mono" style="font-size: 11px;">&plusmn;1 ms</span> on all hosts</span>
+            </div><div style="display: flex; align-items: flex-start; gap: 10px; padding: 5px 0;">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="margin-top: 3px; flex: none;"><path d="M2.2 6.2l2.5 2.5L9.8 3.4" stroke="#5F686F" stroke-width="1.4"></path></svg>
+              <span class="t-caption" style="color: #A7AEB4;">uplink owner stable &middot; no VRRP transition</span>
+            </div><div style="display: flex; align-items: flex-start; gap: 10px; padding: 5px 0;">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="margin-top: 3px; flex: none;"><path d="M2.2 6.2l2.5 2.5L9.8 3.4" stroke="#5F686F" stroke-width="1.4"></path></svg>
+              <span class="t-caption" style="color: #A7AEB4;">no container restarts</span>
+            </div></div>
+
+          <div class="rule" style="margin: 16px 0 12px;"></div>
+          <div><span class="t-eyebrow">NOT ESTABLISHED</span></div>
+          <div style="margin-top: 6px;"><div style="display: flex; align-items: flex-start; gap: 10px; padding: 5px 0;">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="margin-top: 3px; flex: none;"><circle cx="6" cy="6" r="4.4" stroke="#4A525A" stroke-width="1.2" stroke-dasharray="2.6 2.2"></circle></svg>
+              <span class="t-caption" style="color: #A7AEB4;">comms-box host is jetson-1 or jetson-2</span>
+            </div><div style="display: flex; align-items: flex-start; gap: 10px; padding: 5px 0;">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="margin-top: 3px; flex: none;"><circle cx="6" cy="6" r="4.4" stroke="#4A525A" stroke-width="1.2" stroke-dasharray="2.6 2.2"></circle></svg>
+              <span class="t-caption" style="color: #A7AEB4;">gas detector channel map unconfirmed</span>
+            </div></div>
+
+          <div style="margin-top: auto;"><span class="t-datas" style="color: #565E65;">health rolls up from observed sources only</span></div>
+        </div>
+      </div>
+
+      <div style="height: 14px;"></div>
+
+      <div class="plane" style="height: 180px; display: flex; overflow: hidden;">
+          <div style="flex: 1; min-width: 0; padding: 16px 20px; display: flex; flex-direction: column;">
+            <div style="display: flex; align-items: baseline; justify-content: space-between;">
+              <span class="t-object" style="font-size: 15px;">Compute</span>
+              <span class="t-datas" style="color: #565E65;">3 hosts &middot; 15 min &middot; cpu scale 30&ndash;70 % &middot; select a host for exact values</span>
+            </div>
+            <div style="display: grid; grid-template-columns: 92px 300px minmax(0, 1fr) minmax(0, 1fr); gap: 0 24px; margin-top: 12px;">
+              <span></span><span class="t-eyebrow">CPU LOAD</span><span class="t-eyebrow">MEMORY</span><span class="t-eyebrow">THERMAL</span>
+            </div>
+            <div style="margin-top: 4px;"><div style="display: grid; grid-template-columns: 92px 300px minmax(0, 1fr) minmax(0, 1fr); gap: 0 24px; align-items: center; height: 32px;">
+              <span class="t-object" style="font-size: 14px;">intel</span>
+              <svg width="300" height="22" viewBox="0 0 300 22" fill="none" style="display: block;"><path d="M 1.00 7.00 C 5.52 6.75 19.06 5.67 28.09 5.50 C 37.12 5.33 46.15 6.17 55.18 6.00 C 64.21 5.83 73.24 4.67 82.27 4.50 C 91.30 4.33 100.33 5.17 109.36 5.00 C 118.39 4.83 127.42 3.58 136.45 3.50 C 145.48 3.42 154.52 4.58 163.55 4.50 C 172.58 4.42 181.61 3.08 190.64 3.00 C 199.67 2.92 208.70 3.67 217.73 4.00 C 226.76 4.33 235.79 4.92 244.82 5.00 C 253.85 5.08 262.88 4.50 271.91 4.50 C 280.94 4.50 294.48 4.92 299.00 5.00" stroke="#6D757D" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"></path></svg>
+              <div style="height: 4px; border-radius: 2px; background: #23282D;"><div style="width: 44%; height: 4px; border-radius: 2px; background: #6D757D;"></div></div>
+              <div style="height: 4px; border-radius: 2px; background: #23282D;"><div style="width: 62%; height: 4px; border-radius: 2px; background: #6D757D;"></div></div>
+            </div><div style="display: grid; grid-template-columns: 92px 300px minmax(0, 1fr) minmax(0, 1fr); gap: 0 24px; align-items: center; height: 32px;">
+              <span class="t-object" style="font-size: 14px;">jetson-1</span>
+              <svg width="300" height="22" viewBox="0 0 300 22" fill="none" style="display: block;"><path d="M 1.00 16.50 C 5.52 16.33 19.06 15.58 28.09 15.50 C 37.12 15.42 46.15 16.17 55.18 16.00 C 64.21 15.83 73.24 14.58 82.27 14.50 C 91.30 14.42 100.33 15.25 109.36 15.50 C 118.39 15.75 127.42 16.08 136.45 16.00 C 145.48 15.92 154.52 15.33 163.55 15.00 C 172.58 14.67 181.61 14.08 190.64 14.00 C 199.67 13.92 208.70 14.25 217.73 14.50 C 226.76 14.75 235.79 15.42 244.82 15.50 C 253.85 15.58 262.88 15.08 271.91 15.00 C 280.94 14.92 294.48 15.00 299.00 15.00" stroke="#6D757D" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"></path></svg>
+              <div style="height: 4px; border-radius: 2px; background: #23282D;"><div style="width: 57%; height: 4px; border-radius: 2px; background: #6D757D;"></div></div>
+              <div style="height: 4px; border-radius: 2px; background: #23282D;"><div style="width: 71%; height: 4px; border-radius: 2px; background: #6D757D;"></div></div>
+            </div><div style="display: grid; grid-template-columns: 92px 300px minmax(0, 1fr) minmax(0, 1fr); gap: 0 24px; align-items: center; height: 32px;">
+              <span class="t-object" style="font-size: 14px;">jetson-2</span>
+              <svg width="300" height="22" viewBox="0 0 300 22" fill="none" style="display: block;"><path d="M 1.00 18.00 C 5.52 18.08 19.06 18.67 28.09 18.50 C 37.12 18.33 46.15 17.17 55.18 17.00 C 64.21 16.83 73.24 17.58 82.27 17.50 C 91.30 17.42 100.33 16.58 109.36 16.50 C 118.39 16.42 127.42 16.83 136.45 17.00 C 145.48 17.17 154.52 17.58 163.55 17.50 C 172.58 17.42 181.61 16.58 190.64 16.50 C 199.67 16.42 208.70 17.08 217.73 17.00 C 226.76 16.92 235.79 16.00 244.82 16.00 C 253.85 16.00 262.88 16.83 271.91 17.00 C 280.94 17.17 294.48 17.00 299.00 17.00" stroke="#6D757D" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"></path></svg>
+              <div style="height: 4px; border-radius: 2px; background: #23282D;"><div style="width: 50%; height: 4px; border-radius: 2px; background: #6D757D;"></div></div>
+              <div style="height: 4px; border-radius: 2px; background: #23282D;"><div style="width: 67%; height: 4px; border-radius: 2px; background: #6D757D;"></div></div>
+            </div></div>
+          </div>
+          <div style="width: 1px; background: #212528;"></div>
+          <div style="width: 427px; flex: none; padding: 16px 20px; display: flex; flex-direction: column;">
+            <div style="display: flex; align-items: baseline; justify-content: space-between;">
+              <span class="t-object" style="font-size: 15px;">Recent change</span>
+              <span class="t-datas" style="color: #565E65;">3 in 6 h</span>
+            </div>
+            <div style="margin-top: 8px;"><div style="display: flex; align-items: baseline; gap: 12px; padding: 8px 0; border-bottom: 1px solid #212528;"><span class="t-datas" style="width: 52px; flex: none;">13:47:12</span><span class="t-caption" style="color: #A7AEB4; flex: 1;">config change <span class="mono" style="font-size: 11px; color: #CBD1D6;">chrony.conf</span></span><span class="t-datas" style="color: #565E65;">intel</span></div><div style="display: flex; align-items: baseline; gap: 12px; padding: 8px 0; border-bottom: 1px solid #212528;"><span class="t-datas" style="width: 52px; flex: none;">13:31:55</span><span class="t-caption" style="color: #A7AEB4; flex: 1;">container restart <span class="mono" style="font-size: 11px; color: #CBD1D6;">poi-manager</span></span><span class="t-datas" style="color: #565E65;">jetson-1</span></div><div style="display: flex; align-items: baseline; gap: 12px; padding: 8px 0;"><span class="t-datas" style="width: 52px; flex: none;">12:04:38</span><span class="t-caption" style="color: #A7AEB4; flex: 1;">uplink failover cellular &rarr; wi-fi</span><span class="t-datas" style="color: #565E65;">vrrp</span></div></div>
+          </div>
+        </div>
+
+      <div style="height: 14px;"></div>
+
+      <div style="height: 44px; border: 1px solid #22262A; border-radius: 8px; display: flex; align-items: center; padding: 0 18px; gap: 16px;">
+          <span class="t-eyebrow">EVIDENCE</span>
+          <span class="t-datas" style="color: #6D757D;">window 20 min &middot; 13:48&ndash;14:08 &middot; can0 &middot; /proc/stat &middot; journald &times;3</span>
+          <div style="width: 1px; height: 16px; background: #212528;"></div>
+          <div style="display: flex; align-items: center; gap: 8px;"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="4.6" stroke="#4A525A" stroke-width="1.2" stroke-dasharray="2.6 2.2"></circle></svg><span class="t-caption" style="color: #8B939B;">gas adc channel map unconfirmed</span></div>
+          <div style="margin-left: auto; display: flex; align-items: center; gap: 8px;">
+            <span class="t-caption" style="color: #A7AEB4;">Expand evidence</span>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 7.4L6 4.4l3 3" stroke="#8B939B" stroke-width="1.2"></path></svg>
+          </div>
+        </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+</body>
+</html>

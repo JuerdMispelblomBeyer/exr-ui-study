@@ -2,7 +2,7 @@
 
 ## Reference identity and evidence quality
 
-- Source: `reference/d2dd229d1949912236f13d04b8dd73bf.jpg`.
+- Source: `reference/d2ddc0f57326ea621f1119cb808ee518.jpg`.
 - Type: mobile navigation state study.
 - Evidence: high for geometry and selection continuity; low for content and desktop applicability.
 
@@ -145,4 +145,3 @@ topology selection, and inspectors.
 - **Anti-patterns/limitations:** playful organic geometry can undermine technical
   precision; icon-only navigation is ambiguous; custom curves complicate dense
   states and accessibility.
-

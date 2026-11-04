@@ -2,7 +2,7 @@
 
 ## Reference identity and evidence quality
 
-- Source: `reference/b77741a83199b0c980d31cf174eec235.jpg`.
+- Source: `reference/b7777daa932c363e92b75988f644f118.jpg`.
 - Type: direct dark desktop application screenshot.
 - Evidence: high for multi-pane composition and content density; medium for interaction; low for motion.
 
@@ -147,4 +147,3 @@ to real hardware rather than copying folders or generic neumorphism.
 - **Anti-patterns/limitations:** very small text; deep panes can crowd the
   workbench; decorative 3D objects can lower data density; selected state is
   understated.
-

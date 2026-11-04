@@ -2,7 +2,7 @@
 
 ## Reference identity and evidence quality
 
-- Source: `reference/ref-005__frosted-ui__light-operations-workflow.jpg`.
+- Source: `reference/ref-005__light-frosted-workflow-dashboard__tall-navigation.jpg`.
 - Type: close crop of a light workflow application.
 - Evidence: high for navigation and material layering; medium for hierarchy; low for complete content and accessibility.
 
@@ -149,4 +149,3 @@ into ExR’s instrument chassis, not a generic glassmorphic template.
 - **Anti-patterns/limitations:** low contrast; excessive rounded rectangles;
   glassmorphism can look generic; blur reduces precision and performance; the
   shown density is insufficient for an engineering overview.
-

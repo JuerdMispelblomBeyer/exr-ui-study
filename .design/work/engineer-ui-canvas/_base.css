@@ -1,0 +1,16 @@
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: #121416; font-family: Inter, "Helvetica Neue", Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+    a { color: #F5C400; } a:hover { color: #FFDA4D; }
+    .sg { font-family: "Space Grotesk", "Helvetica Neue", Arial, sans-serif; }
+    .mono { font-family: "Roboto Mono", ui-monospace, "SF Mono", Menlo, monospace; }
+    .t-title { font-family: "Space Grotesk", "Helvetica Neue", Arial, sans-serif; font-weight: 500; font-size: 22px; line-height: 28px; letter-spacing: -0.22px; color: #F8F9F7; }
+    .t-object { font-family: "Space Grotesk", "Helvetica Neue", Arial, sans-serif; font-weight: 400; font-size: 15px; line-height: 20px; letter-spacing: -0.08px; color: #F8F9F7; }
+    .t-eyebrow { font-size: 10px; line-height: 12px; letter-spacing: 1.3px; text-transform: uppercase; color: #6D757D; }
+    .t-body { font-size: 13px; line-height: 20px; color: #CBD1D6; }
+    .t-caption { font-size: 12px; line-height: 16px; color: #8B939B; }
+    .t-micro { font-size: 11px; line-height: 14px; letter-spacing: 0.22px; color: #8B939B; }
+    .t-dataxl { font-family: "Roboto Mono", ui-monospace, Menlo, monospace; font-weight: 500; font-size: 34px; line-height: 40px; letter-spacing: -0.68px; color: #F8F9F7; }
+    .t-data { font-family: "Roboto Mono", ui-monospace, Menlo, monospace; font-size: 12px; line-height: 18px; color: #CBD1D6; }
+    .t-datas { font-family: "Roboto Mono", ui-monospace, Menlo, monospace; font-size: 10px; line-height: 14px; letter-spacing: 0.2px; color: #8B939B; }
+    .plane { background: #171A1D; border: 1px solid #292D31; border-radius: 10px; }
+    .rule { height: 1px; background: #24272B; }

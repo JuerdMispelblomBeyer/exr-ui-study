@@ -50,6 +50,11 @@ of truth.
 - Preserve the established Space Grotesk, Inter, and Roboto Mono hierarchy.
 - Maintain both light and dark expressions as one system. Do not invent an
   unrelated dark theme.
+- For substantial design runs, maintain the compact packet defined in
+  `skills/exceptional-ui/references/handoff-packet.md`. Pass source paths, node
+  IDs, principle IDs, and issue IDs instead of repeating documents or layer
+  trees. Save tokens in context and narration, never in screenshot legibility,
+  crops, visual passes, or creative composition exploration.
 
 ## Visual rules
 
@@ -61,8 +66,24 @@ of truth.
 - A primary analytic tile must contain a meaningful micro-instrument such as a
   trace, topology, matrix, dependency path, state map, or direct-manipulation
   stage. Title/value/metadata alone is not sufficient.
-- Define surfaces primarily with a fine outer stroke and subtle inner contour;
-  reserve stronger elevation for selected or temporary objects.
+- Define surfaces with light before line: a plane gradient, a 1 px inner top
+  highlight, a soft inner glow and a bottom floor do the separating, and the
+  border stays nearly invisible. Reserve stronger elevation for selected or
+  temporary objects.
+- Selection is an outline, a tint and a soft radial falloff — never a filled
+  block, and the label never turns the accent colour. Solid yellow is reserved
+  for the single primary action in a region. See `docs/DESIGN_GUIDELINES.md`
+  section 19a.
+- Spend no colour on the nominal case. Healthy is neutral in the dark
+  expression; caution and critical appear only when something is wrong.
+- Technical garnish — crosshairs, ticks, brackets, grid marks — lives at roughly
+  5 % opacity or does not exist. At full strength it reads as information the
+  viewer then tries and fails to decode.
+- Give every module exactly one brightest point, reached by removing
+  competitors rather than by adding emphasis.
+- Design commentary belongs in `docs/`; machine metadata — unit, source,
+  threshold, freshness, timestamp — belongs on the canvas beside its
+  observation. That line decides what to cut.
 - Use ExRobotics yellow for primary action, selection, current datum, and
   attention. Do not wash whole dashboards in yellow.
 - Keep core data surfaces crisp. Glass and blur are limited to navigation,
@@ -87,18 +108,23 @@ of truth.
 | Schematic, topology visualization, or visual-first layout | `docs/SYSTEM_VISUALIZATION_SPEC.md` |
 | Thorough interface redesign or replacement of current screens | `docs/INTERFACE_REDESIGN_PLAN.md` |
 | Product model, user flow, IA, or layout | `docs/UX_ARCHITECTURE.md` |
+| Alternative interface concept exploration or comparison | `docs/concepts/README.md`, then only the relevant numbered concept file |
 | Safety state or stop/recovery control | `docs/SAFETY_CONTROLS.md` |
 | Visual direction or review | `docs/DESIGN_GUIDELINES.md` |
-| Visual Style v3 planning or implementation | `docs/VISUAL_STYLE_V3_PLAN.md`, then `docs/DESIGN_GUIDELINES.md` |
+| Dark visual style, its revisions, or the graphite sheet | `docs/VISUAL_STYLE_DARK_REVISION_PLAN.md`, then `docs/DESIGN_GUIDELINES.md` |
+| Any chart, trace, plot, or time series | `docs/DESIGN_GUIDELINES.md` section 20a |
+| Selection, focus, or "current" states | `docs/DESIGN_GUIDELINES.md` section 19a |
+| Surface material, glow, or elevation | `docs/DESIGN_GUIDELINES.md` sections 6.2 and 6.2a |
+| Visual Style v3 planning or implementation (historical) | `docs/VISUAL_STYLE_V3_PLAN.md`, then `docs/DESIGN_GUIDELINES.md` |
 | Reference-image interpretation | `docs/REFERENCE_ANALYSIS.md` |
 | New inspiration URL, shot, case study, or image intake | `docs/REFERENCE_INTAKE_METHOD.md`, then `docs/REFERENCE_ANALYSIS.md` |
-| Structured visual-reference analysis or multi-reference design synthesis | `skills/design-reference-analysis/SKILL.md` |
+| Standalone structured visual-reference analysis | `skills/design-reference-analysis/SKILL.md` |
 | Figma mutation or component work | `docs/FIGMA_WORKFLOW.md` |
 | Exact colors, spacing, radii, motion | `tokens/exrobotics-ui.tokens.json` |
 | Why a decision exists | `docs/DECISION_LOG.md` |
 | Reusable agent workflow | `skills/exrobotics-figma-design/SKILL.md` |
-| Exceptional UI art direction, composition, or visual QA | `skills/exceptional-ui/SKILL.md`, then `skills/exrobotics-figma-design/SKILL.md` |
-| Rendered UI critique, visual-quality scoring, or PASS/ITERATE review | `skills/visual-critique/SKILL.md` |
+| Exceptional UI design, redesign, art direction, composition, or build-and-critique loop | `skills/exrobotics-figma-design/SKILL.md`, then `skills/exceptional-ui/SKILL.md` |
+| Standalone rendered UI critique, visual-quality scoring, or PASS/ITERATE review | `skills/visual-critique/SKILL.md` |
 
 ## Filesystem rules
 

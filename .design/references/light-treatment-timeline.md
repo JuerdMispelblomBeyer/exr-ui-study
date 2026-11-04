@@ -2,7 +2,7 @@
 
 ## Reference identity and evidence quality
 
-- Source: `reference/ref-004__healthcare-ui__light-treatment-timeline.jpg`.
+- Source: `reference/ref-004__light-health-dashboard__treatment-timeline-crop.jpg`.
 - Type: close crop of a light healthcare workflow.
 - Evidence: high for temporal composition and attached detail; medium for controls; low for overall application shell and motion.
 
@@ -147,4 +147,3 @@ ticks, exact timestamps, and system-state semantics.
 - **Anti-patterns/limitations:** excess whitespace; pills and rounded cards feel
   consumer-oriented; a continuous path can imply causality where only chronology
   exists; exact timestamps and zoom controls are required for engineering use.
-

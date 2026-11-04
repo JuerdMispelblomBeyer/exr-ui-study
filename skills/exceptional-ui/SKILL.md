@@ -1,212 +1,158 @@
 ---
 name: exceptional-ui
-description: Art-direct, design, review, and iteratively elevate visually distinctive interfaces in Figma through FigWright. Use when a Figma screen, product surface, component family, or visual direction must be unusually polished, compositionally intentional, reference-informed, or resistant to generic AI-dashboard patterns. Use alongside figma-build for Figma execution; not for routine mechanical edits or Figma-to-code work.
+description: Orchestrate distinctive, high-quality Figma design from brief through reference intelligence, direction, composition, FigWright build, screenshot critique, and revision. Use for new screens, substantial redesigns, or visual-direction work where successful construction is not sufficient. It directs design-reference-analysis, FigWright's figma-build layer, and visual-critique without replacing them.
 ---
 
 # Exceptional UI
 
-Produce work through four roles in sequence:
+```text
+BRIEF → REFERENCES → DIRECTION → COMPOSITION → FIGMA BUILD → SCREENSHOT
+→ CRITIQUE → PRIORITIZED FIXES → REVISION → SCREENSHOT → CRITIQUE → PASS
+```
 
-> designer → art director → visual QA → designer
+Operate as designer → art director → visual QA → designer. This skill owns the
+target direction, composition, fix priorities, and loop. Specialists keep their
+boundaries:
 
-This skill owns product interpretation, visual direction, reference synthesis,
-composition, critique, and the quality threshold. It does not replace
-`figma-build`.
+| Layer | Owns | Returns |
+|---|---|---|
+| `design-reference-analysis` | Visible reference evidence and transferable principles | Compact reference handoff |
+| `exceptional-ui` | Brief, thesis, composition, system decisions, orchestration | Direction and revision briefs |
+| FigWright `figma-build` | Figma inspection, construction, reuse, structural verification, exports | Frames plus implementation evidence |
+| `visual-critique` | Independent screenshot-first judgment | Scores, five issue IDs, `PASS`/`ITERATE` |
 
-## Relationship to FigWright
+Reference analysis does not choose the target design. FigWright success does not
+prove visual quality. The critic does not mutate Figma.
 
-- Load and follow FigWright's `figma-build` skill for every Figma write. It is
-  the execution layer: connection, design-system grounding, auto-layout,
-  component reuse, variable/style binding, construction, and structural
-  verification.
-- Use `figma-codegen` only for Figma-to-code work. Do not duplicate its
-  provider-first code workflow here.
-- Use `get_screenshot` for images the model must inspect and
-  `save_screenshots` for durable or full-resolution exports. Screenshots
-  verify visual output; exact measurements and bindings come from Figma reads,
-  not image estimation.
-- `design_diff` detects structural design changes for code synchronization. It
-  is not a visual-quality score.
+## Token economy without visual compromise
 
-## Four independent gates
+Save tokens in context and prose, never in visual evidence:
 
-A design succeeds only when all four gates pass:
+- maintain one compact run packet using
+  [handoff-packet.md](references/handoff-packet.md); pass IDs and paths instead
+  of repeating source text;
+- read each unchanged project source once per run; reopen only the exact section
+  needed to resolve a decision;
+- load references progressively from the router below, not as a bundle;
+- batch compatible Figma reads, then work on the exact subtree; avoid repeated
+  page-wide metadata dumps after grounding;
+- inspect 1–4 legible frames per screenshot call and request full-size crops for
+  dense regions; never shrink a render below reliable visual judgment;
+- after the first full critique, use delta critique: inspect the entire new
+  render but write only score changes, unresolved/new issue IDs, and the next
+  fixes; perform a full record again at final `PASS`;
+- keep rejected options, unchanged scores, and repeated rationale to one line or
+  an ID reference.
 
-1. **Design quality** — the product purpose, information hierarchy,
-   composition, legibility, interaction emphasis, and visual coherence work.
-2. **Implementation correctness** — the Figma structure renders and behaves
-   correctly: no clipping, broken sizing, missing assets, accidental overlap,
-   or implausible states.
-3. **Design-system consistency** — existing variables, styles, components,
-   states, naming, and component APIs are reused or deliberately extended.
-4. **Visual distinctiveness** — the result has a context-appropriate visual
-   thesis and recognizable signature; it is not interchangeable with a generic
-   AI-generated SaaS dashboard.
+If compactness would hide uncertainty, a state, or a visual defect, spend the
+tokens. Creativity comes from exploring materially different compositions and
+inspecting pixels—not from verbose narration.
 
-Technical correctness cannot compensate for weak design. Rendering without an
-error proves only that rendering worked.
+## Workflow
 
-## Required workflow
+### 1. Brief and ground
 
-### 1. Understand product, user, and purpose
+Capture user, situation, job, decisive question, error consequences, realistic
+content/states, constraints, and exclusions. Confirm the Figma file, target
+frames, current render, variables, styles, fonts, components/APIs, and archive
+rules. Record only reuse, extend, and missing decisions in the run packet.
 
-Establish the primary user, situation, job, decision, frequency, consequences,
-content truth, and platform constraints. Distinguish operational work from
-marketing, onboarding, exploration, configuration, and presentation.
+### 2. Analyze references when relevant
 
-### 2. Inspect the existing Figma file and system
+Invoke `../design-reference-analysis/SKILL.md` when references are supplied or
+materially shape the direction. Give it the brief and source paths. Consume its
+compact handoff; do not paste individual analyses into this context. If there
+are no relevant references, mark the stage skipped.
 
-Before proposing a direction, use FigWright to confirm the connected file and
-inspect pages, relevant existing screens, variables, styles, fonts, components,
-component APIs, and the target subtree. Record what must be reused, what may be
-extended, and what is genuinely missing. Respect project archive/version rules.
-Use `ping` + `get_metadata`/`get_pages` for identity, then
-`get_variable_defs`, `get_styles`, `get_fonts`,
-`get_local_components`/`get_component_api`, and
-`get_design_context` as relevant. For a redesign, screenshot the current
-state before mutation so the visual change can be judged.
+### 3. Establish direction
 
-### 3. Inspect visual references
+Define:
 
-Visually open every relevant reference; filenames and page copy are not visual
-evidence. Separate direct screenshots from device mockups and presentation
-imagery. Read [reference-analysis.md](references/reference-analysis.md). For a
-substantial reference set, formal Visual DNA profile, or cross-reference
-synthesis, also load `../design-reference-analysis/SKILL.md`; its output becomes
-the evidence base for the direction brief.
+- one product-specific visual thesis and explicit opposites;
+- dominant object/relationship and scan order;
+- density and surface hierarchy;
+- two to four functional signature moves;
+- reuse/extend/create decisions for type, color, spacing, grid, radius, edges,
+  shadows, imagery, and component language;
+- adopted principle IDs and explicit anti-copy/genericity exclusions.
 
-### 4. Extract principles; do not copy layouts
+Read [visual-language.md](references/visual-language.md) only when the direction
+is unresolved, and load a foundation reference only for a system being decided
+or corrected. A direction applicable to many unrelated SaaS products fails.
 
-For each source, identify observable principles in silhouette, hierarchy, grid,
-density, geometry, depth, typography, imagery, instrumentation, and
-interaction. Classify each as adopt, translate, presentation-only, or reject.
-Never import the source product model or reproduce its composition by swapping
-labels.
+### 4. Resolve composition before components
 
-### 5. Establish a design direction before building
+When composition is not fixed, develop at least two hypotheses that differ in
+dominant object, spatial model, or scan path. Select against product truth,
+system fit, and distinctiveness. Resolve silhouette, grid, major spans,
+navigation ownership, density changes, negative space, and focal path in
+greyscale/restrained color. Use [composition.md](references/composition.md) only
+for new composition or recomposition.
 
-Write a compact direction brief containing:
+### 5. Build with FigWright
 
-- product/user/job;
-- one-sentence visual thesis;
-- intended character and explicit opposites;
-- two or three signature moves with functional reasons;
-- dominant composition and scan order;
-- density rhythm and surface hierarchy;
-- typography, color, geometry, imagery, and component-language intent;
-- reference principles being translated;
-- patterns explicitly prohibited for this design.
+Follow FigWright's `figma-build` skill. Reuse attached components, variables,
+styles, real assets, realistic labels/data, and consequential states. Add a
+foundation only for a recurring missing role. Build incrementally and return
+node IDs plus brief structural/reuse evidence; do not return verbose layer-tree
+dumps unless diagnosing a defect.
 
-If the direction could describe dozens of unrelated products, it is not
-specific enough. Use [visual-language.md](references/visual-language.md) and
-[design-principles.md](references/design-principles.md).
+### 6. Render and critique
 
-When the visual direction is not already fixed, develop at least two materially
-different composition hypotheses before choosing. They must differ in dominant
-object, spatial model, or scan path—not merely palette, radius, or card styling.
-Select one against user purpose, content truth, system fit, and distinctiveness.
+Capture every materially changed screen at a stable, legible viewport. Open the
+pixels. Invoke `../visual-critique/SKILL.md` with the run packet, current render,
+and only the linked evidence it requests. The critic uses the shared rubric and
+genericity index. Missing current visual evidence forces `ITERATE`.
 
-### 6. Define or reuse the visual system
+### 7. Prioritize and revise
 
-Create a reuse/extend/create decision for typography, color, spacing, grid,
-radius, borders, shadows, surface hierarchy, imagery, and component language.
-Prefer existing Figma variables, styles, and components. Add a foundation only
-when a recurring role is missing; avoid one-off tokens for decoration.
+Convert critique issue IDs into a bounded revision brief, ordered by:
 
-Load the relevant operational references:
+1. product/safety/state truth;
+2. composition, hierarchy, scan path, density;
+3. genericity and weak product-specific thesis;
+4. content, interaction, imagery, and system divergence;
+5. typography, color, geometry, surfaces, then micro-craft.
 
-- [typography.md](references/typography.md)
-- [color.md](references/color.md)
-- [spacing-and-geometry.md](references/spacing-and-geometry.md)
-- [imagery.md](references/imagery.md)
+State the visible outcome for each fix. Send only this delta to `figma-build`,
+re-render the same viewport, and critique again. Preserve resolved issue IDs so
+the critic does not rediscover or rewrite them.
 
-### 7. Develop composition before component detail
+## Independent gates
 
-Resolve the viewport silhouette, dominant mass, navigation ownership, grid,
-major spans, negative space, density changes, and primary focal path before
-polishing controls. Work in greyscale or restrained color first. Read
-[composition.md](references/composition.md).
+Keep separate: functional correctness, implementation correctness,
+design-system correctness, visual quality, and distinctiveness. Implementation
+health is a blocker, not bonus visual-quality points. Consistency cannot rescue
+an ordinary composition.
 
-### 8. Build through `figma-build`
+## Completion
 
-Use FigWright incrementally. Reuse components and variables before creating
-primitives. Use realistic content, real assets, plausible states, meaningful
-data, and production-length labels. Do not let placeholder content determine
-the layout.
+Complete only when the current inspected render:
 
-### 9. Render and visually inspect
+1. satisfies the product requirements and user job;
+2. has no blocking implementation defect;
+3. respects or deliberately extends the design system;
+4. has strong hierarchy and intentional product-shaped composition;
+5. has no high-severity generic-AI pattern;
+6. remains distinctive without logo, copy, or lead accent;
+7. passes `visual-critique` under the shared 100-point rubric after at least one
+   material correction pass for substantial work.
 
-Screenshot every materially changed screen at a legible scale. Inspect the
-rendered pixels, not only the layer tree or tool response. A successful export
-is the beginning of visual QA, not completion.
+Retain the compact packet, before/after screenshots, issue history, final score,
+and reuse evidence. Never declare success because nodes rendered correctly.
+Update project guidance only when a reusable rule changed.
 
-### 10. Perform a rigorous critique
+## Progressive reference router
 
-Use [visual-critique.md](references/visual-critique.md) and score
-[quality-rubric.md](references/quality-rubric.md). Check first impression,
-scan path, composition, hierarchy, distinctiveness, content credibility,
-system consistency, states, accessibility, clipping, and pixel-level polish.
-Run a greyscale check and a reduced-size/squint check.
-
-### 11. Fix the highest-impact problems
-
-Prioritize in this order unless task risk demands otherwise:
-
-1. wrong product model, user flow, or dominant object;
-2. weak composition, hierarchy, density, or scan path;
-3. generic visual language or missing signature;
-4. misleading content, state, interaction, or imagery;
-5. design-system divergence and component inconsistency;
-6. typography, color, geometry, and surface ownership;
-7. alignment, optical balance, and micro-polish.
-
-Do not spend a pass tuning shadows while the composition is still ordinary.
-
-### 12. Render and inspect again
-
-Capture the same viewport after fixes. Verify that the intended problems
-actually improved and that no regression appeared elsewhere.
-
-### 13. Repeat until the rubric passes
-
-Continue critique → prioritized fix → screenshot until all four gates pass.
-When a blocking limitation remains, state it explicitly and do not label the
-design exceptional.
-
-For multi-screen work, also compare the set together: each screen needs a
-different task-specific composition while remaining recognizably one product.
-
-## Non-negotiable constraints
-
-- Do not blindly copy references, trace their layout, or transplant their
-  product model.
-- Do not default to sidebar + header + equal KPI cards + generic chart + table.
-- Avoid decorative gradients, excessive pills, indiscriminate glass, universal
-  rounded cards, fake charts, and empty “premium” spacing.
-- Do not add visual novelty without product meaning.
-- Prefer real logos, icons, photographs, illustrations, diagrams, and realistic
-  copy over grey boxes, generic avatars, lorem ipsum, or repeated round-number
-  metrics.
-- Distinctiveness must survive removal of brand color. Color may amplify a
-  visual language; it may not substitute for one.
-- Reuse does not require sameness: compose existing components in a more
-  intentional hierarchy before inventing new component styling.
-- Never declare success merely because FigWright returned valid nodes or the
-  frame rendered correctly.
-
-Read [anti-patterns.md](references/anti-patterns.md) before the first critique.
-
-## Completion evidence
-
-Do not complete the task without:
-
-- the stated design direction;
-- an inspected pre-fix screenshot;
-- a recorded critique with prioritized issues;
-- at least one material correction pass;
-- an inspected post-fix screenshot;
-- a passing four-gate rubric, or an explicit account of unresolved failures;
-- confirmation of component/variable/style reuse and implementation health.
-
-When the project maintains design guidance, tokens, or a decision log, record
-new reusable rules there; do not leave the design rationale only in Figma.
+- [handoff-packet.md](references/handoff-packet.md) — always use; compact state
+  shared between stages.
+- [quality-rubric.md](references/quality-rubric.md) — read its operational
+  scorecard for every critique; open detailed anchors only for uncertain or
+  failing dimensions.
+- [anti-patterns.md](references/anti-patterns.md) — read its detection index;
+  open full entries only for detected/suspected patterns.
+- [design-principles.md](references/design-principles.md) — use when the thesis
+  or system decisions are weak.
+- [typography.md](references/typography.md), [color.md](references/color.md),
+  [spacing-and-geometry.md](references/spacing-and-geometry.md), and
+  [imagery.md](references/imagery.md) — load only the affected system.

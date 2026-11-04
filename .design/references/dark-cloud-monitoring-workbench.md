@@ -2,7 +2,7 @@
 
 ## Reference identity and evidence quality
 
-- Source: `reference/ref-013__cloud-monitoring__dark-resource-workbench.png`.
+- Source: `reference/ref-013__dark-cloud-monitoring__metrics-logs-workbench.png`.
 - Type: dashboard screenshot presented on a bright gradient backdrop.
 - Evidence: medium-high for conventional monitoring components; low for the relationship between presentation frame and actual product.
 
@@ -149,4 +149,3 @@ an art-direction model.
 - **Anti-patterns/limitations:** generic SaaS dashboard; excessive cards and
   radii; too many accent colors; equal visual weight; tiny labels; no spatial or
   causal system model.
-

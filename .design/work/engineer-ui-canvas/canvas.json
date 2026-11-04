@@ -1,0 +1,25 @@
+{
+  "artboards": [
+    { "file": "Main.dc.html",      "title": "Inspect · nothing needs attention", "x": 0,    "y": 0,    "w": 1440, "h": 900 },
+    { "file": "Degraded.dc.html",  "title": "Inspect · Drive Stall selected",    "x": 1540, "y": 0,    "w": 1440, "h": 900 },
+    { "file": "Evidence.dc.html",  "title": "Diagnose · evidence expanded",      "x": 0,    "y": 1000, "w": 1440, "h": 900 },
+    { "file": "Change.dc.html",    "title": "Change · deactivation review",      "x": 1540, "y": 1000, "w": 1440, "h": 900 }
+  ],
+  "annotations": [
+    {
+      "id": "set-brief",
+      "x": 0,
+      "y": -250,
+      "w": 700,
+      "text": "EXR-04 engineer interface — Inspect → Diagnose → Change on one stable platform map.\n\nThe four states are the critical path from INTERFACE_REDESIGN_PLAN section 9: orient on a quiet platform, notice and select the responsible object, prove it against synchronised evidence, then change it under review.\n\nEvery value is illustrative. The unknowns recorded in PLATFORM_SYSTEM_MODEL stay unknown: the comms-box host, the gas-detector channel map, and whether remote Drive Stall deactivation is permitted."
+    },
+    {
+      "id": "departures",
+      "x": 1540,
+      "y": -250,
+      "w": 700,
+      "text": "Departures from the written docs in this revision — worth settling in DECISION_LOG:\n\n1. Global search and the identity / permission cluster are gone from the header. UI_FUNCTIONAL_REQUIREMENTS puts both in Tier 0. Permission context now appears only where it is consequential: the audit record in Change.\n\n2. The motherboard STM node is gone from the map. The fact survives in the can0 rail caption, and the gas ADC still branches from intel rather than from can0, so the analog path is not mis-stated as CAN membership.\n\n3. Compute nodes show shape, not numbers, at Glance — section 5 of the redesign plan forbids exact percentages on unselected objects. Exact values arrive on selection.\n\n4. Chart axis labels use #8B939B per guideline 7.2 rather than 20a's #565E55; eyebrows keep 8a.2's #6D757D."
+    }
+  ],
+  "launch": { "view": "canvas" }
+}

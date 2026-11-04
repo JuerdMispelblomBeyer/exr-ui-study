@@ -20,6 +20,8 @@ routes, and autonomy controls are outside this project.
   layout recipes for representing the platform.
 - `docs/INTERFACE_REDESIGN_PLAN.md` — proposed task-led redesign, screen
   storyboard, information budget, component strategy, and implementation phases.
+- `docs/concepts/` — numbered, non-exclusive interface concepts retained for
+  comparison and future synthesis; none is canonical unless explicitly promoted.
 - `docs/SAFETY_CONTROLS.md` — provisional stop, recovery, state, and failure UX;
   requires safety-engineering review.
 - `docs/REFERENCE_ANALYSIS.md` — visual analysis of every supplied reference.
@@ -35,24 +37,25 @@ routes, and autonomy controls are outside this project.
 - `data/platform-system.yaml` — extensible machine-readable platform inventory
   and relationship model.
 - `skills/exrobotics-figma-design/` — reusable Codex skill for this project.
-- `skills/exceptional-ui/` — art direction, composition, reference synthesis,
-  visual critique, and iteration layer above FigWright's `figma-build`.
-- `skills/visual-critique/` — screenshot-first, scored art-direction review with
-  prioritized corrections and a strict PASS/ITERATE gate.
-- `skills/design-reference-analysis/` — converts visual-reference evidence into
-  Visual DNA profiles, transferable principles, signature moves, anti-copy
-  constraints, and original cross-reference directions.
+- `skills/exceptional-ui/` — orchestrates the full brief → reference
+  intelligence → direction → composition → FigWright build → screenshot →
+  critique → revision loop using a compact ID/path-based run packet while
+  preserving full-resolution visual inspection.
+- `skills/visual-critique/` — independently judges rendered work, scores it,
+  and returns prioritized corrections plus a strict PASS/ITERATE verdict.
+- `skills/design-reference-analysis/` — understands visual-reference evidence
+  and returns Visual DNA, transferable principles, signature moves, conflicts,
+  opportunities, and anti-copy constraints without choosing the target design.
 - `reference/` — supplied visual references; preserve the originals.
 
 ## Figma output
 
-The connected file now includes `Style Direction · Signal Instrumentation`
-(`36:56`) on `00 Cover & Foundations`. It demonstrates the reference synthesis
-with attached navigation and platform-tile instances, a limited dark tool rail,
-floating diagnostic tiles, a dependency-path panel, and a selected-probe tile.
-It predates the stricter identity revision documented in August 2026 and is an
-implementation baseline, not the target visual benchmark. Treat the node ID as
-orientation only and verify it live before editing.
+The connected file `EX Robotics — Visual Identity & UI Foundations` contains the
+active `01 Visual Style — Graphite (Dark)` page and a clearly named recovery
+page, `99 Backup · Pre typography + spatial cleanup · 2026-08-24`. The active
+root is `65:1287`; the backup root is `84:3` and must not replace the working
+page. An older native `.fig` backup is also retained under `.design/backups/`.
+Verify all node IDs live before use.
 
 ## Current direction
 

@@ -29,7 +29,32 @@ For each reference:
 Use one subdirectory and `SOURCE.md` for a web case study. A blocked or
 unavailable source remains explicitly queued until a verified capture exists.
 
+## 1a. Classify the source before borrowing from it
+
+**Added 2026-08-23.** Before any analysis, decide what kind of artefact each
+reference is. The answer governs what may be transferred from it.
+
+| Source type | Take | Do not take |
+|---|---|---|
+| Product UI carrying real data | Information behaviour, density, metadata grammar, interaction states | Nothing is automatically off limits |
+| Marketing or landing surface | Material, restraint, spacing, colour discipline, type scale | Density and information behaviour — its restraint is free because it carries nothing |
+| Icon or illustration set | Material recipe, light model, geometry | Composition and hierarchy |
+| Concept shot with no stated product | Craft details only | Layout, hierarchy, anything implying a workflow |
+
+A set of four references that looks homogeneous is usually three presentation
+surfaces and one real interface. Name which is which in the handoff, and state
+explicitly where information behaviour is coming from. Skipping this step
+produces designs that are beautiful and useless: they inherit the emptiness of a
+marketing page along with its polish.
+
+Record the classification beside the provenance entry from section 1.
+
 ## 2. Analyse without color first
+
+Use `skills/design-reference-analysis/SKILL.md` for structured analysis. The
+nine lenses below are the ExRobotics project overlay, not a second prose report.
+Tag existing observation IDs with these lenses and dispositions rather than
+restating the same evidence.
 
 Inspect each source through nine lenses before considering its palette:
 
@@ -81,6 +106,11 @@ govern focus mode while dense aligned instrumentation governs the operational
 workbench. Both can share typography, edges, yellow semantics, and component
 anatomy.
 
+Keep the downstream synthesis compact: link individual analyses, then pass at
+most six principle IDs, three conflicts, four opportunities, four exclusions,
+and open decisions into the exceptional-UI run packet. Do not paste the
+individual reports into the design context.
+
 ## 5. Turn inspiration into a system
 
 A promoted visual principle is incomplete until it has concrete outputs:
@@ -130,24 +160,15 @@ Before applying a new reference-derived direction in Figma, confirm:
 9. The new rule has a falsifiable acceptance test.
 10. Previous Figma versions will be preserved through archive-safe siblings.
 
-## 8. Reference-review template
+## 8. Reference-review storage
 
-Use these headings for each verified source:
+Use the compact individual-file schema in
+`skills/design-reference-analysis/SKILL.md`. Stable observation IDs should
+carry composition, grid, geometry, type, interaction, and other dimension tags;
+do not create fourteen repetitive prose sections for one visual relationship.
 
-1. Provenance and capture status
-2. Source intent and product context
-3. Composition and silhouette
-4. Grid, density, and negative space
-5. Geometry, material, and depth
-6. Typography and data treatment
-7. Interaction and motion evidence
-8. Brand-to-product continuity
-9. Adopt for ExRobotics
-10. Translate rather than copy
-11. Presentation-only patterns
-12. Reject
-13. Candidate component/token changes
-14. Acceptance tests
-
-This creates a durable visual-design memory that future agents can apply
-without needing to rediscover the original reasoning.
+Add a short ExRobotics disposition table with `adopt`, `translate`,
+`presentation-only`, or `reject`, plus candidate reusable-system changes and
+falsifiable acceptance tests. Store the individual file once and link it from
+the reference index. This preserves durable visual memory without reloading or
+rewriting the same analysis during every design run.
